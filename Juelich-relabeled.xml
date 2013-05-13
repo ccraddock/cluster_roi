@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+    <name>Juelich Histological Atlas</name>
+    <type>Probabalistic</type>
+    <images>
+      <imagefile>/Juelich/Juelich-prob-1mm</imagefile>
+      <summaryimagefile>/Juelich/Juelich-maxprob-thr25-1mm</summaryimagefile>
+    </images>
+    <images>
+      <imagefile>/Juelich/Juelich-prob-2mm</imagefile>
+      <summaryimagefile>/Juelich/Juelich-maxprob-thr25-2mm</summaryimagefile>
+    </images>
+  </header>
+  <data>
+<label index="0" x="125" y="75" z="107">GM Anterior intra-parietal sulcus hIP1 L</label>
+<label index="1" x="53" y="78" z="108">GM Anterior intra-parietal sulcus hIP1 R</label>
+<label index="2" x="135" y="89" z="109">GM Anterior intra-parietal sulcus hIP2 L</label>
+<label index="3" x="48" y="90" z="120">GM Anterior intra-parietal sulcus hIP2 R</label>
+<label index="4" x="119" y="69" z="120">GM Anterior intra-parietal sulcus hIP3 L</label>
+<label index="5" x="54" y="80" z="122">GM Anterior intra-parietal sulcus hIP3 R</label>
+<label index="6" x="113" y="118" z="62">GM Amygdala_centromedial group L</label>
+<label index="7" x="64" y="119" z="63">GM Amygdala_centromedial group R</label>
+<label index="8" x="113" y="120" z="49">GM Amygdala_laterobasal group L</label>
+<label index="9" x="64" y="119" z="51">GM Amygdala_laterobasal group R</label>
+<label index="10" x="109" y="122" z="54">GM Amygdala_superficial group L</label>
+<label index="11" x="67" y="122" z="61">GM Amygdala_superficial group R</label>
+<label index="12" x="142" y="137" z="95">GM Broca's area BA44 L</label>
+<label index="13" x="36" y="141" z="87">GM Broca's area BA44 R</label>
+<label index="14" x="142" y="151" z="85">GM Broca's area BA45 L</label>
+<label index="15" x="36" y="152" z="79">GM Broca's area BA45 R</label>
+<label index="16" x="119" y="110" z="53">GM Hippocampus cornu ammonis L</label>
+<label index="17" x="56" y="111" z="53">GM Hippocampus cornu ammonis R</label>
+<label index="18" x="115" y="121" z="35">GM Hippocampus entorhinal cortex L</label>
+<label index="19" x="64" y="125" z="34">GM Hippocampus entorhinal cortex R</label>
+<label index="20" x="119" y="109" z="53">GM Hippocampus dentate gyrus L</label>
+<label index="21" x="58" y="110" z="54">GM Hippocampus dentate gyrus R</label>
+<label index="22" x="107" y="117" z="50">GM Hippocampus hippocampal-amygdaloid transition area L</label>
+<label index="23" x="71" y="117" z="51">GM Hippocampus hippocampal-amygdaloid transition area R</label>
+<label index="24" x="112" y="115" z="43">GM Hippocampus subiculum L</label>
+<label index="25" x="64" y="107" z="54">GM Hippocampus subiculum R</label>
+<label index="26" x="146" y="86" z="107">GM Inferior parietal lobule PF L</label>
+<label index="27" x="28" y="92" z="101">GM Inferior parietal lobule PF R</label>
+<label index="28" x="140" y="84" z="100">GM Inferior parietal lobule PFcm L</label>
+<label index="29" x="40" y="93" z="96">GM Inferior parietal lobule PFcm R</label>
+<label index="30" x="141" y="68" z="106">GM Inferior parietal lobule PFm L</label>
+<label index="31" x="34" y="81" z="109">GM Inferior parietal lobule PFm R</label>
+<label index="32" x="148" y="103" z="96">GM Inferior parietal lobule PFop L</label>
+<label index="33" x="37" y="108" z="100">GM Inferior parietal lobule PFop R</label>
+<label index="34" x="145" y="100" z="108">GM Inferior parietal lobule PFt L</label>
+<label index="35" x="36" y="101" z="111">GM Inferior parietal lobule PFt R</label>
+<label index="36" x="142" y="69" z="104">GM Inferior parietal lobule Pga L</label>
+<label index="37" x="37" y="71" z="104">GM Inferior parietal lobule Pga R</label>
+<label index="38" x="133" y="54" z="101">GM Inferior parietal lobule PGp L</label>
+<label index="39" x="42" y="60" z="102">GM Inferior parietal lobule PGp R</label>
+<label index="40" x="137" y="105" z="79">GM Primary auditory cortex TE1.0 L</label>
+<label index="41" x="39" y="114" z="77">GM Primary auditory cortex TE1.0 R</label>
+<label index="42" x="131" y="96" z="84">GM Primary auditory cortex TE1.1 L</label>
+<label index="43" x="49" y="100" z="83">GM Primary auditory cortex TE1.1 R</label>
+<label index="44" x="143" y="113" z="76">GM Primary auditory cortex TE1.2 L</label>
+<label index="45" x="34" y="120" z="76">GM Primary auditory cortex TE1.2 R</label>
+<label index="46" x="100" y="100" z="140">GM Primary motor cortex BA4a L</label>
+<label index="47" x="82" y="97" z="142">GM Primary motor cortex BA4a R</label>
+<label index="48" x="119" y="96" z="127">GM Primary motor cortex BA4p L</label>
+<label index="49" x="56" y="103" z="120">GM Primary motor cortex BA4p R</label>
+<label index="50" x="141" y="105" z="121">GM Primary somatosensory cortex BA1 L</label>
+<label index="51" x="36" y="109" z="119">GM Primary somatosensory cortex BA1 R</label>
+<label index="52" x="139" y="100" z="118">GM Primary somatosensory cortex BA2 L</label>
+<label index="53" x="63" y="86" z="126">GM Primary somatosensory cortex BA2 R</label>
+<label index="54" x="123" y="99" z="118">GM Primary somatosensory cortex BA3a L</label>
+<label index="55" x="56" y="105" z="114">GM Primary somatosensory cortex BA3a R</label>
+<label index="56" x="128" y="99" z="125">GM Primary somatosensory cortex BA3b L</label>
+<label index="57" x="37" y="115" z="109">GM Primary somatosensory cortex BA3b R</label>
+<label index="58" x="138" y="102" z="91">GM Secondary somatosensory cortex / Parietal operculum OP1 L</label>
+<label index="59" x="43" y="99" z="94">GM Secondary somatosensory cortex / Parietal operculum OP1 R</label>
+<label index="60" x="126" y="103" z="91">GM Secondary somatosensory cortex / Parietal operculum OP2 L</label>
+<label index="61" x="54" y="105" z="90">GM Secondary somatosensory cortex / Parietal operculum OP2 R</label>
+<label index="62" x="132" y="115" z="89">GM Secondary somatosensory cortex / Parietal operculum OP3 L</label>
+<label index="63" x="50" y="112" z="93">GM Secondary somatosensory cortex / Parietal operculum OP3 R</label>
+<label index="64" x="147" y="117" z="85">GM Secondary somatosensory cortex / Parietal operculum OP4 L</label>
+<label index="65" x="28" y="118" z="85">GM Secondary somatosensory cortex / Parietal operculum OP4 R</label>
+<label index="66" x="105" y="88" z="116">GM Superior parietal lobule 5Ci L</label>
+<label index="67" x="79" y="94" z="117">GM Superior parietal lobule 5Ci R</label>
+<label index="68" x="108" y="82" z="139">GM Superior parietal lobule 5L L</label>
+<label index="69" x="78" y="76" z="143">GM Superior parietal lobule 5L R</label>
+<label index="70" x="99" y="84" z="130">GM Superior parietal lobule 5M L</label>
+<label index="71" x="83" y="80" z="132">GM Superior parietal lobule 5M R</label>
+<label index="72" x="111" y="69" z="135">GM Superior parietal lobule 7A L</label>
+<label index="73" x="61" y="68" z="133">GM Superior parietal lobule 7A R</label>
+<label index="74" x="94" y="51" z="107">GM Superior parietal lobule 7M L</label>
+<label index="75" x="86" y="53" z="115">GM Superior parietal lobule 7M R</label>
+<label index="76" x="124" y="78" z="128">GM Superior parietal lobule 7PC L</label>
+<label index="77" x="59" y="83" z="124">GM Superior parietal lobule 7PC R</label>
+<label index="78" x="99" y="53" z="126">GM Superior parietal lobule 7P L</label>
+<label index="79" x="78" y="53" z="125">GM Superior parietal lobule 7P R</label>
+<label index="80" x="99" y="30" z="74">GM Visual cortex V1 BA17 L</label>
+<label index="81" x="75" y="34" z="76">GM Visual cortex V1 BA17 R</label>
+<label index="82" x="98" y="33" z="66">GM Visual cortex V2 BA18 L</label>
+<label index="83" x="75" y="42" z="65">GM Visual cortex V2 BA18 R</label>
+<label index="84" x="105" y="43" z="66">GM Visual cortex V3V L</label>
+<label index="85" x="68" y="47" z="64">GM Visual cortex V3V R</label>
+<label index="86" x="117" y="42" z="61">GM Visual cortex V4 L</label>
+<label index="87" x="59" y="50" z="62">GM Visual cortex V4 R</label>
+<label index="88" x="132" y="52" z="76">GM Visual cortex V5 L</label>
+<label index="89" x="41" y="60" z="78">GM Visual cortex V5 R</label>
+<label index="90" x="102" y="112" z="138">GM Premotor cortex BA6 L</label>
+<label index="91" x="77" y="110" z="143">GM Premotor cortex BA6 R</label>
+<label index="92" x="41" y="112" z="76">WM Acoustic radiation R</label>
+<label index="93" x="131" y="100" z="72">WM Acoustic radiation L</label>
+<label index="94" x="89" y="90" z="87">WM Callosal body</label>
+<label index="95" x="81" y="84" z="98">WM Cingulum R</label>
+<label index="96" x="97" y="109" z="105">WM Cingulum L</label>
+<label index="97" x="65" y="104" z="122">WM Corticospinal tract R</label>
+<label index="98" x="117" y="109" z="109">WM Corticospinal tract L</label>
+<label index="99" x="88" y="106" z="89">WM Fornix</label>
+<label index="100" x="56" y="134" z="66">WM Inferior occipito-frontal fascicle R</label>
+<label index="101" x="121" y="130" z="64">WM Inferior occipito-frontal fascicle L</label>
+<label index="102" x="65" y="104" z="63">GM Lateral geniculate body R</label>
+<label index="103" x="112" y="103" z="61">GM Lateral geniculate body L</label>
+<label index="104" x="87" y="118" z="57">GM Mamillary body</label>
+<label index="105" x="73" y="100" z="65">GM Medial geniculate body R</label>
+<label index="106" x="106" y="100" z="64">GM Medial geniculate body L</label>
+<label index="107" x="64" y="45" z="75">WM Optic radiation R</label>
+<label index="108" x="111" y="45" z="77">WM Optic radiation L</label>
+<label index="109" x="58" y="102" z="101">WM Superior longitudinal fascicle R</label>
+<label index="110" x="120" y="98" z="99">WM Superior longitudinal fascicle L</label>
+<label index="111" x="68" y="142" z="89">WM Superior occipito-frontal fascicle R</label>
+<label index="112" x="110" y="151" z="83">WM Superior occipito-frontal fascicle L</label>
+<label index="113" x="57" y="124" z="63">WM Uncinate fascicle R</label>
+<label index="114" x="121" y="123" z="62">WM Uncinate fascicle L</label>
+<label index="115" x="130" y="105" z="71">GM Insula Id1 L</label>
+<label index="116" x="48" y="107" z="67">GM Insula Id1 R</label>
+<label index="117" x="125" y="100" z="85">GM Insula Ig1 L</label>
+<label index="118" x="54" y="100" z="81">GM Insula Ig1 R</label>
+<label index="119" x="128" y="105" z="85">GM Insula Ig2 L</label>
+<label index="120" x="52" y="105" z="82">GM Insula Ig2 R</label>
+
+
+
+
+  </data>
+</atlas>
+

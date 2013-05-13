@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+    <name>Harvard-Oxford Cortical Structural Atlas</name>
+    <shortname>HOCPA</shortname>
+    <type>Probabalistic</type>
+    <images>
+      <imagefile>/HarvardOxford/HarvardOxford-cort-prob-2mm</imagefile>
+      <summaryimagefile>/HarvardOxford/HarvardOxford-cort-maxprob-thr25-2mm</summaryimagefile>
+    </images>
+    <images>
+      <imagefile>/HarvardOxford/HarvardOxford-cort-prob-1mm</imagefile>
+      <summaryimagefile>/HarvardOxford/HarvardOxford-cort-maxprob-thr25-1mm</summaryimagefile>
+    </images>
+  </header>
+  <data>
+<label index="0" x="48" y="94" z="35">Frontal Pole</label>
+<label index="1" x="25" y="70" z="32">Insular Cortex</label>
+<label index="2" x="33" y="73" z="63">Superior Frontal Gyrus</label>
+<label index="3" x="25" y="72" z="55">Middle Frontal Gyrus</label>
+<label index="4" x="20" y="77" z="40">Inferior Frontal Gyrus, pars triangularis</label>
+<label index="5" x="20" y="71" z="47">Inferior Frontal Gyrus, pars opercularis</label>
+<label index="6" x="44" y="51" z="68">Precentral Gyrus</label>
+<label index="7" x="61" y="69" z="17">Temporal Pole</label>
+<label index="8" x="73" y="59" z="32">Superior Temporal Gyrus, anterior division</label>
+<label index="9" x="75" y="52" z="35">Superior Temporal Gyrus, posterior division</label>
+<label index="10" x="74" y="59" z="26">Middle Temporal Gyrus, anterior division</label>
+<label index="11" x="14" y="51" z="30">Middle Temporal Gyrus, posterior division</label>
+<label index="12" x="72" y="35" z="38">Middle Temporal Gyrus, temporooccipital part</label>
+<label index="13" x="22" y="61" z="16">Inferior Temporal Gyrus, anterior division</label>
+<label index="14" x="70" y="42" z="26">Inferior Temporal Gyrus, posterior division</label>
+<label index="15" x="70" y="35" z="29">Inferior Temporal Gyrus, temporooccipital part</label>
+<label index="16" x="52" y="42" z="69">Postcentral Gyrus</label>
+<label index="17" x="28" y="39" z="63">Superior Parietal Lobule</label>
+<label index="18" x="73" y="48" z="53">Supramarginal Gyrus, anterior division</label>
+<label index="19" x="72" y="39" z="51">Supramarginal Gyrus, posterior division</label>
+<label index="20" x="21" y="37" z="55">Angular Gyrus</label>
+<label index="21" x="60" y="28" z="57">Lateral Occipital Cortex, superior division</label>
+<label index="22" x="68" y="28" z="38">Lateral Occipital Cortex, inferior division</label>
+<label index="23" x="47" y="23" z="40">Intracalcarine Cortex</label>
+<label index="24" x="45" y="84" z="27">Frontal Medial Cortex</label>
+<label index="25" x="45" y="63" z="63">Juxtapositional Lobule Cortex (formerly Supplementary Motor Cortex)</label>
+<label index="26" x="46" y="74" z="27">Subcallosal Cortex</label>
+<label index="27" x="45" y="80" z="52">Paracingulate Gyrus</label>
+<label index="28" x="45" y="61" z="57">Cingulate Gyrus, anterior division</label>
+<label index="29" x="44" y="42" z="54">Cingulate Gyrus, posterior division</label>
+<label index="30" x="45" y="31" z="55">Precuneous Cortex</label>
+<label index="31" x="45" y="23" z="49">Cuneal Cortex</label>
+<label index="32" x="25" y="77" z="29">Frontal Orbital Cortex</label>
+<label index="33" x="57" y="62" z="18">Parahippocampal Gyrus, anterior division</label>
+<label index="34" x="58" y="45" z="28">Parahippocampal Gyrus, posterior division</label>
+<label index="35" x="41" y="22" z="33">Lingual Gyrus</label>
+<label index="36" x="62" y="61" z="15">Temporal Fusiform Cortex, anterior division</label>
+<label index="37" x="64" y="47" z="24">Temporal Fusiform Cortex, posterior division</label>
+<label index="38" x="62" y="37" z="29">Temporal Occipital Fusiform Cortex</label>
+<label index="39" x="33" y="23" z="30">Occipital Fusiform Gyrus</label>
+<label index="40" x="66" y="74" z="37">Frontal Operculum Cortex</label>
+<label index="41" x="19" y="61" z="40">Central Opercular Cortex</label>
+<label index="42" x="17" y="50" z="47">Parietal Operculum Cortex</label>
+<label index="43" x="20" y="60" z="36">Planum Polare</label>
+<label index="44" x="67" y="52" z="39">Heschl's Gyrus (includes H1 and H2)</label>
+<label index="45" x="74" y="53" z="40">Planum Temporale</label>
+<label index="46" x="44" y="21" z="42">Supracalcarine Cortex</label>
+<label index="47" x="37" y="15" z="34">Occipital Pole</label>
+  </data>
+</atlas>

@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+    <name>Talairach Daemon Labels</name>
+    <type>Label</type>
+    <images>
+      <imagefile>/Talairach/Talairach-labels-2mm</imagefile>
+      <summaryimagefile>/Talairach/Talairach-labels-2mm</summaryimagefile>
+    </images>
+    <images>
+      <imagefile>/Talairach/Talairach-labels-1mm</imagefile>
+      <summaryimagefile>/Talairach/Talairach-labels-1mm</summaryimagefile>
+    </images>
+    </header>
+  <data>
+<label index="0" x="0" y="0" z="0">*.*.*.*.*</label>
+<label index="1" x="65" y="21" z="16">Left Cerebellum.Posterior Lobe.Inferior Semi-Lunar Lobule.Gray Matter.*</label>
+<label index="2" x="23" y="20" z="15">Right Cerebellum.Posterior Lobe.Inferior Semi-Lunar Lobule.Gray Matter.*</label>
+<label index="3" x="54" y="36" z="16">Left Cerebellum.Posterior Lobe.Cerebellar Tonsil.Gray Matter.*</label>
+<label index="4" x="21" y="34" z="16">Right Cerebellum.Posterior Lobe.Cerebellar Tonsil.Gray Matter.*</label>
+<label index="5" x="46" y="39" z="14">Left Brainstem.Medulla.*.*.*</label>
+<label index="6" x="41" y="39" z="14">Right Brainstem.Medulla.*.*.*</label>
+<label index="7" x="67" y="62" z="14">*.*.Inferior Temporal Gyrus.*.*</label>
+<label index="8" x="68" y="56" z="18">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="9" x="62" y="60" z="12">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="10" x="63" y="64" z="11">Left Cerebrum.Temporal Lobe.*.*.*</label>
+<label index="11" x="26" y="66" z="11">Right Cerebrum.Temporal Lobe.*.*.*</label>
+<label index="12" x="27" y="60" z="12">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="13" x="23" y="53" z="19">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="14" x="74" y="52" z="25">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="15" x="60" y="61" z="12">Left Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="16" x="60" y="55" z="19">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 20</label>
+<label index="17" x="57" y="63" z="11">Left Cerebrum.Limbic Lobe.Uncus.*.*</label>
+<label index="18" x="26" y="54" z="19">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 20</label>
+<label index="19" x="28" y="58" z="14">Right Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="20" x="14" y="52" z="24">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="21" x="57" y="62" z="12">Left Cerebrum.Limbic Lobe.*.*.*</label>
+<label index="22" x="32" y="61" z="13">Right Cerebrum.Limbic Lobe.*.*.*</label>
+<label index="23" x="73" y="41" z="29">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="24" x="74" y="45" z="33">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.White Matter.*</label>
+<label index="25" x="61" y="59" z="18">Left Cerebrum.Limbic Lobe.Uncus.White Matter.*</label>
+<label index="26" x="31" y="62" z="11">Right Cerebrum.Limbic Lobe.*.Gray Matter.Brodmann area 20</label>
+<label index="27" x="30" y="63" z="14">Right Cerebrum.Limbic Lobe.Uncus.White Matter.*</label>
+<label index="28" x="16" y="36" z="38">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.White Matter.*</label>
+<label index="29" x="25" y="62" z="11">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="30" x="25" y="63" z="11">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.*.*</label>
+<label index="31" x="34" y="64" z="15">Right Cerebrum.Limbic Lobe.Uncus.*.*</label>
+<label index="32" x="63" y="63" z="12">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.*.*</label>
+<label index="33" x="66" y="65" z="14">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="34" x="58" y="63" z="11">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 38</label>
+<label index="35" x="30" y="63" z="11">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 38</label>
+<label index="36" x="27" y="63" z="11">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="37" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Middle Temporal Gyrus.White Matter.*</label>
+<label index="38" x="57" y="69" z="14">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="39" x="74" y="44" z="43">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.White Matter.*</label>
+<label index="40" x="76" y="70" z="29">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="41" x="29" y="70" z="14">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="42" x="20" y="41" z="43">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.White Matter.*</label>
+<label index="43" x="13" y="71" z="27">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="44" x="31" y="66" z="11">Right Cerebrum.Temporal Lobe.*.Gray Matter.Brodmann area 38</label>
+<label index="45" x="59" y="66" z="11">Left Cerebrum.Temporal Lobe.*.Gray Matter.Brodmann area 38</label>
+<label index="46" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="47" x="13" y="27" z="37">Right Cerebrum.*.Inferior Temporal Gyrus.*.*</label>
+<label index="48" x="19" y="76" z="24">Right Cerebrum.*.*.*.*</label>
+<label index="49" x="61" y="60" z="14">Left Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="50" x="28" y="60" z="13">Right Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="51" x="67" y="44" z="33">Left Cerebrum.Temporal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="52" x="22" y="43" z="34">Right Cerebrum.Temporal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="53" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.*.Gray Matter.Brodmann area 20</label>
+<label index="54" x="68" y="64" z="13">*.*.Middle Temporal Gyrus.*.*</label>
+<label index="55" x="25" y="58" z="18">Right Cerebrum.Limbic Lobe.Sub-Gyral.White Matter.*</label>
+<label index="56" x="62" y="64" z="22">Left Cerebrum.Limbic Lobe.Superior Temporal Gyrus.White Matter.*</label>
+<label index="57" x="32" y="66" z="13">Right Cerebrum.Limbic Lobe.Superior Temporal Gyrus.White Matter.*</label>
+<label index="58" x="34" y="66" z="13">Right Cerebrum.*.Uncus.*.*</label>
+<label index="59" x="56" y="66" z="13">Left Cerebrum.Limbic Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="60" x="33" y="67" z="13">Right Cerebrum.Limbic Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="61" x="55" y="22" z="20">Left Cerebellum.Posterior Lobe.Pyramis.Gray Matter.*</label>
+<label index="62" x="33" y="22" z="20">Right Cerebellum.Posterior Lobe.Pyramis.Gray Matter.*</label>
+<label index="63" x="47" y="27" z="20">Left Cerebellum.Posterior Lobe.Uvula.Gray Matter.*</label>
+<label index="64" x="39" y="22" z="19">Right Cerebellum.Posterior Lobe.Uvula.Gray Matter.*</label>
+<label index="65" x="43" y="21" z="27">Right Cerebellum.*.*.Gray Matter.*</label>
+<label index="66" x="45" y="23" z="18">Left Cerebellum.*.*.Gray Matter.*</label>
+<label index="67" x="45" y="24" z="18">Left Cerebellum.Posterior Lobe.Uvula of Vermis.Gray Matter.*</label>
+<label index="68" x="44" y="24" z="18">Right Cerebellum.Posterior Lobe.Uvula of Vermis.Gray Matter.*</label>
+<label index="69" x="44" y="35" z="17">Right Cerebellum.Sub-lobar.Fourth Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="70" x="45" y="36" z="17">Left Cerebellum.Sub-lobar.Fourth Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="71" x="48" y="46" z="20">Left Brainstem.Pons.*.*.*</label>
+<label index="72" x="41" y="47" z="20">Right Brainstem.Pons.*.*.*</label>
+<label index="73" x="32" y="55" z="18">*.Limbic Lobe.Uncus.*.*</label>
+<label index="74" x="67" y="81" z="24">Left Cerebrum.*.*.*.*</label>
+<label index="75" x="58" y="58" z="16">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 36</label>
+<label index="76" x="30" y="58" z="16">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 36</label>
+<label index="77" x="12" y="60" z="24">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="78" x="73" y="66" z="20">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="79" x="22" y="62" z="17">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="80" x="67" y="28" z="22">Left Cerebellum.Posterior Lobe.Tuber.Gray Matter.*</label>
+<label index="81" x="16" y="24" z="22">Right Cerebellum.Posterior Lobe.Tuber.Gray Matter.*</label>
+<label index="82" x="45" y="24" z="20">Left Cerebellum.Posterior Lobe.Pyramis of Vermis.Gray Matter.*</label>
+<label index="83" x="43" y="24" z="21">Right Cerebellum.Posterior Lobe.Pyramis of Vermis.Gray Matter.*</label>
+<label index="84" x="46" y="32" z="21">Left Cerebellum.Anterior Lobe.Nodule.Gray Matter.*</label>
+<label index="85" x="56" y="40" z="21">Left Cerebellum.Anterior Lobe.*.Gray Matter.*</label>
+<label index="86" x="42" y="32" z="21">Right Cerebellum.Anterior Lobe.Nodule.Gray Matter.*</label>
+<label index="87" x="32" y="39" z="21">Right Cerebellum.Anterior Lobe.*.Gray Matter.*</label>
+<label index="88" x="52" y="42" z="27">Left Cerebellum.Anterior Lobe.Culmen.Gray Matter.*</label>
+<label index="89" x="36" y="41" z="27">Right Cerebellum.Anterior Lobe.Culmen.Gray Matter.*</label>
+<label index="90" x="72" y="52" z="20">*.Temporal Lobe.*.*.*</label>
+<label index="91" x="0" y="0" z="0">*.Temporal Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="92" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="93" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="94" x="58" y="56" z="19">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 28</label>
+<label index="95" x="33" y="65" z="20">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 28</label>
+<label index="96" x="64" y="58" z="18">Left Cerebrum.Limbic Lobe.Sub-Gyral.White Matter.*</label>
+<label index="97" x="67" y="60" z="18">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="98" x="0" y="0" z="0">Left Cerebrum.*.Inferior Temporal Gyrus.*.*</label>
+<label index="99" x="74" y="65" z="18">Left Cerebrum.*.Middle Temporal Gyrus.*.*</label>
+<label index="100" x="57" y="70" z="17">Left Cerebrum.*.Superior Temporal Gyrus.*.*</label>
+<label index="101" x="0" y="0" z="0">Left Cerebrum.*.Superior Temporal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="102" x="48" y="83" z="17">Left Cerebrum.Frontal Lobe.Orbital Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="103" x="41" y="78" z="17">Right Cerebrum.*.Orbital Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="104" x="0" y="0" z="0">*.Frontal Lobe.Orbital Gyrus.*.*</label>
+<label index="105" x="52" y="84" z="16">Left Cerebrum.Frontal Lobe.Orbital Gyrus.*.*</label>
+<label index="106" x="47" y="79" z="18">Left Cerebrum.Frontal Lobe.*.*.*</label>
+<label index="107" x="44" y="84" z="17">Inter-Hemispheric.*.*.*.*</label>
+<label index="108" x="35" y="75" z="19">Right Cerebrum.Frontal Lobe.*.*.*</label>
+<label index="109" x="41" y="83" z="17">Right Cerebrum.Frontal Lobe.Orbital Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="110" x="37" y="84" z="16">Right Cerebrum.Frontal Lobe.Orbital Gyrus.*.*</label>
+<label index="111" x="52" y="81" z="17">*.*.Orbital Gyrus.*.*</label>
+<label index="112" x="48" y="85" z="18">Left Cerebrum.Frontal Lobe.Orbital Gyrus.White Matter.*</label>
+<label index="113" x="41" y="85" z="16">Right Cerebrum.Frontal Lobe.Orbital Gyrus.White Matter.*</label>
+<label index="114" x="45" y="27" z="22">Left Cerebellum.Posterior Lobe.Tuber of Vermis.Gray Matter.*</label>
+<label index="115" x="42" y="27" z="22">Right Cerebellum.Posterior Lobe.Tuber of Vermis.Gray Matter.*</label>
+<label index="116" x="45" y="28" z="22">Left Cerebellum.Anterior Lobe.Pyramis.Gray Matter.*</label>
+<label index="117" x="39" y="28" z="22">Right Cerebellum.Anterior Lobe.Pyramis.Gray Matter.*</label>
+<label index="118" x="36" y="34" z="23">Right Cerebellum.Anterior Lobe.*.Gray Matter.Dentate</label>
+<label index="119" x="52" y="33" z="23">Left Cerebellum.Anterior Lobe.*.Gray Matter.Dentate</label>
+<label index="120" x="0" y="0" z="0">Left Cerebellum.Posterior Lobe.Culmen.Gray Matter.*</label>
+<label index="121" x="74" y="60" z="20">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.*.*</label>
+<label index="122" x="12" y="54" z="20">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.*.*</label>
+<label index="123" x="72" y="60" z="21">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="124" x="13" y="54" z="20">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="125" x="63" y="49" z="21">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.*.*</label>
+<label index="126" x="26" y="49" z="21">*.Limbic Lobe.Parahippocampal Gyrus.*.*</label>
+<label index="127" x="25" y="49" z="21">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.*.*</label>
+<label index="128" x="68" y="37" z="27">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="129" x="61" y="50" z="21">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 36</label>
+<label index="130" x="29" y="55" z="20">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 36</label>
+<label index="131" x="16" y="55" z="21">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="132" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Fusiform Gyrus.*.*</label>
+<label index="133" x="62" y="51" z="25">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.White Matter.*</label>
+<label index="134" x="27" y="52" z="24">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.White Matter.*</label>
+<label index="135" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="136" x="64" y="52" z="21">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 36</label>
+<label index="137" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="138" x="25" y="53" z="21">Right Cerebrum.Limbic Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="139" x="0" y="0" z="0">*.*.Fusiform Gyrus.*.*</label>
+<label index="140" x="54" y="57" z="20">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 35</label>
+<label index="141" x="31" y="55" z="21">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 35</label>
+<label index="142" x="49" y="73" z="20">Left Cerebrum.Frontal Lobe.Rectal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="143" x="46" y="89" z="18">Left Cerebrum.Frontal Lobe.Rectal Gyrus.*.*</label>
+<label index="144" x="43" y="88" z="18">Right Cerebrum.Frontal Lobe.Rectal Gyrus.*.*</label>
+<label index="145" x="40" y="73" z="20">Right Cerebrum.Frontal Lobe.Rectal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="146" x="52" y="73" z="19">Left Cerebrum.Frontal Lobe.Orbital Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="147" x="36" y="73" z="19">Right Cerebrum.Frontal Lobe.Orbital Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="148" x="48" y="76" z="22">Left Cerebrum.Frontal Lobe.Rectal Gyrus.White Matter.*</label>
+<label index="149" x="41" y="85" z="19">Right Cerebrum.Frontal Lobe.Rectal Gyrus.White Matter.*</label>
+<label index="150" x="45" y="75" z="19">Inter-Hemispheric.*.Rectal Gyrus.*.*</label>
+<label index="151" x="58" y="95" z="25">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.*.*</label>
+<label index="152" x="54" y="95" z="25">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="153" x="35" y="95" z="25">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="154" x="34" y="87" z="18">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.*.*</label>
+<label index="155" x="54" y="90" z="46">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.White Matter.*</label>
+<label index="156" x="36" y="88" z="51">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.White Matter.*</label>
+<label index="157" x="51" y="24" z="28">Left Cerebellum.Posterior Lobe.Declive.Gray Matter.*</label>
+<label index="158" x="30" y="30" z="27">Right Cerebellum.Posterior Lobe.Declive.Gray Matter.*</label>
+<label index="159" x="45" y="22" z="25">Left Cerebellum.Posterior Lobe.Declive of Vermis.Gray Matter.*</label>
+<label index="160" x="44" y="22" z="25">Right Cerebellum.Posterior Lobe.Declive of Vermis.Gray Matter.*</label>
+<label index="161" x="51" y="31" z="24">Left Cerebellum.Posterior Lobe.*.Gray Matter.Dentate</label>
+<label index="162" x="0" y="0" z="0">Left Cerebellum.Posterior Lobe.Fastigium.Gray Matter.*</label>
+<label index="163" x="39" y="31" z="24">Right Cerebellum.Anterior Lobe.Fastigium.Gray Matter.*</label>
+<label index="164" x="36" y="31" z="25">Right Cerebellum.Posterior Lobe.*.Gray Matter.Dentate</label>
+<label index="165" x="48" y="32" z="25">Left Cerebellum.Anterior Lobe.Fastigium.Gray Matter.*</label>
+<label index="166" x="20" y="43" z="23">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 36</label>
+<label index="167" x="0" y="0" z="0">Right Cerebrum.*.Fusiform Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="168" x="73" y="42" z="24">*.Temporal Lobe.Fusiform Gyrus.*.*</label>
+<label index="169" x="56" y="52" z="23">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 28</label>
+<label index="170" x="32" y="53" z="23">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 28</label>
+<label index="171" x="64" y="53" z="23">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 20</label>
+<label index="172" x="24" y="53" z="23">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 20</label>
+<label index="173" x="52" y="46" z="45">Left Cerebrum.Sub-lobar.Lateral Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="174" x="35" y="45" z="44">Right Cerebrum.Sub-lobar.Lateral Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="175" x="60" y="54" z="28">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Hippocampus</label>
+<label index="176" x="28" y="55" z="26">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Hippocampus</label>
+<label index="177" x="53" y="58" z="25">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="178" x="36" y="58" z="23">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="179" x="52" y="60" z="22">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 34</label>
+<label index="180" x="36" y="59" z="22">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Brodmann area 34</label>
+<label index="181" x="56" y="61" z="23">Left Cerebrum.Limbic Lobe.Uncus.Gray Matter.Amygdala</label>
+<label index="182" x="31" y="61" z="23">Right Cerebrum.Limbic Lobe.Uncus.Gray Matter.Amygdala</label>
+<label index="183" x="31" y="60" z="26">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Amygdala</label>
+<label index="184" x="78" y="69" z="46">*.*.Inferior Frontal Gyrus.*.*</label>
+<label index="185" x="56" y="69" z="24">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="186" x="59" y="76" z="22">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.*.*</label>
+<label index="187" x="14" y="77" z="30">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.*.*</label>
+<label index="188" x="36" y="71" z="23">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="189" x="67" y="79" z="35">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.White Matter.*</label>
+<label index="190" x="22" y="80" z="35">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.White Matter.*</label>
+<label index="191" x="56" y="76" z="22">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="192" x="34" y="75" z="21">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="193" x="58" y="62" z="53">Left Cerebrum.Frontal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="194" x="29" y="56" z="53">Right Cerebrum.Frontal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="195" x="64" y="86" z="28">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.White Matter.*</label>
+<label index="196" x="25" y="86" z="28">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.White Matter.*</label>
+<label index="197" x="59" y="83" z="25">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="198" x="28" y="83" z="24">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="199" x="25" y="65" z="67">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.*.*</label>
+<label index="200" x="0" y="0" z="0">Right Cerebrum.*.Orbital Gyrus.*.*</label>
+<label index="201" x="43" y="92" z="20">Right Cerebrum.*.Superior Frontal Gyrus.*.*</label>
+<label index="202" x="56" y="14" z="28">Left Cerebrum.Occipital Lobe.Fusiform Gyrus.*.*</label>
+<label index="203" x="57" y="14" z="28">Left Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="204" x="30" y="14" z="28">Right Cerebrum.Occipital Lobe.Fusiform Gyrus.*.*</label>
+<label index="205" x="29" y="18" z="27">Right Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="206" x="64" y="24" z="30">Left Cerebrum.Occipital Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="207" x="29" y="22" z="30">Right Cerebrum.Occipital Lobe.Fusiform Gyrus.White Matter.*</label>
+<label index="208" x="71" y="36" z="27">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="209" x="18" y="33" z="27">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="210" x="0" y="0" z="0">Right Cerebrum.*.Fusiform Gyrus.*.*</label>
+<label index="211" x="46" y="40" z="29">Left Cerebellum.Anterior Lobe.Cerebellar Lingual.Gray Matter.*</label>
+<label index="212" x="42" y="40" z="29">Right Cerebellum.Anterior Lobe.Cerebellar Lingual.Gray Matter.*</label>
+<label index="213" x="74" y="32" z="32">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="214" x="15" y="39" z="26">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="215" x="47" y="51" z="27">Left Brainstem.Midbrain.*.*.*</label>
+<label index="216" x="41" y="49" z="28">Right Brainstem.Midbrain.*.*.*</label>
+<label index="217" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="218" x="24" y="48" z="25">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 20</label>
+<label index="219" x="55" y="60" z="26">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Amygdala</label>
+<label index="220" x="43" y="63" z="24">*.*.*.White Matter.*</label>
+<label index="221" x="28" y="65" z="24">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 38</label>
+<label index="222" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 38</label>
+<label index="223" x="45" y="92" z="22">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.*.*</label>
+<label index="224" x="38" y="96" z="22">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.*.*</label>
+<label index="225" x="67" y="74" z="25">Left Cerebrum.Frontal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="226" x="46" y="78" z="23">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="227" x="38" y="77" z="23">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="228" x="22" y="73" z="24">Right Cerebrum.Frontal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="229" x="26" y="66" z="26">Right Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.*.*</label>
+<label index="230" x="49" y="64" z="65">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.White Matter.*</label>
+<label index="231" x="39" y="89" z="42">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.White Matter.*</label>
+<label index="232" x="65" y="69" z="26">Left Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.*.*</label>
+<label index="233" x="60" y="79" z="23">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.*.*</label>
+<label index="234" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="235" x="47" y="93" z="23">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="236" x="42" y="93" z="23">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="237" x="37" y="79" z="23">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="238" x="51" y="24" z="33">Left Cerebrum.Occipital Lobe.Lingual Gyrus.*.*</label>
+<label index="239" x="45" y="24" z="34">*.*.Lingual Gyrus.*.*</label>
+<label index="240" x="0" y="0" z="0">*.Occipital Lobe.*.*.*</label>
+<label index="241" x="0" y="0" z="0">*.Occipital Lobe.Lingual Gyrus.*.*</label>
+<label index="242" x="54" y="12" z="33">Left Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 17</label>
+<label index="243" x="42" y="12" z="30">Inter-Hemispheric.Occipital Lobe.Lingual Gyrus.*.*</label>
+<label index="244" x="43" y="22" z="35">Right Cerebrum.Occipital Lobe.Lingual Gyrus.*.*</label>
+<label index="245" x="34" y="12" z="33">Right Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 17</label>
+<label index="246" x="59" y="25" z="29">Left Cerebrum.Occipital Lobe.*.*.*</label>
+<label index="247" x="52" y="22" z="33">Left Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="248" x="29" y="26" z="29">Right Cerebrum.Occipital Lobe.*.*.*</label>
+<label index="249" x="32" y="26" z="32">Right Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="250" x="62" y="19" z="31">Left Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="251" x="59" y="18" z="30">Left Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.*.*</label>
+<label index="252" x="51" y="19" z="36">Left Cerebrum.Occipital Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="253" x="37" y="19" z="36">Right Cerebrum.Occipital Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="254" x="21" y="20" z="29">Right Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="255" x="60" y="17" z="35">Left Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.White Matter.*</label>
+<label index="256" x="26" y="16" z="35">Right Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.White Matter.*</label>
+<label index="257" x="20" y="20" z="29">Right Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.*.*</label>
+<label index="258" x="57" y="23" z="29">Left Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="259" x="26" y="21" z="29">Right Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="260" x="68" y="19" z="30">*.*.Inferior Occipital Gyrus.*.*</label>
+<label index="261" x="68" y="20" z="30">Left Cerebrum.*.Inferior Occipital Gyrus.*.*</label>
+<label index="262" x="0" y="0" z="0">Right Cerebrum.*.Inferior Occipital Gyrus.*.*</label>
+<label index="263" x="33" y="22" z="29">Right Cerebrum.Occipital Lobe.*.Gray Matter.Brodmann area 19</label>
+<label index="264" x="56" y="23" z="29">Left Cerebrum.Occipital Lobe.*.Gray Matter.Brodmann area 19</label>
+<label index="265" x="70" y="26" z="30">Left Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="266" x="19" y="25" z="29">Right Cerebrum.Temporal Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="267" x="60" y="38" z="28">Left Cerebrum.Temporal Lobe.*.Gray Matter.Brodmann area 37</label>
+<label index="268" x="30" y="41" z="28">Right Cerebrum.Temporal Lobe.*.Gray Matter.Brodmann area 37</label>
+<label index="269" x="75" y="30" z="39">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="270" x="59" y="41" z="30">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="271" x="29" y="44" z="28">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="272" x="35" y="54" z="27">Right Cerebrum.Limbic Lobe.*.Gray Matter.Brodmann area 35</label>
+<label index="273" x="41" y="62" z="27">*.*.*.White Matter.Optic Tract</label>
+<label index="274" x="46" y="62" z="27">*.*.*.Gray Matter.Hypothalamus</label>
+<label index="275" x="19" y="63" z="28">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 21</label>
+<label index="276" x="18" y="64" z="26">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="277" x="45" y="68" z="26">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.*.*</label>
+<label index="278" x="44" y="66" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.*.*</label>
+<label index="279" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="280" x="48" y="65" z="27">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="281" x="46" y="66" z="27">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="282" x="42" y="66" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 25</label>
+<label index="283" x="30" y="65" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="284" x="32" y="65" z="28">Right Cerebrum.Limbic Lobe.Subcallosal Gyrus.*.*</label>
+<label index="285" x="31" y="65" z="28">Right Cerebrum.Limbic Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="286" x="71" y="60" z="29">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 21</label>
+<label index="287" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 34</label>
+<label index="288" x="64" y="68" z="26">Left Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="289" x="61" y="66" z="27">Left Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.White Matter.*</label>
+<label index="290" x="49" y="68" z="27">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.White Matter.*</label>
+<label index="291" x="40" y="67" z="27">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.White Matter.*</label>
+<label index="292" x="27" y="66" z="26">Right Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="293" x="28" y="66" z="26">Right Cerebrum.Temporal Lobe.Inferior Frontal Gyrus.White Matter.*</label>
+<label index="294" x="63" y="68" z="26">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="295" x="25" y="69" z="26">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="296" x="53" y="70" z="26">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="297" x="35" y="70" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="298" x="53" y="71" z="26">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="299" x="34" y="71" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="300" x="49" y="75" z="26">Left Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="301" x="39" y="75" z="26">Right Cerebrum.Frontal Lobe.Subcallosal Gyrus.Gray Matter.Brodmann area 11</label>
+<label index="302" x="16" y="86" z="29">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="303" x="56" y="12" z="32">Left Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 17</label>
+<label index="304" x="0" y="0" z="0">Right Cerebrum.*.*.Gray Matter.Brodmann area 18</label>
+<label index="305" x="30" y="12" z="32">Right Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 17</label>
+<label index="306" x="61" y="14" z="39">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="307" x="26" y="18" z="38">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="308" x="61" y="23" z="41">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.White Matter.*</label>
+<label index="309" x="19" y="27" z="33">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.White Matter.*</label>
+<label index="310" x="75" y="29" z="31">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.*.*</label>
+<label index="311" x="17" y="23" z="31">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.*.*</label>
+<label index="312" x="53" y="26" z="31">Left Cerebrum.Occipital Lobe.Sub-Gyral.*.*</label>
+<label index="313" x="37" y="25" z="31">Right Cerebrum.*.Sub-Gyral.*.*</label>
+<label index="314" x="34" y="28" z="31">Right Cerebrum.Occipital Lobe.Sub-Gyral.*.*</label>
+<label index="315" x="70" y="20" z="39">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="316" x="16" y="23" z="38">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="317" x="75" y="28" z="31">*.*.Middle Occipital Gyrus.*.*</label>
+<label index="318" x="0" y="0" z="0">Right Cerebrum.*.Lingual Gyrus.*.*</label>
+<label index="319" x="65" y="32" z="33">Left Cerebrum.Occipital Lobe.Sub-Gyral.White Matter.*</label>
+<label index="320" x="24" y="30" z="32">Right Cerebrum.Occipital Lobe.Sub-Gyral.White Matter.*</label>
+<label index="321" x="45" y="28" z="31">Left Cerebellum.Anterior Lobe.Culmen of Vermis.Gray Matter.*</label>
+<label index="322" x="44" y="28" z="31">Right Cerebellum.Anterior Lobe.Culmen of Vermis.Gray Matter.*</label>
+<label index="323" x="71" y="29" z="32">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="324" x="13" y="29" z="31">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="325" x="13" y="30" z="33">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="326" x="71" y="31" z="31">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="327" x="19" y="26" z="37">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.White Matter.*</label>
+<label index="328" x="13" y="30" z="39">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="329" x="63" y="42" z="30">Left Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="330" x="27" y="39" z="30">Right Cerebrum.Occipital Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="331" x="0" y="0" z="0">Right Cerebrum.Occipital Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="332" x="69" y="38" z="31">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 37</label>
+<label index="333" x="19" y="38" z="30">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 37</label>
+<label index="334" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Fusiform Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="335" x="37" y="44" z="32">Right Cerebrum.Limbic Lobe.Sub-Gyral.*.*</label>
+<label index="336" x="51" y="44" z="32">Left Cerebrum.Limbic Lobe.Sub-Gyral.*.*</label>
+<label index="337" x="61" y="47" z="30">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Hippocampus</label>
+<label index="338" x="27" y="48" z="30">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Hippocampus</label>
+<label index="339" x="59" y="49" z="30">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Hippocampus</label>
+<label index="340" x="29" y="47" z="32">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Hippocampus</label>
+<label index="341" x="48" y="55" z="29">Left Brainstem.Midbrain.*.Gray Matter.Substania Nigra</label>
+<label index="342" x="39" y="54" z="30">Right Brainstem.Midbrain.*.Gray Matter.Substania Nigra</label>
+<label index="343" x="47" y="53" z="32">Left Brainstem.Midbrain.*.Gray Matter.Red Nucleus</label>
+<label index="344" x="42" y="52" z="32">Right Brainstem.Midbrain.*.Gray Matter.Red Nucleus</label>
+<label index="345" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 28</label>
+<label index="346" x="32" y="53" z="31">Right Cerebrum.Limbic Lobe.*.White Matter.*</label>
+<label index="347" x="56" y="59" z="45">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.*</label>
+<label index="348" x="32" y="59" z="45">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.*</label>
+<label index="349" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.*.Gray Matter.Caudate Tail</label>
+<label index="350" x="25" y="55" z="29">Right Cerebrum.Temporal Lobe.Caudate.Gray Matter.Caudate Tail</label>
+<label index="351" x="63" y="49" z="32">Left Cerebrum.Temporal Lobe.Caudate.Gray Matter.Caudate Tail</label>
+<label index="352" x="65" y="57" z="29">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 21</label>
+<label index="353" x="60" y="57" z="31">Left Cerebrum.Temporal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="354" x="46" y="57" z="29">Left Brainstem.Midbrain.*.Gray Matter.Mammillary Body</label>
+<label index="355" x="43" y="57" z="29">Right Brainstem.Midbrain.*.Gray Matter.Mammillary Body</label>
+<label index="356" x="55" y="58" z="29">Left Cerebrum.Sub-lobar.*.Gray Matter.Amygdala</label>
+<label index="357" x="32" y="50" z="33">Right Cerebrum.*.*.White Matter.*</label>
+<label index="358" x="31" y="58" z="29">Right Cerebrum.Sub-lobar.*.Gray Matter.Amygdala</label>
+<label index="359" x="52" y="59" z="29">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Optic Tract</label>
+<label index="360" x="44" y="60" z="29">Right Cerebrum.Sub-lobar.Third Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="361" x="37" y="60" z="29">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Optic Tract</label>
+<label index="362" x="45" y="60" z="29">Left Cerebrum.Sub-lobar.Third Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="363" x="46" y="60" z="29">Left Cerebrum.Sub-lobar.*.Gray Matter.Hypothalamus</label>
+<label index="364" x="42" y="61" z="29">Right Cerebrum.Sub-lobar.*.Gray Matter.Hypothalamus</label>
+<label index="365" x="67" y="64" z="29">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="366" x="67" y="63" z="29">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 13</label>
+<label index="367" x="23" y="51" z="38">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="368" x="21" y="64" z="29">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 13</label>
+<label index="369" x="60" y="71" z="28">Left Cerebrum.Sub-lobar.Extra-Nuclear.Gray Matter.Brodmann area 13</label>
+<label index="370" x="52" y="38" z="42">Left Cerebrum.Limbic Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="371" x="49" y="83" z="36">Left Cerebrum.Limbic Lobe.Anterior Cingulate.White Matter.*</label>
+<label index="372" x="45" y="84" z="27">Left Cerebrum.Limbic Lobe.Anterior Cingulate.*.*</label>
+<label index="373" x="42" y="84" z="27">Right Cerebrum.Limbic Lobe.Anterior Cingulate.*.*</label>
+<label index="374" x="39" y="83" z="36">Right Cerebrum.Limbic Lobe.Anterior Cingulate.White Matter.*</label>
+<label index="375" x="41" y="68" z="29">Right Cerebrum.Limbic Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="376" x="23" y="68" z="28">Right Cerebrum.Sub-lobar.Extra-Nuclear.Gray Matter.Brodmann area 13</label>
+<label index="377" x="66" y="68" z="29">Left Cerebrum.Temporal Lobe.Sub-Gyral.*.*</label>
+<label index="378" x="62" y="71" z="28">Left Cerebrum.Sub-lobar.Extra-Nuclear.*.*</label>
+<label index="379" x="56" y="67" z="35">Left Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Putamen</label>
+<label index="380" x="46" y="69" z="28">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 25</label>
+<label index="381" x="42" y="69" z="28">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 25</label>
+<label index="382" x="32" y="65" z="37">Right Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Putamen</label>
+<label index="383" x="22" y="67" z="28">Right Cerebrum.Sub-lobar.Extra-Nuclear.*.*</label>
+<label index="384" x="21" y="67" z="28">Right Cerebrum.Temporal Lobe.Sub-Gyral.*.*</label>
+<label index="385" x="51" y="70" z="28">Left Cerebrum.Sub-lobar.*.Gray Matter.*</label>
+<label index="386" x="38" y="69" z="29">Right Cerebrum.Sub-lobar.*.Gray Matter.*</label>
+<label index="387" x="78" y="68" z="29">*.Temporal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="388" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Sub-Gyral.*.*</label>
+<label index="389" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Sub-Gyral.*.*</label>
+<label index="390" x="65" y="70" z="29">Left Cerebrum.Frontal Lobe.Extra-Nuclear.*.*</label>
+<label index="391" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Extra-Nuclear.*.*</label>
+<label index="392" x="61" y="72" z="28">Left Cerebrum.Frontal Lobe.Extra-Nuclear.Gray Matter.Brodmann area 47</label>
+<label index="393" x="27" y="72" z="28">Right Cerebrum.Frontal Lobe.Extra-Nuclear.Gray Matter.Brodmann area 47</label>
+<label index="394" x="72" y="70" z="34">Left Cerebrum.Frontal-Temporal Space.*.*.*</label>
+<label index="395" x="46" y="87" z="36">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 32</label>
+<label index="396" x="42" y="83" z="41">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 32</label>
+<label index="397" x="13" y="71" z="34">Right Cerebrum.Frontal-Temporal Space.*.*.*</label>
+<label index="398" x="0" y="0" z="0">Left Cerebrum.Frontal-Temporal Space.Inferior Frontal Gyrus.*.*</label>
+<label index="399" x="60" y="73" z="28">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 47</label>
+<label index="400" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Extra-Nuclear.Gray Matter.Brodmann area 13</label>
+<label index="401" x="29" y="74" z="30">Right Cerebrum.Sub-lobar.Extra-Nuclear.Gray Matter.Brodmann area 47</label>
+<label index="402" x="29" y="74" z="28">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 47</label>
+<label index="403" x="58" y="74" z="28">Left Cerebrum.Frontal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="404" x="33" y="74" z="28">Right Cerebrum.Frontal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="405" x="51" y="80" z="28">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 10</label>
+<label index="406" x="47" y="90" z="38">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="407" x="38" y="81" z="28">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 10</label>
+<label index="408" x="42" y="90" z="38">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="409" x="72" y="86" z="27">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="410" x="67" y="92" z="28">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="411" x="22" y="92" z="29">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="412" x="29" y="97" z="30">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="413" x="56" y="96" z="30">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="414" x="68" y="18" z="34">Left Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="415" x="19" y="19" z="34">Right Cerebrum.Occipital Lobe.Inferior Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="416" x="42" y="26" z="35">*.*.Sub-Gyral.*.*</label>
+<label index="417" x="53" y="29" z="34">Left Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="418" x="35" y="28" z="33">Right Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="419" x="73" y="32" z="33">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.*.*</label>
+<label index="420" x="75" y="30" z="34">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="421" x="72" y="33" z="33">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="422" x="16" y="33" z="33">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="423" x="15" y="31" z="33">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="424" x="33" y="33" z="33">Right Cerebrum.Limbic Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="425" x="56" y="33" z="33">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="426" x="27" y="42" z="32">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="427" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 19</label>
+<label index="428" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 19</label>
+<label index="429" x="52" y="44" z="32">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 30</label>
+<label index="430" x="36" y="42" z="33">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 30</label>
+<label index="431" x="35" y="43" z="32">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 30</label>
+<label index="432" x="54" y="47" z="32">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 27</label>
+<label index="433" x="32" y="47" z="32">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 27</label>
+<label index="434" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.*.White Matter.*</label>
+<label index="435" x="62" y="50" z="32">Left Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Tail</label>
+<label index="436" x="26" y="49" z="32">Right Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Tail</label>
+<label index="437" x="53" y="50" z="32">Left Brainstem.Midbrain.Thalamus.Gray Matter.Medial Geniculum Body</label>
+<label index="438" x="36" y="50" z="32">Right Brainstem.Midbrain.Thalamus.Gray Matter.Medial Geniculum Body</label>
+<label index="439" x="64" y="64" z="32">Left Cerebrum.Sub-lobar.Insula.White Matter.*</label>
+<label index="440" x="35" y="54" z="32">Right Cerebrum.Midbrain.*.*.*</label>
+<label index="441" x="25" y="67" z="32">Right Cerebrum.Sub-lobar.Insula.White Matter.*</label>
+<label index="442" x="76" y="66" z="33">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="443" x="67" y="51" z="34">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 22</label>
+<label index="444" x="22" y="57" z="32">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 13</label>
+<label index="445" x="22" y="52" z="32">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 22</label>
+<label index="446" x="12" y="66" z="32">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="447" x="66" y="62" z="40">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 13</label>
+<label index="448" x="67" y="63" z="31">Left Cerebrum.Sub-lobar.Insula.*.*</label>
+<label index="449" x="62" y="63" z="31">Left Cerebrum.Sub-lobar.Claustrum.Gray Matter.*</label>
+<label index="450" x="30" y="71" z="30">Right Cerebrum.Sub-lobar.Claustrum.Gray Matter.*</label>
+<label index="451" x="24" y="71" z="30">Right Cerebrum.Sub-lobar.Insula.*.*</label>
+<label index="452" x="56" y="59" z="32">Left Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Lateral Globus Pallidus</label>
+<label index="453" x="49" y="55" z="32">Left Brainstem.Midbrain.*.Gray Matter.Subthalamic Nucleus</label>
+<label index="454" x="39" y="57" z="31">Right Brainstem.Midbrain.*.Gray Matter.Subthalamic Nucleus</label>
+<label index="455" x="32" y="58" z="34">Right Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Lateral Globus Pallidus</label>
+<label index="456" x="53" y="60" z="32">Left Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Medial Globus Pallidus</label>
+<label index="457" x="36" y="61" z="32">Right Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.Medial Globus Pallidus</label>
+<label index="458" x="73" y="57" z="32">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="459" x="43" y="62" z="33">Right Brainstem.Midbrain.Extra-Nuclear.White Matter.*</label>
+<label index="460" x="19" y="48" z="35">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="461" x="46" y="60" z="31">Left Cerebrum.Sub-lobar.*.White Matter.*</label>
+<label index="462" x="43" y="60" z="31">Right Cerebrum.Sub-lobar.*.White Matter.*</label>
+<label index="463" x="20" y="61" z="34">Right Cerebrum.Temporal Lobe.Insula.*.*</label>
+<label index="464" x="49" y="71" z="34">Left Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Head</label>
+<label index="465" x="40" y="71" z="34">Right Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Head</label>
+<label index="466" x="28" y="73" z="30">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 47</label>
+<label index="467" x="26" y="71" z="30">Right Cerebrum.Sub-lobar.Inferior Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="468" x="60" y="73" z="31">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 47</label>
+<label index="469" x="46" y="80" z="41">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 24</label>
+<label index="470" x="42" y="81" z="40">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 24</label>
+<label index="471" x="43" y="95" z="32">Right Cerebrum.Frontal Lobe.*.Gray Matter.Brodmann area 10</label>
+<label index="472" x="0" y="0" z="0">Right Cerebrum.*.Medial Frontal Gyrus.*.*</label>
+<label index="473" x="55" y="10" z="36">Left Cerebrum.Occipital Lobe.Cuneus.*.*</label>
+<label index="474" x="46" y="20" z="46">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 18</label>
+<label index="475" x="47" y="21" z="43">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 17</label>
+<label index="476" x="34" y="10" z="36">Right Cerebrum.Occipital Lobe.Cuneus.*.*</label>
+<label index="477" x="42" y="21" z="43">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 17</label>
+<label index="478" x="42" y="19" z="45">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 18</label>
+<label index="479" x="70" y="24" z="36">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="480" x="13" y="27" z="35">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="481" x="52" y="41" z="34">Left Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 30</label>
+<label index="482" x="35" y="42" z="35">Right Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.Brodmann area 30</label>
+<label index="483" x="72" y="83" z="32">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="484" x="18" y="90" z="32">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="485" x="49" y="13" z="42">Left Cerebrum.Occipital Lobe.Cuneus.White Matter.*</label>
+<label index="486" x="39" y="14" z="42">Right Cerebrum.Occipital Lobe.Cuneus.White Matter.*</label>
+<label index="487" x="69" y="23" z="36">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="488" x="0" y="0" z="0">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="489" x="55" y="42" z="35">Left Cerebrum.Limbic Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="490" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.*</label>
+<label index="491" x="25" y="46" z="34">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.*</label>
+<label index="492" x="62" y="47" z="35">Left Cerebrum.Temporal Lobe.*.White Matter.Caudate Tail</label>
+<label index="493" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Caudate.Gray Matter.*</label>
+<label index="494" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Caudate Tail</label>
+<label index="495" x="38" y="75" z="32">Right Cerebrum.Sub-lobar.Caudate.Gray Matter.*</label>
+<label index="496" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Caudate Tail</label>
+<label index="497" x="55" y="50" z="34">Left Cerebrum.Sub-lobar.*.Gray Matter.Lateral Geniculum Body</label>
+<label index="498" x="53" y="50" z="34">Left Brainstem.Midbrain.*.Gray Matter.Medial Geniculum Body</label>
+<label index="499" x="35" y="50" z="34">Right Brainstem.Midbrain.*.Gray Matter.Medial Geniculum Body</label>
+<label index="500" x="32" y="51" z="34">Right Cerebrum.Sub-lobar.*.Gray Matter.Lateral Geniculum Body</label>
+<label index="501" x="48" y="64" z="33">Left Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.*</label>
+<label index="502" x="40" y="61" z="33">Right Cerebrum.Midbrain.Extra-Nuclear.White Matter.*</label>
+<label index="503" x="0" y="0" z="0">Left Brainstem.Midbrain.*.White Matter.*</label>
+<label index="504" x="45" y="64" z="33">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Anterior Commissure</label>
+<label index="505" x="0" y="0" z="0">Inter-Hemispheric.*.*.White Matter.Anterior Commissure</label>
+<label index="506" x="43" y="64" z="33">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Anterior Commissure</label>
+<label index="507" x="0" y="0" z="0">Left Cerebrum.Frontal-Temporal Space.Superior Temporal Gyrus.*.*</label>
+<label index="508" x="47" y="46" z="45">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="509" x="44" y="73" z="37">Inter-Hemispheric.*.*.White Matter.Corpus Callosum</label>
+<label index="510" x="41" y="44" z="43">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="511" x="62" y="73" z="33">Left Cerebrum.Sub-lobar.Extra-Nuclear.Gray Matter.Brodmann area 47</label>
+<label index="512" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Extra-Nuclear.Cerebro-Spinal Fluid.*</label>
+<label index="513" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Claustrum.White Matter.*</label>
+<label index="514" x="52" y="69" z="47">Left Cerebrum.Frontal Lobe.Sub-Gyral.White Matter.Corpus Callosum</label>
+<label index="515" x="38" y="78" z="32">Right Cerebrum.Frontal Lobe.Sub-Gyral.White Matter.Corpus Callosum</label>
+<label index="516" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 10</label>
+<label index="517" x="22" y="86" z="32">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 10</label>
+<label index="518" x="78" y="33" z="36">*.*.*.Gray Matter.*</label>
+<label index="519" x="63" y="13" z="37">Left Cerebrum.Occipital Lobe.*.Gray Matter.*</label>
+<label index="520" x="60" y="12" z="37">Left Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.*</label>
+<label index="521" x="28" y="12" z="37">Right Cerebrum.Occipital Lobe.Middle Occipital Gyrus.Gray Matter.*</label>
+<label index="522" x="25" y="13" z="37">Right Cerebrum.*.*.Gray Matter.*</label>
+<label index="523" x="70" y="19" z="37">*.*.Middle Occipital Gyrus.Gray Matter.*</label>
+<label index="524" x="44" y="25" z="36">Inter-Hemispheric.*.Lingual Gyrus.*.*</label>
+<label index="525" x="41" y="30" z="36">Right Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.*</label>
+<label index="526" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Lingual Gyrus.Gray Matter.*</label>
+<label index="527" x="0" y="0" z="0">*.*.Middle Temporal Gyrus.Gray Matter.*</label>
+<label index="528" x="78" y="36" z="36">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.*</label>
+<label index="529" x="48" y="56" z="36">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.*</label>
+<label index="530" x="0" y="0" z="0">*.Sub-lobar.Extra-Nuclear.White Matter.*</label>
+<label index="531" x="42" y="60" z="37">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.*</label>
+<label index="532" x="73" y="65" z="34">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.*</label>
+<label index="533" x="50" y="12" z="38">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.*</label>
+<label index="534" x="0" y="0" z="0">Inter-Hemispheric.Occipital Lobe.*.Gray Matter.*</label>
+<label index="535" x="34" y="10" z="38">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.*</label>
+<label index="536" x="0" y="0" z="0">Right Cerebrum.*.Cuneus.Gray Matter.*</label>
+<label index="537" x="0" y="0" z="0">Inter-Hemispheric.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 18</label>
+<label index="538" x="44" y="12" z="38">Inter-Hemispheric.*.Cuneus.*.*</label>
+<label index="539" x="29" y="12" z="38">Right Cerebrum.Occipital Lobe.*.Gray Matter.*</label>
+<label index="540" x="0" y="0" z="0">Inter-Hemispheric.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 17</label>
+<label index="541" x="51" y="35" z="36">Left Cerebrum.Occipital Lobe.Lingual Gyrus.Gray Matter.*</label>
+<label index="542" x="0" y="0" z="0">Right Cerebrum.*.Middle Occipital Gyrus.Gray Matter.*</label>
+<label index="543" x="45" y="14" z="43">Inter-Hemispheric.Occipital Lobe.Cuneus.*.*</label>
+<label index="544" x="0" y="0" z="0">Inter-Hemispheric.Occipital Lobe.Cuneus.Gray Matter.*</label>
+<label index="545" x="0" y="0" z="0">Inter-Hemispheric.Occipital Lobe.Lingual Gyrus.Gray Matter.*</label>
+<label index="546" x="0" y="0" z="0">Right Cerebrum.*.Middle Occipital Gyrus.*.*</label>
+<label index="547" x="47" y="11" z="44">Inter-Hemispheric.Occipital Lobe.*.*.*</label>
+<label index="548" x="73" y="25" z="37">Left Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="549" x="14" y="26" z="37">Right Cerebrum.Occipital Lobe.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="550" x="75" y="26" z="37">*.*.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="551" x="0" y="0" z="0">Right Cerebrum.*.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="552" x="59" y="28" z="37">Left Cerebrum.Occipital Lobe.Sub-Gyral.Gray Matter.*</label>
+<label index="553" x="75" y="29" z="37">Left Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="554" x="15" y="30" z="37">Right Cerebrum.Temporal Lobe.Inferior Temporal Gyrus.Gray Matter.*</label>
+<label index="555" x="10" y="47" z="35">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.*</label>
+<label index="556" x="69" y="30" z="37">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.*.*</label>
+<label index="557" x="0" y="0" z="0">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.*</label>
+<label index="558" x="68" y="30" z="37">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="559" x="0" y="0" z="0">*.*.Culmen of Vermis.*.*</label>
+<label index="560" x="21" y="31" z="37">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="561" x="12" y="28" z="38">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.*.*</label>
+<label index="562" x="63" y="32" z="45">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.White Matter.*</label>
+<label index="563" x="10" y="37" z="36">Right Cerebrum.*.Middle Temporal Gyrus.*.*</label>
+<label index="564" x="0" y="0" z="0">Right Cerebellum.Anterior Lobe.Culmen.Gray Matter.Brodmann area 19</label>
+<label index="565" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="566" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Lingual Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="567" x="38" y="39" z="36">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.*</label>
+<label index="568" x="35" y="39" z="36">Right Cerebrum.Temporal Lobe.Lingual Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="569" x="33" y="39" z="36">Right Cerebrum.Temporal Lobe.Lingual Gyrus.White Matter.*</label>
+<label index="570" x="50" y="39" z="36">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.*</label>
+<label index="571" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.*.Cerebro-Spinal Fluid.Caudate Tail</label>
+<label index="572" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.*.White Matter.*</label>
+<label index="573" x="27" y="46" z="43">Right Cerebrum.Temporal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="574" x="42" y="46" z="36">Right Brainstem.*.*.*.*</label>
+<label index="575" x="13" y="60" z="34">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.*</label>
+<label index="576" x="45" y="51" z="35">Left Brainstem.Midbrain.Extra-Nuclear.White Matter.*</label>
+<label index="577" x="0" y="0" z="0">Right Cerebrum.*.Superior Temporal Gyrus.*.*</label>
+<label index="578" x="67" y="51" z="35">Left Cerebrum.Temporal Lobe.Insula.Gray Matter.*</label>
+<label index="579" x="54" y="54" z="38">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Posterior Lateral Nucleus</label>
+<label index="580" x="52" y="52" z="35">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Posterior Medial Nucleus</label>
+<label index="581" x="50" y="53" z="36">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Mammillary Body</label>
+<label index="582" x="38" y="52" z="35">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Mammillary Body</label>
+<label index="583" x="36" y="52" z="35">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Posterior Medial Nucleus</label>
+<label index="584" x="34" y="53" z="38">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Posterior Lateral Nucleus</label>
+<label index="585" x="22" y="65" z="34">Right Cerebrum.Sub-lobar.Insula.Gray Matter.*</label>
+<label index="586" x="20" y="59" z="35">Right Cerebrum.Temporal Lobe.Insula.Gray Matter.*</label>
+<label index="587" x="67" y="52" z="36">Left Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 22</label>
+<label index="588" x="21" y="52" z="35">Right Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 22</label>
+<label index="589" x="67" y="52" z="35">Left Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 13</label>
+<label index="590" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 13</label>
+<label index="591" x="68" y="56" z="35">Left Cerebrum.Temporal Lobe.Insula.*.*</label>
+<label index="592" x="63" y="65" z="34">Left Cerebrum.Sub-lobar.Insula.Gray Matter.*</label>
+<label index="593" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Medial Globus Pallidus</label>
+<label index="594" x="38" y="66" z="34">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Lateral Globus Pallidus</label>
+<label index="595" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Lateral Globus Pallidus</label>
+<label index="596" x="52" y="68" z="34">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Putamen</label>
+<label index="597" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Putamen</label>
+<label index="598" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Caudate.Cerebro-Spinal Fluid.Caudate Head</label>
+<label index="599" x="72" y="81" z="33">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.*</label>
+<label index="600" x="20" y="91" z="32">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.*</label>
+<label index="601" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Caudate.Cerebro-Spinal Fluid.Caudate Head</label>
+<label index="602" x="74" y="80" z="33">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 45</label>
+<label index="603" x="13" y="76" z="36">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 45</label>
+<label index="604" x="62" y="76" z="34">Left Cerebrum.Sub-lobar.Inferior Frontal Gyrus.Gray Matter.Brodmann area 47</label>
+<label index="605" x="46" y="79" z="33">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.*</label>
+<label index="606" x="42" y="79" z="33">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.*</label>
+<label index="607" x="73" y="84" z="39">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 46</label>
+<label index="608" x="18" y="86" z="38">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 46</label>
+<label index="609" x="57" y="88" z="33">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.*</label>
+<label index="610" x="46" y="69" z="59">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="611" x="53" y="94" z="32">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.*</label>
+<label index="612" x="42" y="69" z="59">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="613" x="30" y="96" z="32">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.*</label>
+<label index="614" x="25" y="89" z="33">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.*</label>
+<label index="615" x="51" y="97" z="32">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.*</label>
+<label index="616" x="41" y="92" z="32">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.*</label>
+<label index="617" x="63" y="94" z="32">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.*</label>
+<label index="618" x="25" y="94" z="32">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.*</label>
+<label index="619" x="44" y="92" z="32">Inter-Hemispheric.Frontal Lobe.*.*.*</label>
+<label index="620" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.*.Gray Matter.*</label>
+<label index="621" x="47" y="46" z="37">Inter-Hemispheric.Sub-lobar.Extra-Nuclear.White Matter.*</label>
+<label index="622" x="52" y="49" z="39">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Pulvinar</label>
+<label index="623" x="35" y="49" z="39">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Pulvinar</label>
+<label index="624" x="43" y="51" z="37">Inter-Hemispheric.*.*.Cerebro-Spinal Fluid.Optic Tract</label>
+<label index="625" x="70" y="28" z="39">Left Cerebrum.Temporal Lobe.Middle Occipital Gyrus.*.*</label>
+<label index="626" x="19" y="28" z="40">Right Cerebrum.Temporal Lobe.Middle Occipital Gyrus.*.*</label>
+<label index="627" x="21" y="27" z="40">Right Cerebrum.Temporal Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="628" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 37</label>
+<label index="629" x="60" y="33" z="38">Left Cerebrum.Temporal Lobe.Middle Occipital Gyrus.White Matter.*</label>
+<label index="630" x="28" y="33" z="38">Right Cerebrum.Temporal Lobe.Middle Occipital Gyrus.White Matter.*</label>
+<label index="631" x="57" y="34" z="38">Left Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="632" x="31" y="34" z="38">Right Cerebrum.Limbic Lobe.Parahippocampal Gyrus.Gray Matter.Brodmann area 18</label>
+<label index="633" x="45" y="53" z="37">Inter-Hemispheric.Sub-lobar.Extra-Nuclear.Cerebro-Spinal Fluid.Optic Tract</label>
+<label index="634" x="20" y="54" z="37">Right Cerebrum.Sub-lobar.Superior Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="635" x="66" y="49" z="43">Left Cerebrum.Temporal Lobe.Insula.White Matter.*</label>
+<label index="636" x="48" y="55" z="40">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Medial Dorsal Nucleus</label>
+<label index="637" x="41" y="54" z="39">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Medial Dorsal Nucleus</label>
+<label index="638" x="45" y="54" z="37">Left Cerebrum.Sub-lobar.Extra-Nuclear.Cerebro-Spinal Fluid.Optic Tract</label>
+<label index="639" x="44" y="55" z="37">Right Cerebrum.*.*.Cerebro-Spinal Fluid.Optic Tract</label>
+<label index="640" x="34" y="58" z="36">Right Cerebrum.Sub-lobar.Lentiform Nucleus.Gray Matter.*</label>
+<label index="641" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Extra-Nuclear.Cerebro-Spinal Fluid.Optic Tract</label>
+<label index="642" x="19" y="63" z="37">Right Cerebrum.Sub-lobar.Superior Temporal Gyrus.*.*</label>
+<label index="643" x="51" y="58" z="39">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Lateral Nucleus</label>
+<label index="644" x="37" y="58" z="40">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Lateral Nucleus</label>
+<label index="645" x="44" y="58" z="36">Right Cerebrum.*.Thalamus.Gray Matter.*</label>
+<label index="646" x="51" y="61" z="40">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Anterior Nucleus</label>
+<label index="647" x="39" y="60" z="36">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Ventral Anterior Nucleus</label>
+<label index="648" x="70" y="69" z="36">Left Cerebrum.Frontal-Temporal Space.Insula.*.*</label>
+<label index="649" x="69" y="70" z="36">Left Cerebrum.Frontal Lobe.Insula.*.*</label>
+<label index="650" x="26" y="76" z="35">Right Cerebrum.Sub-lobar.Inferior Frontal Gyrus.*.*</label>
+<label index="651" x="45" y="73" z="39">Inter-Hemispheric.Sub-lobar.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="652" x="44" y="73" z="35">Right Cerebrum.*.*.White Matter.Corpus Callosum</label>
+<label index="653" x="22" y="73" z="35">Right Cerebrum.Sub-lobar.Inferior Frontal Gyrus.Gray Matter.Brodmann area 45</label>
+<label index="654" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Inferior Frontal Gyrus.*.*</label>
+<label index="655" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 45</label>
+<label index="656" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 45</label>
+<label index="657" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.*.White Matter.Corpus Callosum</label>
+<label index="658" x="17" y="87" z="41">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 46</label>
+<label index="659" x="45" y="94" z="34">Inter-Hemispheric.Frontal Lobe.Medial Frontal Gyrus.*.*</label>
+<label index="660" x="46" y="26" z="40">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 30</label>
+<label index="661" x="42" y="26" z="40">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 30</label>
+<label index="662" x="49" y="33" z="44">Left Cerebrum.Limbic Lobe.Posterior Cingulate.White Matter.*</label>
+<label index="663" x="53" y="34" z="41">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 30</label>
+<label index="664" x="38" y="35" z="43">Right Cerebrum.Limbic Lobe.Posterior Cingulate.White Matter.*</label>
+<label index="665" x="42" y="38" z="45">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 30</label>
+<label index="666" x="0" y="0" z="0">Left Cerebrum.Occipital Lobe.Posterior Cingulate.White Matter.*</label>
+<label index="667" x="45" y="38" z="39">Left Cerebrum.Limbic Lobe.Posterior Cingulate.*.*</label>
+<label index="668" x="42" y="38" z="39">Right Cerebrum.Limbic Lobe.Posterior Cingulate.*.*</label>
+<label index="669" x="0" y="0" z="0">Right Cerebrum.Occipital Lobe.Posterior Cingulate.Gray Matter.Brodmann area 30</label>
+<label index="670" x="47" y="39" z="39">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 29</label>
+<label index="671" x="38" y="38" z="39">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 29</label>
+<label index="672" x="64" y="47" z="44">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 41</label>
+<label index="673" x="20" y="47" z="42">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 41</label>
+<label index="674" x="80" y="49" z="40">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="675" x="8" y="50" z="38">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="676" x="41" y="50" z="39">Right Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Pulvinar</label>
+<label index="677" x="56" y="53" z="39">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Ventral Posterior Lateral Nucleus</label>
+<label index="678" x="78" y="64" z="38">Left Cerebrum.Temporal Lobe.Precentral Gyrus.*.*</label>
+<label index="679" x="76" y="70" z="38">Left Cerebrum.Frontal Lobe.Precentral Gyrus.*.*</label>
+<label index="680" x="11" y="70" z="38">Right Cerebrum.Frontal Lobe.Precentral Gyrus.*.*</label>
+<label index="681" x="16" y="60" z="38">Right Cerebrum.Temporal Lobe.Precentral Gyrus.*.*</label>
+<label index="682" x="70" y="64" z="62">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="683" x="12" y="66" z="41">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="684" x="41" y="60" z="38">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Anterior Nucleus</label>
+<label index="685" x="66" y="59" z="57">Left Cerebrum.Frontal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="686" x="47" y="61" z="38">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Anterior Nucleus</label>
+<label index="687" x="29" y="55" z="64">Right Cerebrum.Frontal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="688" x="44" y="62" z="38">Inter-Hemispheric.*.*.White Matter.*</label>
+<label index="689" x="13" y="69" z="38">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 44</label>
+<label index="690" x="72" y="71" z="38">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 44</label>
+<label index="691" x="0" y="0" z="0">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 44</label>
+<label index="692" x="49" y="69" z="39">Left Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Body</label>
+<label index="693" x="39" y="70" z="39">Right Cerebrum.Sub-lobar.Caudate.Gray Matter.Caudate Body</label>
+<label index="694" x="45" y="80" z="37">Left Cerebrum.Limbic Lobe.Anterior Cingulate.White Matter.Corpus Callosum</label>
+<label index="695" x="42" y="80" z="37">Right Cerebrum.Limbic Lobe.Anterior Cingulate.White Matter.Corpus Callosum</label>
+<label index="696" x="23" y="86" z="36">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 46</label>
+<label index="697" x="71" y="90" z="37">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 46</label>
+<label index="698" x="0" y="0" z="0">Left Cerebrum.*.Middle Occipital Gyrus.*.*</label>
+<label index="699" x="70" y="22" z="43">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="700" x="13" y="30" z="45">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="701" x="16" y="29" z="45">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.White Matter.*</label>
+<label index="702" x="71" y="24" z="43">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="703" x="72" y="30" z="48">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="704" x="17" y="27" z="43">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="705" x="17" y="25" z="42">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="706" x="46" y="25" z="43">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 23</label>
+<label index="707" x="36" y="26" z="42">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 23</label>
+<label index="708" x="68" y="35" z="42">Left Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="709" x="16" y="35" z="42">Right Cerebrum.Temporal Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="710" x="45" y="38" z="42">Inter-Hemispheric.Limbic Lobe.Posterior Cingulate.*.*</label>
+<label index="711" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="712" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="713" x="46" y="41" z="43">Left Cerebrum.Limbic Lobe.Sub-Gyral.White Matter.Corpus Callosum</label>
+<label index="714" x="45" y="41" z="43">Inter-Hemispheric.Limbic Lobe.Extra-Nuclear.White Matter.Corpus Callosum</label>
+<label index="715" x="39" y="41" z="42">Right Cerebrum.Limbic Lobe.Sub-Gyral.White Matter.Corpus Callosum</label>
+<label index="716" x="81" y="43" z="42">*.*.Superior Temporal Gyrus.*.*</label>
+<label index="717" x="63" y="44" z="41">Left Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.White Matter.*</label>
+<label index="718" x="16" y="54" z="40">Right Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.White Matter.*</label>
+<label index="719" x="14" y="54" z="40">Right Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.Gray Matter.Brodmann area 41</label>
+<label index="720" x="63" y="45" z="41">Left Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.Gray Matter.Brodmann area 41</label>
+<label index="721" x="67" y="50" z="43">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 41</label>
+<label index="722" x="20" y="51" z="43">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 41</label>
+<label index="723" x="62" y="50" z="41">Left Cerebrum.Sub-lobar.Transverse Temporal Gyrus.Gray Matter.Brodmann area 41</label>
+<label index="724" x="0" y="0" z="0">Left Cerebrum.Sub-lobar.Transverse Temporal Gyrus.White Matter.*</label>
+<label index="725" x="53" y="53" z="42">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Lateral Posterior Nucleus</label>
+<label index="726" x="34" y="53" z="41">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Lateral Posterior Nucleus</label>
+<label index="727" x="14" y="56" z="41">Right Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="728" x="79" y="59" z="40">Left Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.*.*</label>
+<label index="729" x="76" y="59" z="40">Left Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="730" x="9" y="54" z="40">Right Cerebrum.Temporal Lobe.Transverse Temporal Gyrus.*.*</label>
+<label index="731" x="19" y="55" z="40">Right Cerebrum.Temporal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="732" x="71" y="56" z="42">Left Cerebrum.Frontal Lobe.Transverse Temporal Gyrus.White Matter.*</label>
+<label index="733" x="70" y="58" z="40">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="734" x="69" y="56" z="41">Left Cerebrum.Sub-lobar.Precentral Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="735" x="19" y="57" z="40">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 13</label>
+<label index="736" x="80" y="57" z="42">Left Cerebrum.*.Transverse Temporal Gyrus.*.*</label>
+<label index="737" x="74" y="58" z="41">Left Cerebrum.Temporal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="738" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 43</label>
+<label index="739" x="75" y="60" z="41">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 43</label>
+<label index="740" x="16" y="58" z="40">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 43</label>
+<label index="741" x="14" y="59" z="40">Right Cerebrum.Temporal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="742" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 42</label>
+<label index="743" x="79" y="62" z="40">Left Cerebrum.*.Precentral Gyrus.*.*</label>
+<label index="744" x="45" y="71" z="39">Inter-Hemispheric.Sub-lobar.Lateral Ventricle.Cerebro-Spinal Fluid.*</label>
+<label index="745" x="0" y="0" z="0">Right Cerebrum.*.Precentral Gyrus.*.*</label>
+<label index="746" x="69" y="69" z="40">Left Cerebrum.Frontal Lobe.Insula.White Matter.*</label>
+<label index="747" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Insula.White Matter.*</label>
+<label index="748" x="75" y="72" z="42">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 44</label>
+<label index="749" x="16" y="72" z="40">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 44</label>
+<label index="750" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Extra-Nuclear.*.*</label>
+<label index="751" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Extra-Nuclear.*.*</label>
+<label index="752" x="45" y="86" z="38">Inter-Hemispheric.Limbic Lobe.Anterior Cingulate.*.*</label>
+<label index="753" x="70" y="91" z="38">Left Cerebrum.*.Middle Frontal Gyrus.*.*</label>
+<label index="754" x="0" y="0" z="0">Right Cerebrum.*.*.Gray Matter.Brodmann area 10</label>
+<label index="755" x="0" y="0" z="0">Inter-Hemispheric.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 10</label>
+<label index="756" x="45" y="30" z="44">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 31</label>
+<label index="757" x="31" y="30" z="44">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 31</label>
+<label index="758" x="56" y="29" z="45">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 18</label>
+<label index="759" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.*</label>
+<label index="760" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 18</label>
+<label index="761" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.*</label>
+<label index="762" x="46" y="35" z="45">Left Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 23</label>
+<label index="763" x="42" y="35" z="45">Right Cerebrum.Limbic Lobe.Posterior Cingulate.Gray Matter.Brodmann area 23</label>
+<label index="764" x="65" y="34" z="44">Left Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="765" x="0" y="0" z="0">Left Cerebrum.*.Superior Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="766" x="23" y="34" z="44">Right Cerebrum.Occipital Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="767" x="0" y="0" z="0">Left Cerebrum.Occipital Lobe.Superior Temporal Gyrus.Gray Matter.Brodmann area 22</label>
+<label index="768" x="26" y="48" z="43">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 41</label>
+<label index="769" x="23" y="49" z="43">Right Cerebrum.Temporal Lobe.Insula.White Matter.*</label>
+<label index="770" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 41</label>
+<label index="771" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Insula.Gray Matter.Brodmann area 41</label>
+<label index="772" x="73" y="50" z="43">Left Cerebrum.Temporal Lobe.Postcentral Gyrus.*.*</label>
+<label index="773" x="71" y="50" z="43">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.*.*</label>
+<label index="774" x="78" y="52" z="45">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="775" x="70" y="50" z="43">Left Cerebrum.Parietal Lobe.Insula.White Matter.*</label>
+<label index="776" x="55" y="50" z="43">Left Cerebrum.Sub-lobar.Extra-Nuclear.White Matter.Pulvinar</label>
+<label index="777" x="19" y="57" z="42">Right Cerebrum.Parietal Lobe.Insula.White Matter.*</label>
+<label index="778" x="11" y="53" z="44">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="779" x="11" y="49" z="45">Right Cerebrum.Temporal Lobe.Postcentral Gyrus.*.*</label>
+<label index="780" x="13" y="48" z="45">Right Cerebrum.Parietal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="781" x="18" y="52" z="43">Right Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 40</label>
+<label index="782" x="9" y="59" z="42">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.*.*</label>
+<label index="783" x="79" y="51" z="43">Left Cerebrum.Parietal Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="784" x="73" y="54" z="46">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.White Matter.*</label>
+<label index="785" x="69" y="52" z="43">Left Cerebrum.Sub-lobar.Insula.Gray Matter.Brodmann area 40</label>
+<label index="786" x="14" y="55" z="46">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.White Matter.*</label>
+<label index="787" x="50" y="53" z="43">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Lateral Dorsal Nucleus</label>
+<label index="788" x="38" y="53" z="43">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Lateral Dorsal Nucleus</label>
+<label index="789" x="0" y="0" z="0">Left Cerebrum.*.Postcentral Gyrus.*.*</label>
+<label index="790" x="48" y="54" z="43">Left Cerebrum.Sub-lobar.Thalamus.Gray Matter.Midline Nucleus</label>
+<label index="791" x="40" y="54" z="43">Right Cerebrum.Sub-lobar.Thalamus.Gray Matter.Midline Nucleus</label>
+<label index="792" x="79" y="55" z="45">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 43</label>
+<label index="793" x="9" y="56" z="42">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 43</label>
+<label index="794" x="71" y="56" z="43">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.*</label>
+<label index="795" x="16" y="57" z="42">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.*</label>
+<label index="796" x="59" y="39" z="55">Left Cerebrum.Parietal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="797" x="0" y="0" z="0">Right Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 43</label>
+<label index="798" x="29" y="44" z="60">Right Cerebrum.Parietal Lobe.Sub-Gyral.White Matter.*</label>
+<label index="799" x="47" y="21" z="58">Left Cerebrum.Parietal Lobe.*.*.*</label>
+<label index="800" x="59" y="49" z="62">Left Cerebrum.Parietal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="801" x="69" y="56" z="47">Left Cerebrum.Parietal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="802" x="17" y="61" z="42">Right Cerebrum.Parietal Lobe.Precentral Gyrus.White Matter.*</label>
+<label index="803" x="78" y="61" z="45">Left Cerebrum.Parietal Lobe.Precentral Gyrus.*.*</label>
+<label index="804" x="72" y="61" z="43">Left Cerebrum.Parietal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="805" x="12" y="62" z="42">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="806" x="31" y="51" z="62">Right Cerebrum.Parietal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="807" x="10" y="62" z="42">Right Cerebrum.Parietal Lobe.Precentral Gyrus.*.*</label>
+<label index="808" x="71" y="61" z="60">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="809" x="72" y="65" z="42">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="810" x="16" y="66" z="42">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="811" x="77" y="71" z="42">Left Cerebrum.*.Inferior Frontal Gyrus.*.*</label>
+<label index="812" x="0" y="0" z="0">*.*.Middle Frontal Gyrus.*.*</label>
+<label index="813" x="53" y="83" z="45">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 9</label>
+<label index="814" x="47" y="87" z="42">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="815" x="41" y="86" z="43">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="816" x="35" y="83" z="45">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 9</label>
+<label index="817" x="63" y="96" z="40">Left Cerebrum.*.Superior Frontal Gyrus.*.*</label>
+<label index="818" x="65" y="21" z="47">Left Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="819" x="20" y="21" z="47">Right Cerebrum.Temporal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="820" x="64" y="21" z="47">Left Cerebrum.Temporal Lobe.Middle Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="821" x="55" y="26" z="52">Left Cerebrum.Occipital Lobe.Precuneus.White Matter.*</label>
+<label index="822" x="33" y="26" z="52">Right Cerebrum.Occipital Lobe.Precuneus.White Matter.*</label>
+<label index="823" x="57" y="25" z="47">Left Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="824" x="30" y="25" z="47">Right Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="825" x="56" y="25" z="47">Left Cerebrum.Occipital Lobe.Precuneus.*.*</label>
+<label index="826" x="0" y="0" z="0">Left Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 18</label>
+<label index="827" x="0" y="0" z="0">Right Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 18</label>
+<label index="828" x="43" y="33" z="46">Right Cerebrum.Occipital Lobe.Precuneus.*.*</label>
+<label index="829" x="45" y="33" z="46">Left Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 23</label>
+<label index="830" x="42" y="33" z="46">Right Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 23</label>
+<label index="831" x="51" y="36" z="46">Left Cerebrum.Sub-lobar.Posterior Cingulate.White Matter.*</label>
+<label index="832" x="36" y="39" z="46">Right Cerebrum.Sub-lobar.Posterior Cingulate.White Matter.*</label>
+<label index="833" x="65" y="54" z="51">Left Cerebrum.Frontal Lobe.Postcentral Gyrus.White Matter.*</label>
+<label index="834" x="20" y="55" z="50">Right Cerebrum.Frontal Lobe.Postcentral Gyrus.White Matter.*</label>
+<label index="835" x="73" y="57" z="52">Left Cerebrum.Frontal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="836" x="14" y="61" z="44">Right Cerebrum.Frontal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="837" x="79" y="63" z="45">*.*.Precentral Gyrus.*.*</label>
+<label index="838" x="45" y="75" z="44">Left Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 33</label>
+<label index="839" x="42" y="74" z="44">Right Cerebrum.Limbic Lobe.Anterior Cingulate.Gray Matter.Brodmann area 33</label>
+<label index="840" x="0" y="0" z="0">Inter-Hemispheric.*.Anterior Cingulate.*.*</label>
+<label index="841" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Anterior Cingulate.Gray Matter.Brodmann area 9</label>
+<label index="842" x="58" y="15" z="50">*.*.Cuneus.*.*</label>
+<label index="843" x="46" y="19" z="53">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 19</label>
+<label index="844" x="40" y="16" z="51">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 19</label>
+<label index="845" x="68" y="23" z="54">*.*.Superior Occipital Gyrus.*.*</label>
+<label index="846" x="67" y="20" z="50">Left Cerebrum.Occipital Lobe.Superior Occipital Gyrus.*.*</label>
+<label index="847" x="28" y="17" z="50">Right Cerebrum.Occipital Lobe.Superior Occipital Gyrus.*.*</label>
+<label index="848" x="60" y="17" z="50">Left Cerebrum.Occipital Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="849" x="23" y="22" z="55">Right Cerebrum.Occipital Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 19</label>
+<label index="850" x="62" y="22" z="53">Left Cerebrum.Occipital Lobe.Superior Occipital Gyrus.White Matter.*</label>
+<label index="851" x="24" y="23" z="52">Right Cerebrum.Occipital Lobe.Superior Occipital Gyrus.White Matter.*</label>
+<label index="852" x="67" y="21" z="50">Left Cerebrum.Temporal Lobe.Superior Occipital Gyrus.*.*</label>
+<label index="853" x="21" y="25" z="51">Right Cerebrum.Temporal Lobe.Superior Occipital Gyrus.*.*</label>
+<label index="854" x="56" y="24" z="49">Left Cerebrum.Temporal Lobe.Cuneus.White Matter.*</label>
+<label index="855" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Cuneus.White Matter.*</label>
+<label index="856" x="46" y="39" z="54">Left Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="857" x="55" y="25" z="50">Left Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 18</label>
+<label index="858" x="0" y="0" z="0">Right Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 18</label>
+<label index="859" x="32" y="25" z="49">Right Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="860" x="53" y="36" z="57">Left Cerebrum.Parietal Lobe.Precuneus.White Matter.*</label>
+<label index="861" x="45" y="26" z="49">Left Cerebrum.Parietal Lobe.Precuneus.*.*</label>
+<label index="862" x="39" y="26" z="49">Right Cerebrum.Parietal Lobe.Precuneus.*.*</label>
+<label index="863" x="34" y="27" z="49">Right Cerebrum.Temporal Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="864" x="34" y="35" z="56">Right Cerebrum.Parietal Lobe.Precuneus.White Matter.*</label>
+<label index="865" x="0" y="0" z="0">*.Frontal Lobe.Middle Temporal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="866" x="36" y="30" z="49">Right Cerebrum.Temporal Lobe.Precuneus.White Matter.*</label>
+<label index="867" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Precuneus.White Matter.*</label>
+<label index="868" x="77" y="36" z="49">Left Cerebrum.Temporal Lobe.Supramarginal Gyrus.*.*</label>
+<label index="869" x="71" y="39" z="48">Left Cerebrum.Temporal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="870" x="70" y="37" z="50">Left Cerebrum.Temporal Lobe.Supramarginal Gyrus.White Matter.*</label>
+<label index="871" x="15" y="36" z="48">Right Cerebrum.Temporal Lobe.Supramarginal Gyrus.White Matter.*</label>
+<label index="872" x="13" y="36" z="48">Right Cerebrum.Temporal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="873" x="10" y="36" z="48">Right Cerebrum.Temporal Lobe.Supramarginal Gyrus.*.*</label>
+<label index="874" x="67" y="39" z="48">Left Cerebrum.Temporal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="875" x="25" y="50" z="47">Right Cerebrum.Parietal Lobe.Extra-Nuclear.White Matter.*</label>
+<label index="876" x="19" y="39" z="48">Right Cerebrum.Temporal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="877" x="70" y="39" z="48">Left Cerebrum.Temporal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="878" x="65" y="40" z="58">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="879" x="69" y="43" z="50">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="880" x="19" y="47" z="50">Right Cerebrum.Parietal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="881" x="15" y="48" z="60">Right Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="882" x="77" y="36" z="52">Left Cerebrum.Parietal Lobe.Supramarginal Gyrus.*.*</label>
+<label index="883" x="15" y="41" z="49">Right Cerebrum.Parietal Lobe.Supramarginal Gyrus.*.*</label>
+<label index="884" x="78" y="41" z="48">Left Cerebrum.Temporal Lobe.Inferior Parietal Lobule.*.*</label>
+<label index="885" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="886" x="0" y="0" z="0">Right Cerebrum.Temporal Lobe.Inferior Parietal Lobule.*.*</label>
+<label index="887" x="78" y="46" z="48">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.*.*</label>
+<label index="888" x="0" y="0" z="0">Inter-Hemispheric.Limbic Lobe.*.*.*</label>
+<label index="889" x="9" y="42" z="48">Right Cerebrum.Parietal Lobe.Inferior Parietal Lobule.*.*</label>
+<label index="890" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.*.White Matter.*</label>
+<label index="891" x="69" y="52" z="60">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 2</label>
+<label index="892" x="18" y="53" z="60">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 2</label>
+<label index="893" x="78" y="55" z="47">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 1</label>
+<label index="894" x="9" y="55" z="47">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 1</label>
+<label index="895" x="61" y="53" z="60">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="896" x="15" y="59" z="59">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="897" x="74" y="59" z="48">Left Cerebrum.Frontal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="898" x="14" y="59" z="47">Right Cerebrum.Frontal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="899" x="75" y="70" z="51">Left Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="900" x="13" y="70" z="51">Right Cerebrum.Frontal Lobe.Inferior Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="901" x="21" y="73" z="52">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="902" x="54" y="94" z="48">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="903" x="34" y="94" z="48">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="904" x="44" y="81" z="60">Inter-Hemispheric.*.Superior Frontal Gyrus.*.*</label>
+<label index="905" x="37" y="26" z="51">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 31</label>
+<label index="906" x="67" y="25" z="52">Left Cerebrum.Temporal Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="907" x="26" y="25" z="55">Right Cerebrum.Temporal Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="908" x="63" y="26" z="52">Left Cerebrum.Occipital Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="909" x="51" y="26" z="51">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 31</label>
+<label index="910" x="24" y="26" z="51">Right Cerebrum.Occipital Lobe.Superior Occipital Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="911" x="49" y="35" z="51">Left Cerebrum.Limbic Lobe.Precuneus.*.*</label>
+<label index="912" x="46" y="54" z="57">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.*.*</label>
+<label index="913" x="43" y="53" z="57">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.*.*</label>
+<label index="914" x="41" y="33" z="51">Right Cerebrum.Limbic Lobe.Precuneus.*.*</label>
+<label index="915" x="46" y="42" z="53">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 31</label>
+<label index="916" x="35" y="50" z="57">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 31</label>
+<label index="917" x="0" y="0" z="0">Left Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 39</label>
+<label index="918" x="27" y="34" z="51">Right Cerebrum.Temporal Lobe.Sub-Gyral.Gray Matter.Brodmann area 39</label>
+<label index="919" x="52" y="35" z="51">Left Cerebrum.Limbic Lobe.Precuneus.White Matter.*</label>
+<label index="920" x="50" y="42" z="55">Left Cerebrum.Limbic Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="921" x="50" y="48" z="53">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.White Matter.*</label>
+<label index="922" x="38" y="48" z="53">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.White Matter.*</label>
+<label index="923" x="36" y="35" z="51">Right Cerebrum.Limbic Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="924" x="36" y="42" z="55">Right Cerebrum.Limbic Lobe.Precuneus.White Matter.*</label>
+<label index="925" x="77" y="35" z="51">Left Cerebrum.Occipital Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="926" x="0" y="0" z="0">Right Cerebrum.Occipital Lobe.Superior Temporal Gyrus.*.*</label>
+<label index="927" x="74" y="36" z="53">Left Cerebrum.Parietal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="928" x="12" y="38" z="54">Right Cerebrum.Parietal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="929" x="69" y="39" z="54">Left Cerebrum.Parietal Lobe.Supramarginal Gyrus.White Matter.*</label>
+<label index="930" x="18" y="42" z="54">Right Cerebrum.Parietal Lobe.Supramarginal Gyrus.White Matter.*</label>
+<label index="931" x="78" y="39" z="51">*.*.Supramarginal Gyrus.*.*</label>
+<label index="932" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 31</label>
+<label index="933" x="78" y="44" z="55">*.*.Inferior Parietal Lobule.*.*</label>
+<label index="934" x="45" y="54" z="49">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 23</label>
+<label index="935" x="42" y="50" z="51">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 23</label>
+<label index="936" x="63" y="48" z="50">Left Cerebrum.Frontal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="937" x="22" y="52" z="49">Right Cerebrum.Frontal Lobe.Inferior Parietal Lobule.White Matter.*</label>
+<label index="938" x="74" y="57" z="50">Left Cerebrum.Parietal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="939" x="74" y="57" z="49">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="940" x="14" y="57" z="49">Right Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="941" x="46" y="70" z="51">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 24</label>
+<label index="942" x="42" y="60" z="51">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 24</label>
+<label index="943" x="72" y="79" z="51">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="944" x="14" y="75" z="50">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="945" x="46" y="77" z="50">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="946" x="41" y="69" z="56">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="947" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="948" x="36" y="81" z="49">Right Cerebrum.Limbic Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="949" x="50" y="82" z="48">Left Cerebrum.Limbic Lobe.Medial Frontal Gyrus.*.*</label>
+<label index="950" x="40" y="83" z="47">Right Cerebrum.Limbic Lobe.Medial Frontal Gyrus.*.*</label>
+<label index="951" x="43" y="29" z="53">Right Cerebrum.*.Cuneus.*.*</label>
+<label index="952" x="46" y="30" z="54">Left Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 7</label>
+<label index="953" x="37" y="28" z="53">Right Cerebrum.Occipital Lobe.Cuneus.Gray Matter.Brodmann area 7</label>
+<label index="954" x="68" y="24" z="54">*.*.Angular Gyrus.*.*</label>
+<label index="955" x="67" y="24" z="54">Left Cerebrum.Occipital Lobe.Angular Gyrus.*.*</label>
+<label index="956" x="20" y="24" z="54">Right Cerebrum.Occipital Lobe.Angular Gyrus.*.*</label>
+<label index="957" x="68" y="25" z="54">Left Cerebrum.Temporal Lobe.Angular Gyrus.*.*</label>
+<label index="958" x="62" y="25" z="54">Left Cerebrum.Temporal Lobe.Angular Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="959" x="20" y="26" z="53">Right Cerebrum.Temporal Lobe.Angular Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="960" x="18" y="26" z="53">Right Cerebrum.Temporal Lobe.Angular Gyrus.*.*</label>
+<label index="961" x="62" y="26" z="54">Left Cerebrum.Temporal Lobe.Angular Gyrus.White Matter.*</label>
+<label index="962" x="21" y="27" z="53">Right Cerebrum.Temporal Lobe.Angular Gyrus.White Matter.*</label>
+<label index="963" x="57" y="26" z="54">Left Cerebrum.Parietal Lobe.Cuneus.White Matter.*</label>
+<label index="964" x="31" y="27" z="53">Right Cerebrum.Parietal Lobe.Cuneus.White Matter.*</label>
+<label index="965" x="68" y="33" z="55">Left Cerebrum.Parietal Lobe.Angular Gyrus.White Matter.*</label>
+<label index="966" x="19" y="32" z="55">Right Cerebrum.Parietal Lobe.Angular Gyrus.White Matter.*</label>
+<label index="967" x="71" y="30" z="55">Left Cerebrum.Parietal Lobe.Angular Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="968" x="56" y="27" z="59">Left Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 7</label>
+<label index="969" x="36" y="29" z="53">Right Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 7</label>
+<label index="970" x="16" y="30" z="55">Right Cerebrum.Parietal Lobe.Angular Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="971" x="51" y="29" z="53">Left Cerebrum.Occipital Lobe.Precuneus.Gray Matter.Brodmann area 7</label>
+<label index="972" x="32" y="27" z="59">Right Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 7</label>
+<label index="973" x="0" y="0" z="0">*.Parietal Lobe.*.*.*</label>
+<label index="974" x="74" y="31" z="53">Left Cerebrum.Parietal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="975" x="13" y="31" z="53">Right Cerebrum.Parietal Lobe.Supramarginal Gyrus.Gray Matter.Brodmann area 39</label>
+<label index="976" x="43" y="32" z="53">Right Cerebrum.*.Precuneus.*.*</label>
+<label index="977" x="13" y="58" z="58">Right Cerebrum.Parietal Lobe.*.*.*</label>
+<label index="978" x="64" y="50" z="57">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 2</label>
+<label index="979" x="75" y="57" z="52">Left Cerebrum.Frontal Lobe.Postcentral Gyrus.*.*</label>
+<label index="980" x="18" y="59" z="58">Right Cerebrum.Frontal Lobe.Postcentral Gyrus.*.*</label>
+<label index="981" x="50" y="78" z="50">Left Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="982" x="40" y="79" z="50">Right Cerebrum.Limbic Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="983" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 9</label>
+<label index="984" x="30" y="81" z="50">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 9</label>
+<label index="985" x="0" y="0" z="0">Left Cerebrum.Parietal Lobe.Cuneus.*.*</label>
+<label index="986" x="60" y="24" z="59">Left Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 19</label>
+<label index="987" x="27" y="23" z="57">Right Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 19</label>
+<label index="988" x="44" y="25" z="56">Inter-Hemispheric.*.Precuneus.*.*</label>
+<label index="989" x="22" y="30" z="55">Right Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 39</label>
+<label index="990" x="67" y="27" z="56">Left Cerebrum.Parietal Lobe.Precuneus.Gray Matter.Brodmann area 39</label>
+<label index="991" x="27" y="33" z="57">Right Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 39</label>
+<label index="992" x="0" y="0" z="0">Left Cerebrum.Parietal Lobe.Angular Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="993" x="14" y="35" z="55">Right Cerebrum.Parietal Lobe.Angular Gyrus.Gray Matter.Brodmann area 40</label>
+<label index="994" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 31</label>
+<label index="995" x="0" y="0" z="0">Left Cerebrum.Parietal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 31</label>
+<label index="996" x="47" y="41" z="55">Left Cerebrum.Parietal Lobe.Cingulate Gyrus.*.*</label>
+<label index="997" x="40" y="41" z="55">Right Cerebrum.Parietal Lobe.Cingulate Gyrus.*.*</label>
+<label index="998" x="39" y="41" z="55">Right Cerebrum.Parietal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 31</label>
+<label index="999" x="57" y="44" z="66">Left Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 40</label>
+<label index="1000" x="31" y="44" z="66">Right Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 40</label>
+<label index="1001" x="47" y="76" z="52">Left Cerebrum.Frontal Lobe.Cingulate Gyrus.White Matter.*</label>
+<label index="1002" x="36" y="75" z="53">Right Cerebrum.Frontal Lobe.Cingulate Gyrus.White Matter.*</label>
+<label index="1003" x="47" y="45" z="71">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="1004" x="63" y="77" z="52">Left Cerebrum.Frontal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 9</label>
+<label index="1005" x="45" y="75" z="52">Left Cerebrum.Frontal Lobe.Cingulate Gyrus.*.*</label>
+<label index="1006" x="46" y="76" z="52">Left Cerebrum.Frontal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="1007" x="37" y="78" z="52">Right Cerebrum.Frontal Lobe.Cingulate Gyrus.*.*</label>
+<label index="1008" x="42" y="77" z="53">Right Cerebrum.Frontal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 32</label>
+<label index="1009" x="51" y="60" z="62">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1010" x="51" y="78" z="52">Left Cerebrum.Frontal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1011" x="42" y="58" z="62">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1012" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Cingulate Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1013" x="38" y="20" z="58">*.*.Precuneus.*.*</label>
+<label index="1014" x="65" y="30" z="58">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 39</label>
+<label index="1015" x="17" y="32" z="57">Right Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 39</label>
+<label index="1016" x="52" y="42" z="57">Left Cerebrum.Frontal Lobe.Precuneus.Gray Matter.Brodmann area 31</label>
+<label index="1017" x="36" y="42" z="57">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 31</label>
+<label index="1018" x="0" y="0" z="0">Left Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 2</label>
+<label index="1019" x="0" y="0" z="0">Right Cerebrum.Parietal Lobe.Precentral Gyrus.Gray Matter.Brodmann area 3</label>
+<label index="1020" x="55" y="57" z="56">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 24</label>
+<label index="1021" x="33" y="57" z="56">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 24</label>
+<label index="1022" x="55" y="63" z="65">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 6</label>
+<label index="1023" x="58" y="66" z="59">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1024" x="17" y="69" z="58">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1025" x="70" y="71" z="56">Left Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1026" x="30" y="76" z="58">Right Cerebrum.Frontal Lobe.Middle Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1027" x="52" y="79" z="54">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 8</label>
+<label index="1028" x="34" y="78" z="54">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 8</label>
+<label index="1029" x="50" y="77" z="55">Left Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 32</label>
+<label index="1030" x="0" y="0" z="0">Right Cerebrum.Limbic Lobe.Sub-Gyral.Gray Matter.Brodmann area 32</label>
+<label index="1031" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 32</label>
+<label index="1032" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 32</label>
+<label index="1033" x="46" y="80" z="55">Left Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1034" x="42" y="80" z="55">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1035" x="57" y="81" z="61">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1036" x="30" y="87" z="55">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 8</label>
+<label index="1037" x="58" y="25" z="61">Left Cerebrum.Parietal Lobe.Superior Parietal Lobule.*.*</label>
+<label index="1038" x="32" y="34" z="60">Right Cerebrum.Parietal Lobe.Superior Parietal Lobule.*.*</label>
+<label index="1039" x="55" y="38" z="69">Left Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1040" x="34" y="38" z="69">Right Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1041" x="61" y="33" z="64">Left Cerebrum.Parietal Lobe.Superior Parietal Lobule.White Matter.*</label>
+<label index="1042" x="28" y="31" z="61">Right Cerebrum.Parietal Lobe.Superior Parietal Lobule.White Matter.*</label>
+<label index="1043" x="63" y="33" z="60">Left Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1044" x="22" y="31" z="61">Right Cerebrum.Parietal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1045" x="45" y="49" z="59">Left Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 31</label>
+<label index="1046" x="45" y="54" z="59">Left Cerebrum.Frontal Lobe.Paracentral Lobule.*.*</label>
+<label index="1047" x="44" y="49" z="59">Inter-Hemispheric.*.Paracentral Lobule.*.*</label>
+<label index="1048" x="43" y="49" z="59">Right Cerebrum.Frontal Lobe.Paracentral Lobule.*.*</label>
+<label index="1049" x="42" y="50" z="60">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 31</label>
+<label index="1050" x="40" y="49" z="61">Right Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 31</label>
+<label index="1051" x="49" y="49" z="63">Left Cerebrum.Frontal Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1052" x="39" y="49" z="63">Right Cerebrum.Frontal Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1053" x="0" y="0" z="0">Left Cerebrum.Limbic Lobe.Paracentral Lobule.Gray Matter.Brodmann area 31</label>
+<label index="1054" x="49" y="59" z="59">Left Cerebrum.Limbic Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1055" x="39" y="60" z="60">Right Cerebrum.Limbic Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1056" x="45" y="60" z="59">Left Cerebrum.Limbic Lobe.Paracentral Lobule.*.*</label>
+<label index="1057" x="41" y="60" z="58">Right Cerebrum.Limbic Lobe.Paracentral Lobule.*.*</label>
+<label index="1058" x="44" y="61" z="58">Inter-Hemispheric.*.Cingulate Gyrus.*.*</label>
+<label index="1059" x="44" y="68" z="58">Inter-Hemispheric.*.Medial Frontal Gyrus.*.*</label>
+<label index="1060" x="57" y="30" z="66">*.*.Superior Parietal Lobule.*.*</label>
+<label index="1061" x="64" y="37" z="63">Left Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="1062" x="25" y="38" z="63">Right Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="1063" x="53" y="44" z="62">Left Cerebrum.Parietal Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1064" x="0" y="0" z="0">Left Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1065" x="54" y="42" z="63">Left Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1066" x="34" y="42" z="62">Right Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1067" x="34" y="43" z="62">Right Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1068" x="46" y="45" z="63">Left Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1069" x="42" y="43" z="62">Right Cerebrum.Frontal Lobe.Precuneus.*.*</label>
+<label index="1070" x="35" y="45" z="63">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1071" x="49" y="44" z="62">Left Cerebrum.Parietal Lobe.Paracentral Lobule.*.*</label>
+<label index="1072" x="0" y="0" z="0">Right Cerebrum.Parietal Lobe.Paracentral Lobule.*.*</label>
+<label index="1073" x="36" y="45" z="64">Right Cerebrum.Parietal Lobe.Paracentral Lobule.White Matter.*</label>
+<label index="1074" x="0" y="0" z="0">Right Cerebrum.Frontal Lobe.Precuneus.White Matter.*</label>
+<label index="1075" x="46" y="51" z="62">Left Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 6</label>
+<label index="1076" x="42" y="51" z="62">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 6</label>
+<label index="1077" x="51" y="79" z="64">Left Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1078" x="40" y="64" z="70">Right Cerebrum.Frontal Lobe.Superior Frontal Gyrus.Gray Matter.Brodmann area 6</label>
+<label index="1079" x="0" y="0" z="0">Right Cerebrum.*.Superior Parietal Lobule.*.*</label>
+<label index="1080" x="55" y="40" z="65">Left Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 7</label>
+<label index="1081" x="33" y="39" z="65">Right Cerebrum.Parietal Lobe.Sub-Gyral.Gray Matter.Brodmann area 7</label>
+<label index="1082" x="67" y="39" z="66">Right Cerebrum.Frontal Lobe.Inferior Parietal Lobule.Gray Matter.Brodmann area 40</label>
+<label index="1083" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Precuneus.Gray Matter.Brodmann area 5</label>
+<label index="1084" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Precuneus.White Matter.*</label>
+<label index="1085" x="0" y="0" z="0">Left Cerebrum.Frontal Lobe.Precuneus.*.*</label>
+<label index="1086" x="35" y="43" z="66">Right Cerebrum.Frontal Lobe.Precuneus.Gray Matter.Brodmann area 5</label>
+<label index="1087" x="38" y="43" z="65">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 7</label>
+<label index="1088" x="52" y="45" z="65">Left Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 3</label>
+<label index="1089" x="46" y="46" z="68">Left Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 4</label>
+<label index="1090" x="41" y="46" z="68">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 4</label>
+<label index="1091" x="36" y="46" z="65">Right Cerebrum.Frontal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 3</label>
+<label index="1092" x="34" y="49" z="66">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 3</label>
+<label index="1093" x="35" y="50" z="65">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 4</label>
+<label index="1094" x="31" y="68" z="63">Right Cerebrum.Frontal Lobe.Sub-Gyral.Gray Matter.Brodmann area 6</label>
+<label index="1095" x="61" y="42" z="68">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 5</label>
+<label index="1096" x="24" y="43" z="69">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 5</label>
+<label index="1097" x="56" y="42" z="68">Left Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1098" x="31" y="43" z="68">Right Cerebrum.Parietal Lobe.Superior Parietal Lobule.Gray Matter.Brodmann area 5</label>
+<label index="1099" x="34" y="48" z="68">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="1100" x="35" y="49" z="68">Right Cerebrum.Frontal Lobe.Medial Frontal Gyrus.Gray Matter.Brodmann area 4</label>
+<label index="1101" x="51" y="39" z="72">Left Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 7</label>
+<label index="1102" x="39" y="37" z="71">Right Cerebrum.Parietal Lobe.Postcentral Gyrus.Gray Matter.Brodmann area 7</label>
+<label index="1103" x="42" y="41" z="71">Inter-Hemispheric.*.Postcentral Gyrus.*.*</label>
+<label index="1104" x="48" y="45" z="71">Left Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 4</label>
+<label index="1105" x="42" y="45" z="71">Right Cerebrum.Parietal Lobe.Paracentral Lobule.Gray Matter.Brodmann area 4</label>
+  </data>
+</atlas>

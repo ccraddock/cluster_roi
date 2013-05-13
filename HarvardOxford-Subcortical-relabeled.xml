@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<atlas version="1.0">
+  <header>
+    <name>Harvard-Oxford Subcortical Structural Atlas</name>
+    <shortname>HOSPA</shortname>
+    <type>Probabalistic</type>
+    <images>
+      <imagefile>/HarvardOxford/HarvardOxford-sub-prob-2mm</imagefile>
+      <summaryimagefile>/HarvardOxford/HarvardOxford-sub-maxprob-thr25-2mm</summaryimagefile>
+    </images>
+    <images>
+      <imagefile>/HarvardOxford/HarvardOxford-sub-prob-1mm</imagefile>
+      <summaryimagefile>/HarvardOxford/HarvardOxford-sub-maxprob-thr25-1mm</summaryimagefile>
+    </images>
+  </header>
+  <data>
+<label index="1" x="60" y="37" z="52">Left Cerebral White Matter</label>
+<label index="2" x="70" y="58" z="40">Left Cerebral Cortex </label>
+<label index="3" x="56" y="42" z="41">Left Lateral Ventrical</label>
+<label index="9" x="50" y="52" z="39">Left Thalamus</label>
+<label index="10" x="51" y="70" z="40">Left Caudate</label>
+<label index="11" x="56" y="67" z="34">Left Putamen</label>
+<label index="12" x="54" y="62" z="35">Left Pallidum</label>
+<label index="15" x="44" y="50" z="20">Brain-Stem</label>
+<label index="16" x="59" y="55" z="26">Left Hippocampus</label>
+<label index="17" x="57" y="62" z="25">Left Amygdala</label>
+<label index="25" x="50" y="69" z="32">Left Accumbens</label>
+<label index="40" x="29" y="38" z="49">Right Cerebral White Matter</label>
+<label index="41" x="20" y="60" z="43">Right Cerebral Cortex </label>
+<label index="42" x="35" y="45" z="44">Right Lateral Ventricle</label>
+<label index="48" x="38" y="51" z="39">Right Thalamus</label>
+<label index="49" x="38" y="69" z="42">Right Caudate</label>
+<label index="50" x="34" y="68" z="34">Right Putamen</label>
+<label index="51" x="36" y="62" z="34">Right Pallidum</label>
+<label index="52" x="31" y="56" z="26">Right Hippocampus</label>
+<label index="53" x="32" y="63" z="25">Right Amygdala</label>
+<label index="57" x="40" y="68" z="32">Right Accumbens</label>
+  </data>
+</atlas>
