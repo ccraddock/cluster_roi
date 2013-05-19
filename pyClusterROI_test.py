@@ -1,18 +1,34 @@
-#### make_local_connectivity_tcorr.py
+#### pyClusterROI_test.py
 # Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
 #
-# This script is a part of the pyClusterROI python toolbox for the spatially constrained clustering of fMRI
-# data. It is a demonstration of how to use the toolbox and a regression test to make sure that the toolbox
-# code works.
+# This script is a part of the pyClusterROI python toolbox for the spatially
+# constrained clustering of fMRI data. It is a demonstration of how to use the
+# toolbox and a regression test to make sure that the toolbox code works.
 #
 # For more information refer to:
 #
-# Craddock, R. C., James, G. A., Holtzheimer, P. E., Hu, X. P., & Mayberg, H. S. (2011). A whole 
-# brain fMRI atlas generated via spatially constrained spectral clustering. Human brain mapping, 
-# doi: 10.1002/hbm.21333.
+# Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
+# A whole brain fMRI atlas generated via spatially constrained spectral
+# clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
 #
-# Documentation, updated source code and other information can be found at the NITRC web page:
-# http://www.nitrc.org/projects/cluster_roi/
+# ARTICLE{Craddock2012,
+#   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
+#   Mayberg, H S},
+#   title = {{A whole brain fMRI atlas generated via spatially constrained
+#   spectral clustering}},
+#   journal = {Human Brain Mapping},
+#   year = {2012},
+#   volume = {33},
+#   pages = {1914--1928},
+#   number = {8},
+#   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
+#       TX, United States},
+#   pmid = {21769991},
+# } 
+#
+# Documentation, updated source code and other information can be found at the
+# NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
+# https://github.com/ccraddock/cluster_roi
 #
 #
 # This program is free software: you can redistribute it and/or modify
@@ -29,16 +45,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ####
 
-# this scripts requires NumPy (numpy.scipy.org), SciPy (www.scipy.org), and PyNIfTI 
-# (http://niftilib.sourceforge.net/pynifti/)  and the pyClusterROI toolbox to be 
-# installed in a directory that is accessible through PythonPath
-import sys
 
-# this is how you would add a directory to the search path, this is useful if you
-# are running this script from a directory other than the directory where
-# the pyClusterROI is installed. Or if for some reason your NumPy, SciPy, or PyNIfTI
-# libraries are in a non-standard location, do this before you import the files/libraries
-# that require the change in path
+# this scripts requires NumPy (numpy.scipy.org), SciPy (www.scipy.org), and
+# NiBabel (http://niftilib.sourceforge.net/pynifti/) and the pyClusterROI
+# toolbox to be installed in a directory that is accessible through PythonPath
+# import sys
+
+# this is how you would add a directory to the search path, this is useful if
+# you are running this script from a directory other than the directory where
+# the pyClusterROI is installed. Or if for some reason your NumPy, SciPy, or
+# NiBabel libraries are in a non-standard location, do this before you import
+# the files/libraries that require the change in path
 # sys.path.append("/home/user/python_toolboxes")
 
 # import the different functions we will use from pyClusterROI
@@ -81,15 +98,16 @@ make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
 for i in range(0,len(infiles)):
 
-	# construct an output filename for this file
-	outname='rm_tcorr_conn_'+str(i)+'.npy'
+    # construct an output filename for this file
+    outname='rm_tcorr_conn_'+str(i)+'.npy'
 
-	print 'tcorr connectivity',infiles[i]
-	# call the funtion to make connectivity
-	make_local_connectivity_tcorr( infiles[i], maskname, outname, 0.5 )
+    print 'tcorr connectivity',infiles[i]
+    # call the funtion to make connectivity
+    make_local_connectivity_tcorr( infiles[i], maskname, outname, 0.5 )
 
-	 
+
 # construct the connectivity matrices using scorr and a r>0.5 threshold
+# This can take a _really_ long time
 for i in range(0,len(infiles)):
 
 	# construct an output filename for this file
@@ -98,7 +116,7 @@ for i in range(0,len(infiles)):
 	print 'scorr connectivity',infiles[i]
 	# call the funtion to make connectivity
 	make_local_connectivity_scorr( infiles[i], maskname, outname, 0.5 )
-	 
+
 ##### Step 2. Individual level clustering
 # next we will do the individual level clustering, this is not performed for 
 # group-mean clustering, remember that for these functions the output name
@@ -118,7 +136,7 @@ for i in range(0,len(infiles)):
 
 	print 'tcorr parcellate',infiles[i]
 	binfile_parcellate(infile, outfile, [100,150,200])
-	
+
 # for scorr
 for i in range(0,len(infiles)):
 
@@ -157,7 +175,7 @@ for k in [100,150,200]:
 	ind_clust_files=[]
 	for i in range(0,len(infiles)):
 		ind_clust_files.append('rm_tcorr_indiv_cluster_'+str(i)+'_'+str(k)+'.npy')
-	
+
 	print '2-level parcellate tcorr',k
 	group_binfile_parcellate(ind_clust_files,'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
 

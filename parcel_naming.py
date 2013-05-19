@@ -1,15 +1,68 @@
+#### parcel_naming.py
+# Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
+#
+# This script is a part of the pyClusterROI python toolbox for the spatially
+# constrained clustering of fMRI data. It provies functionality for assigning
+# labels to regions identified through spatially constrained functional
+# parcellation of fMRI data. The spatial overlap is calculated between the
+# region and one of several different atlases available with the FSL image
+# analysis toolset (http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/). The labels of
+# overlapping clusters as well as the amount (percentage) of overlap is written
+# to a comma seperated values file.
+#
+# REQUIRES ATLASES AVAILABLE WITH FSL (http://fsl.fmrib.ox.ac.uk/fsl/fslwiki/).
+#
+# For more information refer to:
+#
+# Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
+# A whole brain fMRI atlas generated via spatially constrained spectral
+# clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
+#
+# ARTICLE{Craddock2012,
+#   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
+#   Mayberg, H S},
+#   title = {{A whole brain fMRI atlas generated via spatially constrained
+#   spectral clustering}},
+#   journal = {Human Brain Mapping},
+#   year = {2012},
+#   volume = {33},
+#   pages = {1914--1928},
+#   number = {8},
+#   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
+#       TX, United States},
+#   pmid = {21769991},
+# } 
+#
+# Documentation, updated source code and other information can be found at the
+# NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
+# https://github.com/ccraddock/cluster_roi
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+####
+
+# this scripts requires NumPy (numpy.scipy.org), and NiBabel
+# (http://nipy.sourceforge.net/nibabel/) to be installed in a directory that is
+# accessible through PythonPath 
 import nibabel as nb
 import numpy as np
 from collections import defaultdict
-from lxml import etree
 import os, sys
 
 # The following code was adapted from Satra Gosh's sad_figures.py script
 # located at https://github.com/satra/sad/blob/master/sad_figures.py
-
 # get cluster coordinates caculate the volume and the center of mass
 # of the brain regions in img
-
 def get_region_CoM(img, affine):
     coords = defaultdict(dict)
 
@@ -55,10 +108,14 @@ def read_and_conform_atlas(atlas_file,atlas_label_file,\
     atlas_labels=defaultdict()
 
     print "Reading in the atlas labels: %s"%(atlas_label_file)
-    lbl_root=etree.parse(atlas_label_file)
-    for l in lbl_root.getiterator():
-        if l.get("index"):
-            atlas_labels[int(l.get("index"))+1]=l.text.replace(',',';')
+    with open(atlas_label_file,"r") as f:
+        for line in f:
+            if '#' in line:
+                continue
+            line=line.rstrip('\n')
+            vals=line.split(',')
+            atlas_labels[int(vals[0])]=vals[1]
+
     atlas_labels[0]="None"
     print "Read in the atlas %s"%(atlas_file)
     # lets read in the Harvord Oxford Cortical map
@@ -86,21 +143,29 @@ def main():
         print "FSL_DIR is not set in the environment, is FSL installed?"
         sys.exit()
 
+    # This is where the atlases are specified in the format
+    # "ATLAS NAME":("path to label file","path to atlas.nii")
     atlas_cfg={\
-      "Talairach Daemon":("Talairach-relabeled.xml",\
-        os.path.join(fsl_path,"data/atlases/Talairach/Talairach-labels-2mm.nii.gz")),\
-      "HarvardOxford Cortical":("HarvardOxford-Cortical-relabeled.xml",\
-        os.path.join(fsl_path,"data/atlases/HarvardOxford/HarvardOxford-cort-maxprob-thr25-2mm.nii.gz")),\
-      "HarvardOxford Subcortical":("HarvardOxford-Subcortical-relabeled.xml",\
-        os.path.join(fsl_path,"data/atlases/HarvardOxford/HarvardOxford-sub-maxprob-thr25-2mm.nii.gz")),\
-      "Jeulich Histological":("Juelich-relabeled.xml",\
-         os.path.join(fsl_path,"data/atlases/Juelich/Juelich-maxprob-thr25-2mm.nii.gz")),\
-      "MNI Structural":("MNI-relabeled.xml",\
-        os.path.join(fsl_path,"data/atlases/MNI/MNI-maxprob-thr25-2mm.nii.gz"))}
+    "Talairach Daemon":("talairach_labels.csv",\
+      os.path.join(fsl_path,\
+      "data/atlases/Talairach/Talairach-labels-2mm.nii.gz")),\
+    "HarvardOxford Cortical":("harvardoxford_cortical_labels.csv",\
+      os.path.join(fsl_path,\
+      "data/atlases/HarvardOxford/HarvardOxford-cort-maxprob-thr25-2mm.nii.gz")),\
+    "HarvardOxford Subcortical":("harvardoxford_subcortical_labels.csv",\
+      os.path.join(fsl_path,\
+      "data/atlases/HarvardOxford/HarvardOxford-sub-maxprob-thr25-2mm.nii.gz")),\
+    "Jeulich Histological":("juelich_labels.csv",\
+      os.path.join(fsl_path,\
+      "data/atlases/Juelich/Juelich-maxprob-thr25-2mm.nii.gz")),\
+    "MNI Structural":("mni_labels.csv",\
+      os.path.join(fsl_path,\
+      "data/atlases/MNI/MNI-maxprob-thr25-2mm.nii.gz"))}
 
     if len(sys.argv) < 4:
         print "number of arguements %d"%(len(sys.argv))
-        print "Usage %s <parcellation filename> <outname> <10,20,30,...>"%(sys.argv[0])
+        print "Usage %s <parcellation filename> <outname> <10,20,30,...>"%\
+            (sys.argv[0])
         sys.exit()
 
     parcel_filename=sys.argv[1]
@@ -122,9 +187,6 @@ def main():
     else:
         print "Length of parcel values (%d) == number of parcel images (%d)"%( \
             len(parcel_vals),np.shape(parcels_img)[3])
-    #HO_atlas=read_and_conform_atlas(os.path.join(fsl_path,\
-        #'data/atlases/HarvardOxford/HarvardOxford-cort-maxprob-thr25-1mm.nii.gz'),\
-        #parcels_img[:,:,:,0],parcels_nii.get_affine())
 
     atlases=defaultdict()
 
@@ -162,6 +224,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+# Example command lines for execution inside ipython
 #%run parcel_naming.py tcorr05_2level_all.nii.gz tcorr05_2level '10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,350,400,450,500,550,600,650,700,750,800,850,900,950'
 #%run parcel_naming.py scorr05_2level_all.nii.gz scorr05_2level '10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,350,400,450,500,550,600,650,700,750,800,850,900,950'
 #%run parcel_naming.py tcorr05_mean_all.nii.gz tcorr05_mean '10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300,350,400,450,500,550,600,650,700,750,800,850,900,950'

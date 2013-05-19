@@ -48,7 +48,7 @@
 ####
 
 # this scripts requires NumPy (numpy.scipy.org), and NiBabel
-# (http://niftilib.sourceforge.net/pynifti/) to be installed in a directory
+# (http://nipy.sourceforge.net/nibabel/) to be installed in a directory
 # that is accessible through PythonPath 
 import nibabel as nb
 from numpy import *
