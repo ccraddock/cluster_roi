@@ -52,8 +52,6 @@
 import time as time
 from numpy import *
 from scipy.sparse import csc_matrix
-from scipy.sparse.linalg.eigen.arpack import eigen_symmetric
-from scipy.linalg import norm, svd
 from python_ncut_lib import *
 
 # binfile_parcellate( infile, outfile, K ):

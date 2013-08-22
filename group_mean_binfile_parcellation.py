@@ -55,8 +55,6 @@
 import time as time
 from numpy import *
 from scipy.sparse import csc_matrix
-from scipy.sparse.linalg.eigen.arpack import eigen_symmetric
-from scipy.linalg import norm, svd
 from python_ncut_lib import *
 
 
@@ -103,8 +101,9 @@ def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
             fileobj=open(infiles[i], 'rb')
             a=fromfile(fileobj)
             fileobj.close()
-            n=len(a)/3
-            a=reshape(a,(3,n))
+
+        n=len(a)/3
+        a=reshape(a,(3,n))
 
         # determine all of the voxel indices represented
         vx_ndx=unique(a[-2,:]) 

@@ -65,7 +65,7 @@ from numpy import array, reshape, shape, matrix, ones, zeros, sqrt
 from numpy import argsort, sign, kron, multiply, divide, abs, asarray
 from scipy import rand
 from scipy.sparse import csc_matrix, spdiags
-from scipy.sparse.linalg.eigen.arpack import eigen_symmetric
+from scipy.sparse.linalg.eigen.arpack import eigsh
 from scipy.linalg import norm, svd, LinAlgError
 
 # exception hander for singular value decomposition
@@ -127,7 +127,7 @@ def ncut( W, nbEigenValues ):
     P=Dinvsqrt*(W*Dinvsqrt);
 
     # perform the eigen decomposition
-    eigen_val,eigen_vec=eigen_symmetric(P,nbEigenValues,maxiter=maxiterations,\
+    eigen_val,eigen_vec=eigsh(P,nbEigenValues,maxiter=maxiterations,\
         tol=eigsErrorTolerence,which='LA')
 
     # sort the eigen_vals so that the first
