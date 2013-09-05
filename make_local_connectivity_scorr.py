@@ -129,10 +129,10 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
 
     #zscore fmri time courses, this makes calculation of the
     # correlation coefficient a simple matrix product
-    imdat_s=tile(std(imdat,1),(148,1)).T
+    imdat_s=tile(std(imdat,1),(sz[3],1)).T
     # replace 0 with really large number to avoid div by zero
     imdat_s[imdat_s==0]=1000000
-    imdat_m=tile(mean(imdat,1),(148,1)).T
+    imdat_m=tile(mean(imdat,1),(sz[3],1)).T
     imdat=(imdat-imdat_m)/imdat_s
     # set values with no variance to zero
     imdat[imdat_s==0]=0
