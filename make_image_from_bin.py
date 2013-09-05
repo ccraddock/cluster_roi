@@ -88,7 +88,7 @@ def make_image_from_bin( image, binfile, mask ):
     imdat[imdat>0]=short(a[0:sum(imdat)].flatten())
 
     # write out the image as nifti
-    thdr=nim.header
+    thdr=nim.get_header()
     thdr['scl_slope']=1
 
     nim_out = nb.Nifti1Image(imdat, nim.get_affine())
