@@ -1,0 +1,1 @@
+#Changes were made in the lines of "msk=csc_matrx(......)" of both make_local_connectivity_scorr.py & make_local_connectivity_tcorr.py to compensate for the change in dimension order from nifti to nibabel
