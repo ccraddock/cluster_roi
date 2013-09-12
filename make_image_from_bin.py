@@ -88,9 +88,11 @@ def make_image_from_bin( image, binfile, mask ):
     imdat[imdat>0]=short(a[0:sum(imdat)].flatten())
 
     # write out the image as nifti
-    thdr=nim.header
+    thdr=nim.get_header()
     thdr['scl_slope']=1
+    
+    nim_aff = nim.get_affine()
 
-    nim_out = nb.Nifti1Image(imdat, nim.get_affine())
+    nim_out = nb.Nifti1Image(imdat, nim_aff, thdr)
     nim_out.set_data_dtype('int16')
     nim_out.to_filename(image)

@@ -102,7 +102,7 @@ def make_local_connectivity_ones( maskfile, outfile ):
 
     # read in the mask
     msk=nb.load(maskfile)
-    msz=shape(msk.get_data())
+    msz=msk.shape
 
     # convert the 3D mask array into a 1D vector
     mskdat=reshape(msk.get_data(),prod(msz))
@@ -111,7 +111,7 @@ def make_local_connectivity_ones( maskfile, outfile ):
     # elements of the mask
     iv=nonzero(mskdat)[0]
     m=len(iv)
-
+    print m, ' # of non-zero voxels in the mask'
     # construct a sparse matrix from the mask
     msk=csc_matrix((range(1,m+1),(iv,zeros(m))),shape=(prod(msz),1))
 
@@ -121,6 +121,7 @@ def make_local_connectivity_ones( maskfile, outfile ):
 
     # loop over all of the voxels in the mask 	
     for i in range(0,m):
+    	if i % 100 == 0: print 'voxel# ', i
 
         # calculate the voxels that are in the 3D neighborhood
         # of the center voxel
@@ -155,8 +156,8 @@ def make_local_connectivity_ones( maskfile, outfile ):
 
     # concatenate the i, j and w_ij into a single vector		
     outlist=sparse_i
-    outlist=append(outlist,sparse_j)
-    outlist=append(outlist,sparse_w)
+    outlist=append(outlist, sparse_j)
+    outlist=append(outlist, sparse_w)
 
     # save the output file to a .NPY file
     save(outfile,outlist)

@@ -65,7 +65,7 @@ from numpy import array, reshape, shape, matrix, ones, zeros, sqrt
 from numpy import argsort, sign, kron, multiply, divide, abs, asarray
 from scipy import rand
 from scipy.sparse import csc_matrix, spdiags
-from scipy.sparse.linalg.eigen.arpack import eigsh
+from scipy.sparse.linalg import eigsh
 from scipy.linalg import norm, svd, LinAlgError
 
 # exception hander for singular value decomposition
