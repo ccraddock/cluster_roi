@@ -13,21 +13,20 @@ cluster_roi
  A whole brain fMRI atlas generated via spatially constrained spectral
  clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
 
-    ::: bibtex
- ARTICLE{Craddock2012,
-   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
-   Mayberg, H S},
-   title = {{A whole brain fMRI atlas generated via spatially constrained
-   spectral clustering}},
-   journal = {Human Brain Mapping},
-   year = {2012},
-   volume = {33},
-   pages = {1914--1928},
-   number = {8},
-   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
-       TX, United States},
-   pmid = {21769991},
- } 
+     ARTICLE{Craddock2012,
+       author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
+       Mayberg, H S},
+       title = {{A whole brain fMRI atlas generated via spatially constrained
+       spectral clustering}},
+       journal = {Human Brain Mapping},
+       year = {2012},
+       volume = {33},
+       pages = {1914--1928},
+       number = {8},
+       address = {Department of Neuroscience, Baylor College of Medicine, Houston,
+           TX, United States},
+       pmid = {21769991},
+     } 
 
  Documentation, updated source code and other information can be found at the
  NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
