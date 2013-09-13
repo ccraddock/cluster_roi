@@ -49,13 +49,13 @@
 # this scripts requires NumPy (numpy.scipy.org), SciPy (www.scipy.org), and
 # NiBabel (http://niftilib.sourceforge.net/pynifti/) and the pyClusterROI
 # toolbox to be installed in a directory that is accessible through PythonPath
-# import sys
 
 # this is how you would add a directory to the search path, this is useful if
 # you are running this script from a directory other than the directory where
 # the pyClusterROI is installed. Or if for some reason your NumPy, SciPy, or
 # NiBabel libraries are in a non-standard location, do this before you import
 # the files/libraries that require the change in path
+# import sys
 # sys.path.append("/home/user/python_toolboxes")
 
 # import the different functions we will use from pyClusterROI
@@ -78,13 +78,9 @@ from group_mean_binfile_parcellation import *
 from make_image_from_bin import *
 from make_image_from_bin_renum import *
 
-#import mkl
-
 from time import time
 
 T0 = time()
-
-#mkl.set_num_threads = 4
 
 # the name of the maskfile that we will be using
 maskname="gm_maskfile.nii.gz"
@@ -100,19 +96,19 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 # the easiest is random clustering which doesn't require any functional
 # data, just the mask
 print 'ones connectivity'
-#make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
+make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
 
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
 
-#for idx, in_file in enumerate(infiles[:1]):
-#
-#    # construct an output filename for this file
-#    outname='rm_tcorr_conn_'+str(idx)+'.npy'
-#
-#    print 'tcorr connectivity',in_file
-#    # call the funtion to make connectivity
-#    make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
+for idx, in_file in enumerate(infiles):
+
+    # construct an output filename for this file
+    outname='rm_tcorr_conn_'+str(idx)+'.npy'
+
+    print 'tcorr connectivity',in_file
+    # call the funtion to make connectivity
+    make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
 
 
 # construct the connectivity matrices using scorr and a r>0.5 threshold

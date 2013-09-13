@@ -138,6 +138,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
 
     # loop over all of the voxels in the mask 	
     for i in range(0,m):
+        if i % 1000 == 0: print 'voxel #', i
         # calculate the voxels that are in the 3D neighborhood
         # of the center voxel
         ndx3d=indx_1dto3d(iv[i],sz[:-1])+neighbors

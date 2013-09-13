@@ -161,6 +161,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     sparse_w=[[]]
 
     for i in range(0,m):
+        if i % 1000 == 0: print 'voxel #', i
         # convert index into 3D and calculate neighbors
         ndx3d=indx_1dto3d(iv[i],sz[:-1])+neighbors
         # convert resulting 3D indices into 1D
@@ -193,8 +194,6 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
         sparse_i=append(sparse_i,ondx1d,0)
         sparse_j=append(sparse_j,(ondx1d[nndx])*ones(len(ondx1d)))
         sparse_w=append(sparse_w,R[nndx,:],1)
-        if i % 100 == 0:
-            print "Completed voxel # %d"%(i)
 
 
     # insure that the weight vector is the correct shape
