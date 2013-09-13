@@ -78,6 +78,14 @@ from group_mean_binfile_parcellation import *
 from make_image_from_bin import *
 from make_image_from_bin_renum import *
 
+#import mkl
+
+from time import time
+
+T0 = time()
+
+#mkl.set_num_threads = 4
+
 # the name of the maskfile that we will be using
 maskname="gm_maskfile.nii.gz"
 
@@ -92,60 +100,62 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 # the easiest is random clustering which doesn't require any functional
 # data, just the mask
 print 'ones connectivity'
-make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
+#make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
 
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
-for i in range(0,len(infiles)):
 
-    # construct an output filename for this file
-    outname='rm_tcorr_conn_'+str(i)+'.npy'
-
-    print 'tcorr connectivity',infiles[i]
-    # call the funtion to make connectivity
-    make_local_connectivity_tcorr( infiles[i], maskname, outname, 0.5 )
+#for idx, in_file in enumerate(infiles[:1]):
+#
+#    # construct an output filename for this file
+#    outname='rm_tcorr_conn_'+str(idx)+'.npy'
+#
+#    print 'tcorr connectivity',in_file
+#    # call the funtion to make connectivity
+#    make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
 
 
 # construct the connectivity matrices using scorr and a r>0.5 threshold
 # This can take a _really_ long time
-for i in range(0,len(infiles)):
+for idx, in_file in enumerate(infiles):
 
     # construct an output filename for this file
-    outname='rm_scorr_conn_'+str(i)+'.npy'
+    outname='rm_scorr_conn_'+str(idx)+'.npy'
 
-    print 'scorr connectivity',infiles[i]
+    print 'scorr connectivity',in_file
     # call the funtion to make connectivity
-    make_local_connectivity_scorr( infiles[i], maskname, outname, 0.5 )
+    make_local_connectivity_scorr( in_file, maskname, outname, 0.5 )
 
 ##### Step 2. Individual level clustering
 # next we will do the individual level clustering, this is not performed for 
 # group-mean clustering, remember that for these functions the output name
 # is a prefix that will have K and .npy added to it by the functions. We
 # will perform this for clustering between 100, 150 and 200 clusters
+NUM_CLUSTERS = [100,150,200]
 
 # For random custering, this is all we need to do, there is no need for group
 # level clustering, remember that the output filename is a prefix, and 
-binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',[100,150,200])
+binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',NUM_CLUSTERS)
 
 # for tcorr
-for i in range(0,len(infiles)):
+for idx, in_file in enumerate(infiles):
 
     # construct filenames
-    infile='rm_tcorr_conn_'+str(i)+'.npy'
-    outfile='rm_tcorr_indiv_cluster_'+str(i)
+    infile='rm_tcorr_conn_'+str(idx)+'.npy'
+    outfile='rm_tcorr_indiv_cluster_'+str(idx)
 
-    print 'tcorr parcellate',infiles[i]
-    binfile_parcellate(infile, outfile, [100,150,200])
+    print 'tcorr parcellate',in_file
+    binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
 # for scorr
-for i in range(0,len(infiles)):
+for idx, in_file in enumerate(infiles):
 
     # construct filenames
-    infile='rm_scorr_conn_'+str(i)+'.npy'
-    outfile='rm_scorr_indiv_cluster_'+str(i)
+    infile='rm_scorr_conn_'+str(idx)+'.npy'
+    outfile='rm_scorr_indiv_cluster_'+str(idx)
 
-    print 'scorr parcellate',infiles[i]
-    binfile_parcellate(infile, outfile, [100,150,200])
+    print 'scorr parcellate',in_file
+    binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
 ##### Step 3. Group level clustering
 # perform the group level clustering for clustering results containing 100, 150,
@@ -154,7 +164,7 @@ for i in range(0,len(infiles)):
 
 # for both group-mean and 2-level clustering we need to know the number of
 # voxels in in the mask, which for us is 32254 
-mask_voxels=31146
+mask_voxels=18377#31146
 
 # group_mean clustering is pretty simple, input the connectivity files and run.
 # we can perform multiple clusterings with this function, so once again the
@@ -163,7 +173,7 @@ tcorr_conn_files=['rm_tcorr_conn_0.npy','rm_tcorr_conn_1.npy',\
     'rm_tcorr_conn_2.npy']
 print 'group-mean parcellate tcorr'
 group_mean_binfile_parcellate( tcorr_conn_files,\
-    'rm_group_mean_tcorr_cluster', [100,150,200],mask_voxels);
+    'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
 
 
 # now group mean cluster scorr files
@@ -171,11 +181,11 @@ scorr_conn_files=['rm_scorr_conn_0.npy','rm_scorr_conn_1.npy',\
     'rm_scorr_conn_2.npy']
 print 'group-mean parcellate scorr'
 group_mean_binfile_parcellate( scorr_conn_files,\
-    'rm_group_mean_scorr_cluster', [100,150,200], mask_voxels);
+    'rm_group_mean_scorr_cluster', NUM_CLUSTERS, mask_voxels);
 
 # the 2-level clustering has to be performed once for each desired clustering
 # level, and requires individual level clusterings as inputs
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     ind_clust_files=[]
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_tcorr_indiv_cluster_'+str(i)+\
@@ -186,7 +196,7 @@ for k in [100,150,200]:
         'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
 
 # now for scorr 
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     ind_clust_files=[]
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_scorr_indiv_cluster_'+str(i)+\
@@ -203,32 +213,37 @@ for k in [100,150,200]:
 # i use them intermittently below as a regression test
 
 # write out for the random clustering
-for k in [100,150,200]:
+
+for k in NUM_CLUSTERS:
     binfile='rm_ones_cluster_'+str(k)+'.npy'
     imgfile='rm_ones_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin(imgfile,binfile,maskname);
 
 # write out for group mean clustering
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     binfile='rm_group_mean_tcorr_cluster_'+str(k)+'.npy'
     imgfile='rm_group_mean_tcorr_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin_renum(imgfile,binfile,maskname)
 
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     binfile='rm_group_mean_scorr_cluster_'+str(k)+'.npy'
     imgfile='rm_group_mean_scorr_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin_renum(imgfile,binfile,maskname)
 
 # write out for group 2-level clustering
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     binfile='rm_group_tcorr_cluster_'+str(k)+'.npy'
     imgfile='rm_group_tcorr_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin_renum(imgfile,binfile,maskname)
 
-for k in [100,150,200]:
+for k in NUM_CLUSTERS:
     binfile='rm_group_scorr_cluster_'+str(k)+'.npy'
     imgfile='rm_group_scorr_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin_renum(imgfile,binfile,maskname)
 
+T1 = time()
+
+print '******************************'
+print 'time is ', T1-T0
 ##### FIN
 

@@ -138,7 +138,7 @@ def read_and_conform_atlas(atlas_file,atlas_label_file,\
 def main():
 
     try:
-        fsl_path=os.environ['FSL_DIR']
+        fsl_path=os.environ['FSLDIR']
     except KeyError:
         print "FSL_DIR is not set in the environment, is FSL installed?"
         sys.exit()
@@ -171,7 +171,7 @@ def main():
     parcel_filename=sys.argv[1]
     parcel_outname=sys.argv[2]
     parcel_vals=[int(n) for n in sys.argv[3].split(',')]
-
+    print parcel_vals
     print "%s called with %s, %s, %s"%(sys.argv[0],parcel_filename,\
         parcel_outname,",".join([str(i) for i in parcel_vals]))
 
@@ -179,7 +179,8 @@ def main():
     # lets read in the parcellation results that we want to label
     parcels_nii=nb.load(parcel_filename)
     parcels_img=parcels_nii.get_data()
-
+    print np.shape(parcels_img)
+    print len(parcel_vals)
     if len(parcel_vals) != np.shape(parcels_img)[3]:
         print "Length of parcel values (%d) != number of parcel images (%d)"%( \
             len(parcel_vals),np.shape(parcels_img)[3])
