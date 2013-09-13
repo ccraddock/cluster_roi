@@ -84,8 +84,9 @@ def make_image_from_bin( image, binfile, mask ):
     print "sum",sum(imdat)
 
     # map the binary data to mask
-    print "shape2",shape(a[0:sum(imdat)])
-    imdat[imdat>0]=short(a[0:sum(imdat)].flatten())
+    mask_voxels=(imdat.flatten()>0).sum()
+    print "shape2",shape(a[0:mask_voxels])
+    imdat[imdat>0]=short(a[0:mask_voxels].flatten())
 
     # write out the image as nifti
     thdr=nim.get_header()

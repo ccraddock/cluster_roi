@@ -159,8 +159,8 @@ for idx, in_file in enumerate(infiles):
 # random clustering
 
 # for both group-mean and 2-level clustering we need to know the number of
-# voxels in in the mask, which for us is 32254 
-mask_voxels=18377#31146
+# nonzero voxels in in the mask 
+mask_voxels=(nb.load(maskname).get_data().flatten()>0).sum()
 
 # group_mean clustering is pretty simple, input the connectivity files and run.
 # we can perform multiple clusterings with this function, so once again the
@@ -170,7 +170,6 @@ tcorr_conn_files=['rm_tcorr_conn_0.npy','rm_tcorr_conn_1.npy',\
 print 'group-mean parcellate tcorr'
 group_mean_binfile_parcellate( tcorr_conn_files,\
     'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
-
 
 # now group mean cluster scorr files
 scorr_conn_files=['rm_scorr_conn_0.npy','rm_scorr_conn_1.npy',\
