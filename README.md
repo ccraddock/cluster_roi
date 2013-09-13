@@ -1,7 +1,5 @@
-cluster_roi
+pyClusterROI
 ===========
-
- pyClusterROI_test.py
  Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
 
  This is the pyClusterROI python toolbox for the spatially
@@ -11,7 +9,7 @@ cluster_roi
 
  Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
  A whole brain fMRI atlas generated via spatially constrained spectral
- clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
+ clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333, [pubmed id 21769991](http://www.ncbi.nlm.nih.gov/pubmed/21769991).
 
      ARTICLE{Craddock2012,
        author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
