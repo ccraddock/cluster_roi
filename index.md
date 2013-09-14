@@ -1,14 +1,12 @@
 ---
 layout: page
-title: pyClusterRoi
-tagline: Python libarary for the spatially constrained parcellation of fMRI data.
+title: pyClusterROI
+tagline: Data driven construction of ROIs from fMRI data. 
 ---
 {% include JB/setup %}
 
-= pyClusterROI  =
-
 pyClusterROI is a set of python scripts that implement the spatially
-constrained clustering methods described in <pubmed>21769991</pubmed> This is a
+constrained clustering methods described in <pubmed>21769991</pubmed>, which is a
 method for generating ROIs based on the group-level clustering of functional
 MRI data. A spatial constraint is imposed to ensure that the resulting ROIs are
 spatially coherent, i.e. the voxels in the resulting ROIs are connected. Using
