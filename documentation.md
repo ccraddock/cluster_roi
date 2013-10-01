@@ -1,6 +1,6 @@
 ---
 layout: page
 title: "Documentation"
-description: ""
+description: "Documentation Page"
 ---
 {% include JB/setup %}
