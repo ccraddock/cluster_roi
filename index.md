@@ -35,11 +35,11 @@ temporal correlation performed better than other methods. But the user might
 choose a different approach based on the specific analysis that is being
 performed. The group-mean approach requires much less computation, so it might
 be more appropriate for very large datasets. The user might prefer spatial
-correlation if they specifically want to optimize for the homogeneity of funcitonal connectivity 
-maps generated from withen-ROI clusters. Although evidence from the paper
-suggests that temporal correlation does a better job of optimizing the
-homogeneity of FC maps then does spatial correlation. Additionally the number
-of clusters generated must be determined by the type of analysis to be
+correlation if they specifically want to optimize for the homogeneity of
+functional connectivity maps generated from within-ROI voxels. Evidence from
+the paper suggests that temporal correlation does a better job of optimizing
+the homogeneity of FC maps than does spatial correlation. Additionally, the
+number of clusters generated must be determined by the type of analysis to be
 performed. If the desire is to reduce the dimensionality to a low number while
 preserving functional homogeneity and interpretability, then a clustering in
 the range of 150 to 200 might be optimal. On the other hand, if the desire is
