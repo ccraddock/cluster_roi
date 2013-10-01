@@ -40,6 +40,21 @@ On Debian and Ubuntu systems they can be installed using:
 
 or on Redhat, CentOs and Fedora systems using:
 
-    sudo yum install numpy scipy.
+    sudo yum install numpy scipy
 
 #NiBabel
+
+NiBabel can be installed using the package managers that are bundled with the
+Enthought Canopy, Anaconda, and ActivePython packages. On Linux based distributions
+it can be installed from pypi using setuptools.
+
+On Debian and Ubuntu systems this is accomplished by:
+
+    sudo apt-get install python-setuptools
+    sudo easy_install nibabel
+
+or on Redhat, Fedora, and CentOs by:
+
+    sudo yum install python-setuptools
+    sudo easy_install nibabel
+
