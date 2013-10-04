@@ -95,6 +95,6 @@ def make_image_from_bin_renum( image, binfile, mask ):
     imdat[imdat>0]=short(b[0:sum(imdat)].flatten())
 
     # write out the image as nifti
-    nim_out = nb.Nifti1Image(imdat, nim.get_affine())
-    nim_out.set_data_dtype('int16')
+    nim_out = nb.Nifti1Image(imdat, nim.get_affine(), nim.get_header())
+    #nim_out.set_data_dtype('int16')
     nim_out.to_filename(image)
