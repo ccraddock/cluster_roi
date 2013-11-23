@@ -1,2 +1,12 @@
+# blacklist
+branches:
+  except:
+    - master
+
+# whitelist
+branches:
+  only:
+    - gh-pages
+    
 language: ruby
 script: "bundle exec jekyll build"
