@@ -45,8 +45,8 @@ or on Redhat, CentOs and Fedora systems using:
 ###NiBabel
 
 NiBabel can be installed using the package managers that are bundled with the
-Enthought Canopy, Anaconda, or ActivePython. On Linux based distributions
-it can be installed from pypi using setuptools.
+Enthought Canopy, Anaconda, or ActivePython. On Linux based distributions it
+can be installed from pypi using setuptools.
 
 On Debian and Ubuntu systems this is accomplished by:
 
