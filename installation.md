@@ -17,8 +17,8 @@ Canopy](https://www.enthought.com),
 [Anaconda](https://store.continuum.io/cshop/anaconda/), or
 [ActivePython](http://www.activestate.com/activepython).
 
-Python comes preinstalled on many Linux distributions. If it is not involved,
-it can usually be installed from a software distribution using either:
+Python comes preinstalled on many Linux distributions. If it is not available,
+it can usually be installed using either:
 
     sudo apt-get install python
 
