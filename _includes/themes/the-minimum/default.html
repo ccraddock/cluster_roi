@@ -21,13 +21,12 @@
 				<p class="logo"><a href="{{ HOME_PATH }}">{{ site.title }}</a></p>
 				<nav class="nav-global">
 					<ul>
-						<li class="download"><a href="https://github.com/ccraddock/cluster_roi/zipball/master">download</a></li>
-						<li class="installation"><a href="http://ccraddock.github.io/cluster_roi/installation.html">installation</a></li>
-						<li class="usage"><a href="http://ccraddock.github.io/cluster_roi/usage.html">usage</a></li>
-						<li class="atlases"><a href="http://ccraddock.github.io/cluster_roi/atlases.html">atlases</a></li>
-						<li class="view on github"><a href="https://github.com/ccraddock/cluster_roi">view on github</a></li>
-						<li class="view on NITRC"><a href="https://www.nitrc.org/projects/cluster_roi/">view on NITRC</a></li>
-						<li class="forum"><a href="https://www.nitrc.org/forum/?group_id=427">forum</a></li>
+						<li class="archive"><a href="/archive.html">archive</a></li>
+						<li class="page"><a href="/pages.html">pages</a></li>
+						<li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+								allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></li>
 					</ul>
 				</nav>
 			</div><!-- unit-inner -->
@@ -49,7 +48,9 @@
 					<h4>about</h4>
 					<ul>
 						<li class="contact"><address><span class="author fn n">{{ site.author.name }}</span> - <span class="fn email">{{ site.author.email }}</span></address></li>
-						<li class="github"><a href="http://github.com/ccraddock/cluster_roi" rel="me">github.com/ccraddock/cluster_roi</a></li>
+						<li class="github"><a href="http://github.com/{{ site.author.github }}/" rel="me">github.com/{{ site.author.github }}</a></li>
+						<li class="twitter"><a href="http://twitter.com/{{ site.author.twitter }}/" rel="me">twitter.com/{{ site.author.twitter }}</a></li>
+						<li class="rss"><a href="http://feeds.feedburner.com/{{ site.author.feedname }}">Subscribe to RSS Feed</a></li>
 					</ul>
 				</div><!-- misc -->
 				<p class="licence">
