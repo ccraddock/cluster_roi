@@ -14,8 +14,12 @@ author :
   name : Cameron Craddock
   email : cameron.craddock@gmail.com
   github : ccraddock
-  #twitter : username
-  #feedburner : feedname
+  
+github_project : http://github.com/ccraddock/cluster_roi
+github_download : http://github.com/ccraddock/cluster_roi/archive/master.zip
+nitrc_project : http://www.nitrc.org/projects/cluster_roi
+#twitter : username
+#feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
