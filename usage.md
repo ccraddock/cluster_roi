@@ -172,7 +172,8 @@ these clustering methods (copied from pyClusterROI_test.py).
 
     print 'group-mean parcellate tcorr'
     group_mean_binfile_parcellate( tcorr_conn_files,\
-        'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
+        'rm_group_mean_tcorr_cluster',\
+	NUM_CLUSTERS,mask_voxels);
     {% endhighlight %}
 
 ####Two-level clustering
@@ -204,7 +205,8 @@ these clustering methods (copied from pyClusterROI_test.py).
 
         print '2-level parcellate tcorr',k
         group_binfile_parcellate(ind_clust_files,\
-            'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
+            'rm_group_tcorr_cluster_'+str(k)+'.npy',\
+	    k,mask_voxels)
     {% endhighlight %}
 
 
@@ -215,9 +217,9 @@ these clustering methods (copied from pyClusterROI_test.py).
 
     NUM_CLUSTERS = [100,150,200]
 
-    # For random custering, this is all we need to do, there is no 
-    # need for group level clustering, remember that the output 
-    # filename is a prefix
+    # For random custering, this is all we need to do, there is
+    # no need for group level clustering, remember that the 
+    # output filename is a prefix
     binfile_parcellate('rm_ones_connectivity.npy',\
         'rm_ones_cluster',NUM_CLUSTERS)
     {% endhighlight %}
