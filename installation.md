@@ -67,6 +67,8 @@ directory or by adding the directory to the python path. This can be
 accomplished by adding the following line to the script that you would like to
 call the pyClusterROI libraries from:
 
+    {% highlight python %}
     import sys
     sys.path.append("/path/to/pyClusterROI")
+    {% endhighlight %}
     

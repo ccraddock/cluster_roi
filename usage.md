@@ -73,6 +73,7 @@ of these methods are illustrated below (copined from pyClusterROI_test.py):
 
 ####Tcorr - temporal correlation
 
+    {% highlight python %}
     from make_local_connectivity_tcorr import *
 
     # the name of the maskfile that we will be using
@@ -96,9 +97,11 @@ of these methods are illustrated below (copined from pyClusterROI_test.py):
         # call the funtion to make connectivity
         make_local_connectivity_tcorr( in_file, 
             maskname, outname, 0.5 )
+    {% endhighlight %}
 
 ####Scorr - spatial correlation
 
+    {% highlight python %}
     from make_local_connectivity_scorr import *
 
     # the name of the maskfile that we will be using
@@ -122,9 +125,11 @@ of these methods are illustrated below (copined from pyClusterROI_test.py):
         # call the funtion to make connectivity
         make_local_connectivity_scorr( in_file,
             maskname, outname, 0.5 )
+    {% endhighlight %}
 
 ####Ones - spatial information only
 
+    {% highlight python %}
     from make_local_connectivity_ones import *
 
     # the name of the maskfile that we will be using
@@ -135,6 +140,7 @@ of these methods are illustrated below (copined from pyClusterROI_test.py):
     print 'ones connectivity'
     make_local_connectivity_ones( maskname,
         'rm_ones_connectivity.npy')
+    {% endhighlight %}
 
 
 ###Group-mean and two-level clustering
@@ -152,6 +158,7 @@ these clustering methods (copied from pyClusterROI_test.py).
 
 ####Group-mean clustering
 
+    {% highlight python %}
     from group_mean_binfile_parcellation import *
     NUM_CLUSTERS = [100,150,200]
 
@@ -166,9 +173,11 @@ these clustering methods (copied from pyClusterROI_test.py).
     print 'group-mean parcellate tcorr'
     group_mean_binfile_parcellate( tcorr_conn_files,\
         'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
+    {% endhighlight %}
 
 ####Two-level clustering
 
+    {% highlight python %}
     from binfile_parcellation import *
     from group_binfile_parcellation import *
 
@@ -196,10 +205,12 @@ these clustering methods (copied from pyClusterROI_test.py).
         print '2-level parcellate tcorr',k
         group_binfile_parcellate(ind_clust_files,\
             'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
+    {% endhighlight %}
 
 
 ####Ones clustering
 
+    {% highlight python %}
     from binfile_parcellation import *
 
     NUM_CLUSTERS = [100,150,200]
@@ -209,6 +220,7 @@ these clustering methods (copied from pyClusterROI_test.py).
     # filename is a prefix
     binfile_parcellate('rm_ones_connectivity.npy',\
         'rm_ones_cluster',NUM_CLUSTERS)
+    {% endhighlight %}
     
 ####Finalizing the cluster atlas
 The outputs of the clustering must be transformed in order to make them more
@@ -216,12 +228,14 @@ easy to use. The output .npy files are 'index files' and must be remapped to
 voxel space. Additionally, the regions are not consecutively numbered. Utility
 functions are provided to handle these transformations.
 
+    {% highlight python %}
     from make_image_from_bin_renum import *
     # write out for group mean clustering
     for k in NUM_CLUSTERS:
         binfile='rm_group_mean_tcorr_cluster_'+str(k)+'.npy'
         imgfile='rm_group_mean_tcorr_cluster_'+str(k)+'.nii.gz'
         make_image_from_bin_renum(imgfile,binfile,maskname)
+    {% endhighlight %}
 
 
 ####Labelling clusters
@@ -232,5 +246,7 @@ different brain atlases, including Harvard-Oxford, Juelich, Talaraich and
 Tournoux, and the MNI atlases. This script is called from the command line
 using the following syntax:
 
+    {% highlight python %}
     python parcel_naming.py tcorr05_2level_all.nii.gz \
         tcorr05_2level '50,100,150,200'
+    {% endhighlight %}
