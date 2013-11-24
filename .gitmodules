@@ -1,0 +1,3 @@
+[submodule "the-minimum"]
+      path = _theme_packages/the-minimum
+      url = git://github.com/jekyllbootstrap/theme-the-minimum.git
