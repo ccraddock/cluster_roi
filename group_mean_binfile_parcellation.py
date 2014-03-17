@@ -83,6 +83,11 @@ from python_ncut_lib import *
 #    n_voxels:  Number of voxels in the _mask_ used to generate the subject
 #               specific connectivity matrices
 def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
+    
+    if not infiles or not outfile or not K or not n_voxels or K == 0 or n_voxels == 0:
+        print "Invalid arguments"
+        raise ValueError
+    
     # index
     start=time.time()
 

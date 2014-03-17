@@ -145,7 +145,7 @@ for idx, in_file in enumerate(infiles):
 # for both group-mean and 2-level clustering we need to know the number of
 # voxels in in the mask, which for us is 32254 
 mask_ = nb.load(maskname).get_data()
-mask_voxels=len(mask_[mask_==1])
+mask_voxels=len(mask_[mask_!=0])
 print 'NUMBER OF NONZERO VOXELS IN THE MASK = ', mask_voxels
 
 # group_mean clustering is pretty simple, input the connectivity files and run.
