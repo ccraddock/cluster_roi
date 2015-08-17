@@ -1,6 +1,20 @@
+"""
+Temporary band-aid script to generate NIfTI images from NumPY parcellation data.
+
+Written by Dan Lurie (danjlurie@gmail.com).
+
+Usage:
+
+python nifti_gen_fix.py /path/to/parcel_data.npy /path/to/mask.nii.gz /path/to/new_atlas_image.nii.gz
+
+"""
+
+
 import sys
 import numpy as np
 import nibabel as nib
+
+
 
 # Read in command line arguments.
 parcel_path, mask_path, out_path = sys.argv[1:4]
