@@ -82,6 +82,7 @@ def make_image_from_bin( image, binfile, mask ):
     imdat=nim.get_data()
     print "shape",shape(a)
     print "sum",sum(imdat)
+    imdat=imdat.astype('int16')
 
     # map the binary data to mask
     mask_voxels=(imdat.flatten()>0).sum()
@@ -91,6 +92,7 @@ def make_image_from_bin( image, binfile, mask ):
     # write out the image as nifti
     thdr=nim.get_header()
     thdr['scl_slope']=1
+    thdr.set_data_dtype('int16')
     
     nim_aff = nim.get_affine()
 
