@@ -81,6 +81,7 @@ from make_image_from_bin_renum import *
 from time import time
 import nibabel as nb
 import os
+import numpy as np
 
 T0 = time()
 print 'starting time is ', T0
@@ -99,8 +100,9 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 # the easiest is random clustering which doesn't require any functional
 # data, just the mask
 print 'ones connectivity'
-if not os.path.isfile('rm_ones_connectivity.npy'): make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
-
+if not os.path.isfile('rm_ones_connectivity.npy'):
+    mvals=make_local_connectivity_ones(maskname)
+np.save('rm_ones_connectivity.npy',mvals)
 
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
 

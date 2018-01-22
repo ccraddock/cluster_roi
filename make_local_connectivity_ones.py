@@ -51,7 +51,8 @@
 # NiBabel (http://nipy.sourceforge.net/nibabel) to be installed in a directory
 # that is accessible through PythonPath 
 import nibabel as nb
-from numpy import array
+import numpy as np
+#from numpy import array
 from scipy import *
 from scipy.sparse import *
 
@@ -66,11 +67,23 @@ def indx_1dto3d(idx,sz):
 # simple function to translate 3D matrix coordinates to 1D vector coordinates,
 # for a 3D matrix of size sz
 def indx_3dto1d(idx,sz):
-    if( rank(idx) == 1):
+    if( ndim(idx) == 1):
         idx1=idx[0]*prod(sz[1:3])+idx[1]*sz[2]+idx[2]
     else:
         idx1=idx[:,0]*prod(sz[1:3])+idx[:,1]*sz[2]+idx[:,2]
     return idx1
+
+# array to add to 3d coordinates of seed voxel to get the face, edge, and corner
+# touching neighbors
+neighbors = np.array([[-1, -1, -1], [0, -1, -1], [1, -1, -1],
+                      [-1, 0, -1], [0, 0, -1], [1, 0, -1],
+                      [-1, 1, -1], [0, 1, -1], [1, 1, -1],
+                      [-1, -1, 0], [0, -1, 0], [1, -1, 0],
+                      [-1, 0, 0], [0, 0, 0], [1, 0, 0],
+                      [-1, 1, 0], [0, 1, 0], [1, 1, 0],
+                      [-1, -1, 1], [0, -1, 1], [1, -1, 1],
+                      [-1, 0, 1], [0, 0, 1], [1, 0, 1],
+                      [-1, 1, 1], [0, 1, 1], [1, 1, 1]])
 
 # make_local_connectivity_ones( maskfile, outfile )
 #
@@ -88,76 +101,29 @@ def indx_3dto1d(idx,sz):
 #               second N values are the j index, and the last N values are the
 #               w_ij, connectivity weights between voxel i and voxel j.
 #
-def make_local_connectivity_ones( maskfile, outfile ):
-    # index
-    neighbors=array([[-1,-1,-1],[0,-1,-1],[1,-1,-1],
-                     [-1, 0,-1],[0, 0,-1],[1, 0,-1],
-                     [-1, 1,-1],[0, 1,-1],[1, 1,-1],
-                     [-1,-1, 0],[0,-1, 0],[1,-1, 0],
-                     [-1, 0, 0],[0, 0, 0],[1, 0, 0],
-                     [-1, 1, 0],[0, 1, 0],[1, 1, 0],
-                     [-1,-1, 1],[0,-1, 1],[1,-1, 1],
-                     [-1, 0, 1],[0, 0, 1],[1, 0, 1],
-                     [-1, 1, 1],[0, 1, 1],[1, 1, 1]])
+def make_local_connectivity_ones( maskfile ):
 
     # read in the mask
     msk=nb.load(maskfile)
     msz=msk.shape
+    mskdat=msk.get_data().flatten()
+    ix=np.nonzero(mskdat)[0]
+    print '%d non-zero voxels in the mask'%(len(ix))
 
-    # convert the 3D mask array into a 1D vector
-    mskdat=reshape(msk.get_data(),prod(msz))
+    # get the range of the ix's
+    ix_min = np.min(ix)
+    ix_max = np.max(ix)
 
-    # determine the 1D coordinates of the non-zero 
-    # elements of the mask
-    iv=nonzero(mskdat)[0]
-    m=len(iv)
-    print m, ' # of non-zero voxels in the mask'
-    # construct a sparse matrix from the mask
-    msk=csc_matrix((range(1,m+1),(iv,zeros(m))),shape=(prod(msz),1))
-
-    sparse_i=[]
-    sparse_j=[]
-    sparse_w=[]
+    mvals=[]
 
     # loop over all of the voxels in the mask 	
-    for i in range(0,m):
+    for i in ix:
+        print i
     	if i % 1000 == 0: print 'voxel #', i
 
-        # calculate the voxels that are in the 3D neighborhood
-        # of the center voxel
-        ndx3d=indx_1dto3d(iv[i],msz)+neighbors
-        ndx1d=indx_3dto1d(ndx3d,msz)
+        seed_neigh = [x for x in indx_3dto1d(indx_1dto3d(i, msz) + neighbors, msz) if
+                      ix_min <= x <= ix_max and mskdat[x] != 0]
+        mvals+=zip(int(i)*np.ones(len(seed_neigh),dtype=np.int),seed_neigh,np.ones(len(seed_neigh)))
 
-        # restrict the neigborhood using the mask
-        ondx1d=msk[ndx1d].todense()
-        ndx1d=ndx1d[nonzero(ondx1d)[0]]
-        ndx1d=ndx1d.flatten()
-        ondx1d=array(ondx1d[nonzero(ondx1d)[0]])
-        ondx1d=ondx1d.flatten()
 
-        # determine the index of the seed voxel in the neighborhood
-        nndx=nonzero(ndx1d==iv[i])[0]
-
-        # the connections between neighbors are all = 1
-        R=ones((len(ndx1d),len(ndx1d)))
-        if rank(R) == 0:
-            R=reshape(R,(1,1))
-
-        # extract just the weights connected to the seed
-        R=R[nndx,:].flatten()
-
-        # determine the non-zero correlations (matrix weights)
-        # and add their indices and values to the list 
-        nzndx=nonzero(R)[0]
-        if(len(nzndx)>0):
-            sparse_i=append(sparse_i,ondx1d[nzndx]-1,0)
-            sparse_j=append(sparse_j,(ondx1d[nndx]-1)*ones(len(nzndx)))
-            sparse_w=append(sparse_w,R[nzndx],1)
-
-    # concatenate the i, j and w_ij into a single vector		
-    outlist=sparse_i
-    outlist=append(outlist, sparse_j)
-    outlist=append(outlist, sparse_w)
-
-    # save the output file to a .NPY file
-    save(outfile,outlist)
+    return(mvals)

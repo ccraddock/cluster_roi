@@ -52,10 +52,9 @@
 
 # this scripts requires NumPy (numpy.scipy.org) to be installed in a directory
 # that is accessible through PythonPath
-import numpy as np
 
 
-def get_neighbors(ix,msz):
+def get_neighbors(ix, msz):
 
     """
     array to find the indices of the voxels in a 3D cube centered at ix
@@ -64,6 +63,7 @@ def get_neighbors(ix,msz):
     :param msz: dimensions of the full space
     :return: list of 1d indices for the voxels of the cube
     """
+    import numpy as np
 
     if np.ndim(ix) > 0:
         raise TabError("ix should be a single integer, not a list")
@@ -110,9 +110,16 @@ def get_neighbors(ix,msz):
     if len(msz)-1 > 3 or len(msz) < 0:
         raise ValueError("Cannot calculate neighbors for %d dimensions", len(msz)-1)
 
-    return(np.ravel_multi_index(tuple(np.transpose(np.unravel_index(ix,msz)+neighbors[len(msz)-1])),msz))
+    # get the neighbor indices, filtering out values that are outside of the image's
+    # bounding box
+    neighbor_indices = [v for v in np.unravel_index(ix, msz) + neighbors[len(msz) - 1]
+                        if (v >= 0).all() and (v < msz).all()]
 
-def make_local_connectivity_ones( mask_array ):
+    # convert to 1D indx and return
+    return np.ravel_multi_index(tuple(np.transpose(neighbor_indices)), msz)
+
+
+def make_local_connectivity_ones(mask_array):
     """
 
     make_local_connectivity_ones( mask_array )
@@ -137,37 +144,44 @@ def make_local_connectivity_ones( mask_array ):
 
     # type: (object) -> object
 
-    # get the array dimensions, which will be used to calculate neighborhoods
-    msz=mask_array.shape
+    import numpy as np
 
-    # reduce to two dimensions and pull out only the indices that are in the
-    # brain
-    mask_array=mask_array.flatten()
-    ix=np.nonzero(mask_array)[0]
+    import warnings
+    warnings.filterwarnings("ignore", category=UserWarning)
 
-    print '%d non-zero voxels in the mask'%(len(ix))
+    msz = mask_array.shape
+    mask_num_vx = np.prod(msz)
 
-    # get the range of the ix's
-    ix_min = np.min(ix)
-    ix_max = np.max(ix)
+    mask_array = mask_array.flatten()
 
-    mvals=[]
+    mask_ixs = [i for i, x in enumerate(mask_array) if x > 0]
+
+    w_vals = []
+    i_ndx = []
+    j_ndx = []
 
     # loop over all of the voxels in the mask
-    for i in ix:
-        seed_neigh = []
-        for x in get_neighbors(i, msz):
-            if ix_min <= x <= ix_max and mask_array[x] != 0:
-                seed_neigh.append(x)
+    for ix in mask_ixs:
 
-        mvals+=zip(int(i)*np.ones(len(seed_neigh),dtype=np.int),seed_neigh,np.ones(len(seed_neigh)))
+        # look up the image index for the mask index
+        im_indx = mask_array[ix] - 1
 
-    return(mvals)
+        # get the neighbors and make sure that they are in the mask, could
+        # do this as a list comprehension, but this way may make it more
+        # readable?
+        seed_neigh_image_ix = []
+        for x in get_neighbors(ix, msz):
+            if 0 <= x <= mask_num_vx and mask_array[x] > 0:
+                seed_neigh_image_ix.append(mask_array[x] - 1)
+
+        w_vals += [float(1.0)] * len(seed_neigh_image_ix)
+        i_ndx += [int(im_indx)] * len(seed_neigh_image_ix)
+        j_ndx += seed_neigh_image_ix
+
+    return w_vals, i_ndx, j_ndx
 
 
-
-
-def make_local_connectivity_tcorr(im_dat, mask_array, thresh):
+def make_local_connectivity_tcorr(im_array, mask_array, thresh):
 
     """
     This script is a part of the ClusterROI python toolbox for the spatially
@@ -175,182 +189,242 @@ def make_local_connectivity_tcorr(im_dat, mask_array, thresh):
     connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
     matrix W correspond to the _temporal_correlation_ between the time series
     from voxel i and voxel j. Connectivity is only calculated between a voxel and
-    the 27 voxels in its 3D neighborhood (face touching and edge touching). The
-    resulting datafiles are suitable as inputs to the function
+    the 27 voxels in its 3D neighborhood (face and edge touching). The resulting
+    datafiles are suitable as inputs to the function
     binfile_parcellate.
 
-    :param infile: name of a 4D NIFTI file containing fMRI data
-    :param mask_array (numpy array): 1, 2, or 3 -dimensional array with ones at
-          locations that are considered "in-brain" voxels, and zero everywhere
-          else
+    :param im_array: 2D (vx by tc) array containing fMRI data
+    :param mask_array: mask to use for restricting the calculations
     :param thresh: Threshold value, correlation coefficients lower than this value
                will be removed from the matrix (set to zero).
-    :return: edge_ndx (list of tuples): each tuple corresponds to a edge with
-           (start node ndx, end node ndx, edge weight)
+    :return: w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
+             j is  a list of connection right coordinates
     """
 
+    import numpy as np
     import sklearn.preprocessing as skp
     import warnings
     warnings.filterwarnings("ignore", category=UserWarning)
 
-    # get the array dimensions, which will be used to calculate neighborhoods
-    msz=np.shape(mask_array)
+    msz = mask_array.shape
+    mask_num_vx = np.prod(msz)
 
-    # reduce to two dimensions and pull out only the indices that are in the
-    # brain
-    mask_array=mask_array.flatten()
-    ix=np.nonzero(mask_array)[0]
+    mask_array = mask_array.flatten()
 
-    print '%d non-zero voxels in the mask'%(len(ix))
+    mask_ixs = [i for i, x in enumerate(mask_array) if x > 0]
 
-    # get the range of the ix's
-    ix_min = np.min(ix)
-    ix_max = np.max(ix)
-
-    # conform the fmri data
-    # NOTE the format of x,y,z axes and time dimension after reading
-    # nb.load('x.nii.gz').shape -> (x,y,z,t)
-    sz = np.shape(im_dat)
-    num_tc = sz[-1]
-
-    # reshape fmri data to a num_voxels x num_timepoints array
-    im_dat = np.reshape(im_dat, (np.prod(sz[:-1]), sz[-1]))
+    (num_vx, num_tc) = im_array.shape
 
     # standardize everything at once to make correlation calculation easier
-    im_dat[ix,:] = skp.scale(im_dat[ix,:], axis=1, with_mean=True, with_std=True, copy=False)
+    im_array = skp.scale(im_array, axis=1, with_mean=True, with_std=True, copy=False)
 
-    mvals=[]
+    w_vals = []
+    i_ndx = []
+    j_ndx = []
 
     # loop over all of the voxels in the mask
-    for i in ix:
+    for ix in mask_ixs:
+
+        # look up the image index for the mask index
+        im_indx = mask_array[ix] - 1
 
         # extract the seed_tc and make sure it has variance, otherwise
         # we are just wasting our time
-        seed_tc = im_dat[i, :]
+        if im_indx < num_vx:
+            seed_tc = im_array[im_indx, :]
+        else:
+            print "how is {0} out of bounds? {1} {2}".format(im_indx, num_vx, num_tc)
+
         if seed_tc.var() == 0:
             continue
 
-        # get all of the seeds neighbors that are in the mask
-        seed_neigh = []
-        for x in get_neighbors(i, msz):
-            if ix_min <= x <= ix_max and mask_array[x] != 0:
-                seed_neigh.append(x)
+        # get the neighbors and make sure that they are in the mask, could
+        # do this as a list comprehnsion, but this way may make it more
+        # readable?
+        seed_neigh_img_ix = []
+        for x in get_neighbors(ix, msz):
+            if 0 <= x <= mask_num_vx and mask_array[x] > 0:
+                seed_neigh_img_ix.append(mask_array[x] - 1)
 
-        # get the time courses for the neigbors
-        neigh_tc = im_dat[seed_neigh, :]
+        # get the time courses for the neighbors
+        neigh_tc = im_array[seed_neigh_img_ix, :]
 
-        # calculate the correlation, and find the location of vals
-        # > thresh
-        R = (1.0/num_tc)*np.matmul(neigh_tc,seed_tc)
+        # calculate the correlation, and find the location of
+        # values > thresh
+        corr = (1.0/num_tc)*np.matmul(neigh_tc, seed_tc)
 
-        if (R>thresh).any():
-            seed_neigh = np.array(seed_neigh)
-            seed_neigh = seed_neigh[R>thresh]
-            R = R[R>thresh]
-            mvals+=zip(int(i)*np.ones(len(seed_neigh),dtype=np.int),seed_neigh,R)
+        if (corr > thresh).any():
+            seed_neigh = np.array(seed_neigh_img_ix)
+            corr_mask = corr > thresh
+            seed_neigh = seed_neigh[corr_mask].tolist()
+            corr = corr[corr_mask].tolist()
 
-    return(mvals)
+            w_vals += corr
+            i_ndx += [int(im_indx)] * len(seed_neigh)
+            j_ndx += seed_neigh
 
-def make_local_connectivity_scorr(im_dat, mask_array, thresh):
+    return w_vals, i_ndx, j_ndx
+
+
+def make_local_connectivity_scorr(image_array, mask_array, thresh):
 
     """
     This script is a part of the ClusterROI python toolbox for the spatially
     constrained clustering of fMRI data. It constructs a spatially constrained
-    connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
+    connectivity matrix from a fMRI data set. The weights w_ij of the connectivity
     matrix W correspond to the _spatial_correlation_ between functional connectivity
     maps generated from time series from voxel i and voxel j. Connectivity is
     only calculated between a voxel and the 27 voxels in its 3D neighborhood (face
-    touching and edge touching). The resulting datafiles are suitable as inputs
-    to the function binfile_parcellate.
+    touching and edge touching).
 
-    :param infile: name of a 4D NIFTI file containing fMRI data
-    :param mask_array (numpy array): 1, 2, or 3 -dimensional array with ones at
+    :param image_array: 2D (vx by tc) array containing fMRI data
+    :param mask_array: 1, 2, or 3 -dimensional array with ones at
           locations that are considered "in-brain" voxels, and zero everywhere
           else
     :param thresh: Threshold value, correlation coefficients lower than this value
                will be removed from the matrix (set to zero).
-    :return: edge_ndx (list of tuples): each tuple corresponds to a edge with
-           (start node ndx, end node ndx, edge weight)
+    :return:  w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
+             j is  a list of connection right coordinates
+
+    :rtype: tuple
     """
 
+    import numpy as np
     import sklearn.preprocessing as skp
     import warnings
+
     warnings.filterwarnings("ignore", category=UserWarning)
 
-    # get the array dimensions, which will be used to calculate neighborhoods
-    msz=np.shape(mask_array)
+    mask_shape = mask_array.shape
+    mask_num_voxels = np.prod(mask_shape)
 
-    # reduce to two dimensions and pull out only the indices that are in the
-    # brain
-    mask_array=mask_array.flatten()
-    ix=np.nonzero(mask_array)[0]
+    mask_array = mask_array.flatten()
 
-    print '%d non-zero voxels in the mask'%(len(ix))
+    mask_indices = [index for index, value in enumerate(mask_array) if value > 0]
 
-    # get the range of the ix's
-    ix_min = np.min(ix)
-    ix_max = np.max(ix)
-    num_vx = len(ix)
-
-    # conform the fmri data
-    # NOTE the format of x,y,z axes and time dimension after reading
-    # nb.load('x.nii.gz').shape -> (x,y,z,t)
-    sz = np.shape(im_dat)
-    num_tc = sz[-1]
-
-
-    # reshape fmri data to a num_voxels x num_timepoints array
-    im_dat = np.reshape(im_dat, (np.prod(sz[:-1]), sz[-1]))
+    (image_num_voxels, image_num_time_points) = image_array.shape
 
     # standardize everything at once to make correlation calculation easier
-    im_dat[ix,:] = skp.scale(im_dat[ix,:], axis=1, with_mean=True, with_std=True, copy=False)
+    im_array = skp.scale(image_array, axis=1, with_mean=True, with_std=True, copy=False)
 
-    mvals=[]
-
-    none_count = 0
-    iter_count = 0
+    w_values = []
+    i_indices = []
+    j_indices = []
 
     # loop over all of the voxels in the mask
-    for i in ix:
+    for mask_index in mask_indices:
+
+        # look up the image index for the mask index
+        image_index = mask_array[mask_index] - 1
 
         # extract the seed_tc and make sure it has variance, otherwise
         # we are just wasting our time
-        seed_tc = im_dat[i, :]
-        if seed_tc.var() == 0:
+        if image_index < image_num_voxels:
+            seed_time_course = image_array[image_index, :]
+        else:
+            print "how is {0} out of bounds? {1} {2}".format(image_index,
+                                                             image_num_voxels,
+                                                             image_num_time_points)
+
+        if seed_time_course.var(0) == 0:
             continue
-        seed_ifc = (1.0/num_tc)*np.matmul(im_dat[ix,:],seed_tc)
+
+        seed_ifc = (1.0/image_num_time_points)*np.matmul(image_array, seed_time_course)
+
         if seed_ifc.var() == 0:
             continue
+
         seed_ifc = skp.scale(seed_ifc, axis=0, with_mean=True, with_std=True, copy=False)
 
-        # get all of the seeds neighbors that are in the mask
-        seed_neigh = []
-        for x in get_neighbors(i, msz):
-            if ix_min <= x <= ix_max and mask_array[x] != 0:
-                seed_neigh.append(x)
+        # get the neighbors and make sure that they are in the mask
+        seed_neighbor_image_indices = [mask_array[index] - 1
+                                        for index in get_neighbors(mask_index, mask_shape)
+                                        if 0 <= index <= mask_num_voxels and mask_array[index] > 0]
 
-        # get the time courses for the neigbors
-        neigh_tc = im_dat[seed_neigh, :]
-        neigh_ifc = (1.0 / 150) * np.matmul(im_dat[ix, :], np.transpose(neigh_tc))
-        if (neigh_ifc.var(0) == 0).all():
+        # reduce the neighbors to just those with variance
+        neighbor_time_courses = im_array[seed_neighbor_image_indices, :]
+
+        # filter neighbors and time series to remove those with no variance
+        seed_neighbor_image_indices = [seed_neighbor_image_indices[index]
+                                       for index, value in enumerate(neighbor_time_courses.var(1))
+                                       if value > 0]
+
+        # reduce the neighbors to just those with variance
+        neighbor_time_courses = im_array[seed_neighbor_image_indices, :]
+
+        # calculate IFC for the neighbors
+        neighbor_ifc = (1.0 / 150) * np.matmul(im_array, np.transpose(neighbor_time_courses))
+
+        # jump to the next seed if none of the resulting maps have variance
+        if (neighbor_ifc.var(0) == 0).all():
             continue
-        good_ix = np.where(neigh_ifc.var(0)!=0.0)[0]
-        neigh_ifc = neigh_ifc[:,good_ix]
-        neigh_ifc = skp.scale(neigh_ifc, axis=0, with_mean=True, with_std=True, copy=False)
 
-        # calculate the correlation, and find the location of vals
-        # > thresh
-        R = (1.0/num_vx)*(np.matmul(seed_ifc,neigh_ifc))
+        # now filter out the neighbors whose iFC maps have no variance
+        # filter neighbors and time series to remove those with no variance
+        seed_neighbor_image_indices = [seed_neighbor_image_indices[index]
+                                       for index, value in enumerate(neighbor_ifc.var(0))
+                                       if value > 0]
 
-        if (R>thresh).any():
-            seed_neigh = np.array(seed_neigh)
-            seed_neigh = seed_neigh[R>thresh]
-            R = R[R>thresh]
-            mvals+=zip(int(i)*np.ones(len(seed_neigh),dtype=np.int),seed_neigh,R)
-        else:
-            none_count=none_count+1
-            if none_count % 1000 == 0:
-                print "%d nones encountered out of %d"%(none_count,iter_count),R
-        iter_count=iter_count+1
+        neighbor_ifc = neighbor_ifc[:, neighbor_ifc.var(0) > 0]
 
-    return(mvals)
+        # standardize the ifc maps in preparation for the correlation
+        neighbor_ifc = skp.scale(neighbor_ifc, axis=0, with_mean=True, with_std=True, copy=False)
+
+        # calculate the correlation, and find the location of values > thresh
+        corr = (1.0/image_num_voxels)*(np.matmul(seed_ifc, neighbor_ifc))
+
+        # now find the neighbors with a correlation above threshold, and
+        # the corresponding weight
+        if (corr > thresh).any():
+            seed_neighbor_image_indices = [seed_neighbor_image_indices[index]
+                                           for index, value in enumerate(corr)
+                                           if value > thresh]
+
+            corr = [value for index, value in enumerate(corr) if value > thresh]
+
+            w_values += corr
+            i_indices += [int(image_index)] * len(seed_neighbor_image_indices)
+            j_indices += seed_neighbor_image_indices
+
+    return w_values, i_indices, j_indices
+
+
+def make_local_connectivity_clusters(im_array):
+    """
+
+    make_local_connectivity_ones( mask_array )
+
+    This function is a part of the ClusterROI python toolbox for the
+    spatially constrained clustering of fMRI data. It constructs a spatially
+    constrained connectivity matrix for a fMRI dataset. The weights w_ij of
+    the connectivity matrix W are set to 1 if a voxel is contained in the
+    same ROI (determined by a unique integer identifier) as the seed vx.
+
+    Args:
+        :param im_array: (numpy array) containing cluster assignment data
+
+    Returns:
+        w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
+             j is  a list of connection right coordinates
+
+    :rtype: tuple
+    """
+
+    # type: (object) -> object
+
+    import itertools
+
+    import warnings
+    warnings.filterwarnings("ignore", category=UserWarning)
+
+    i_indices = []
+    j_indices = []
+
+    for cluster_val in list(set(im_array)):
+        cluster_ixs = [i for i, v in enumerate(im_array) if v == cluster_val]
+        i_indices += [i for (i, j) in itertools.product(cluster_ixs, repeat=2) if i != j]
+        j_indices += [j for (i, j) in itertools.product(cluster_ixs, repeat=2) if i != j]
+
+    w_values = [1.0] * len(i_indices)
+
+    return w_values, i_indices, j_indices
