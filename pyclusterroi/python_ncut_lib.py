@@ -135,7 +135,7 @@ def ncut(w, num_eigen_values):
                                    tol=eigs_err_tolerance,
                                    which='LA')
 
-    # sort the eigen_vals so that the first
+    # sort the eigen values so that the first
     # is the largest
     i = argsort(-eigen_val)
     eigen_val = eigen_val[i]
@@ -149,108 +149,108 @@ def ncut(w, num_eigen_values):
         if eigen_vec[0, i] != 0:
             eigen_vec[:, i] = -1 * eigen_vec[:, i] * sign(eigen_vec[0, i])
 
-    return (eigen_val, eigen_vec)
+    return eigen_val, eigen_vec
 
-# eigenvec_discrete=discretisation( eigen_vec ):
-#
-# This function performs the second step of normalized cut clustering which
-# assigns features to clusters based on the eigen vectors from the LaPlacian of
-# a similarity matrix. There are a few different ways to perform this task. Shi
-# and Malik (2000) iteratively bisect the features based on the positive and
-# negative loadings of the eigenvectors. Ng, Jordan and Weiss (2001) proposed to
-# perform K-means clustering on the rows of the eigenvectors. The method
-# implemented here was proposed by Yu and Shi (2003) and it finds a discrete
-# solution by iteratively rotating a binaised set of vectors until they are
-# maximally similar to the the eigenvectors (for more information, the full
-# citation is at the top of this file). An advantage of this method over K-means
-# is that it is _more_ deterministic, i.e. you should get very similar results
-# every time you run the algorithm on the same data.
-#
-# The number of clusters that the features are clustered into is determined by
-# the number of eignevectors (number of columns) in the input array eigen_vec. A
-# caveat of this method, is that number of resulting clusters is bound by the
-# number of eignevectors, but it may contain less.
-#
-#    eigen_vec:          Eigenvectors of the normalized LaPlacian calculated
-#                        from the similarity matrix for the corresponding
-#                        clustering problem
-#    eigen_vec_discrete: (output) discretised eigenvectors, i.e. vectors of 0
-#                        and 1 which indicate whether or not a feature belongs
-#                        to the cluster defined by the eigen vector.  I.E. a one
-#                        in the 10th row of the 4th eigenvector (column) means
-#                        that feature 10 belongs to cluster #4.
-# 
-def discretisation( eigen_vec ):
-    eps=2.2204e-16
+
+def discretisation(eigen_vec):
+    """
+    eigenvec_discrete=discretisation( eigen_vec ):
+
+    This function performs the second step of normalized cut clustering which
+    assigns features to clusters based on the eigen vectors from the LaPlacian of
+    a similarity matrix. There are a few different ways to perform this task. Shi
+    and Malik (2000) iteratively bisect the features based on the positive and
+    negative loadings of the eigenvectors. Ng, Jordan and Weiss (2001) proposed to
+    perform K-means clustering on the rows of the eigenvectors. The method
+    implemented here was proposed by Yu and Shi (2003) and it finds a discrete
+    solution by iteratively rotating a binarized set of vectors until they are
+    maximally similar to the the eigenvectors (for more information, the full
+    citation is at the top of this file). An advantage of this method over K-means
+    is that it is _more_ deterministic, i.e. you should get very similar results
+    every time you run the algorithm on the same data.
+
+    The number of clusters that the features are clustered into is determined by
+    the number of eigenvectors (number of columns) in the input array eigen_vec. A
+    caveat of this method, is that number of resulting clusters is bound by the
+    number of eigenvectors, but it may contain less.
+
+       eigen_vec:
+
+    :param eigen_vec: Eigenvectors of the normalized LaPlacian calculated from the
+                      similarity matrix for the corresponding clustering problem
+    :return: (ndarray) discretised eigenvectors, i.e. vectors of 0 and 1 which
+             indicate whether or not a feature belongs to the cluster defined by
+             the eigen vector.  I.E. a one in the 10th row of the 4th eigenvector
+             (column) means that feature 10 belongs to cluster #4.
+
+    """
+    eps = 2.2204e-16
 
     # normalize the eigenvectors
-    [n,k]=shape(eigen_vec)
-    vm=kron(ones((1,k)),sqrt(multiply(eigen_vec,eigen_vec).sum(1)))
-    eigen_vec=divide(eigen_vec,vm)
+    [n, k] = shape(eigen_vec)
+    vm = kron(ones((1, k)), sqrt(multiply(eigen_vec, eigen_vec).sum(1)))
+    eigen_vec = divide(eigen_vec, vm)
 
-    svd_restarts=0
-    exitLoop=0
+    svd_restarts = 0
+    exit_loop = 0
 
-    ### if there is an exception we try to randomize and rerun SVD again
-        ### do this 30 times
-    while (svd_restarts < 30) and (exitLoop==0):
+    eigenvec_discrete = None
+
+    # if there is an exception we try to randomize and rerun SVD again
+    # do this 30 times
+    while (svd_restarts < 30) and (exit_loop == 0):
 
         # initialize algorithm with a random ordering of eigenvectors
-        c=zeros((n,1))
-        R=matrix(zeros((k,k)))
-        R[:,0]=eigen_vec[int(rand(1)*(n-1)),:].transpose()
+        c = zeros((n, 1))
+        r = matrix(zeros((k, k)))
+        r[:, 0] = eigen_vec[int(rand(1) * (n - 1)), :].transpose()
 
-        for j in range(1,k):
-            c=c+abs(eigen_vec*R[:,j-1])
-            R[:,j]=eigen_vec[c.argmin(),:].transpose()
+        for j in range(1, k):
+            c = c + abs(eigen_vec * r[:, j - 1])
+            r[:, j] = eigen_vec[c.argmin(), :].transpose()
 
+        last_objective_value = 0
+        num_iterations_discretization = 0
+        max_num_iterations_discretization = 20
 
-        lastObjectiveValue=0
-        nbIterationsDiscretisation=0
-        nbIterationsDiscretisationMax=20
-
-        # iteratively rotate the discretised eigenvectors until they
-        # are maximally similar to the input eignevectors, this 
+        # iteratively rotate the discretized eigenvectors until they
+        # are maximally similar to the input eigenvectors, this
         # converges when the differences between the current solution
         # and the previous solution differs by less than eps or we
-        # we have reached the maximum number of itarations
-        while exitLoop == 0:
-            nbIterationsDiscretisation = nbIterationsDiscretisation + 1
+        # we have reached the maximum number of iterations
+        while exit_loop == 0:
+            num_iterations_discretization += 1
 
             # rotate the original eigen_vectors
-            tDiscrete=eigen_vec*R
+            eigen_vec_rotated = eigen_vec * r
 
-            # discretise the result by setting the max of each row=1 and
+            # discretize the result by setting the max of each row=1 and
             # other values to 0
-            j=reshape(asarray(tDiscrete.argmax(1)),n)
-            eigenvec_discrete=csc_matrix((ones(len(j)),(range(0,n), \
-                array(j))),shape=(n,k))
+            j = reshape(asarray(eigen_vec_rotated.argmax(1)), n)
+            eigenvec_discrete = csc_matrix((ones(len(j)), (range(0, n), array(j))), shape=(n, k))
 
             # calculate a rotation to bring the discrete eigenvectors cluster to
             # the original eigenvectors
-            tSVD=eigenvec_discrete.transpose()*eigen_vec
+            eigenvec_discrete_rot = eigenvec_discrete.transpose() * eigen_vec
             # catch a SVD convergence error and restart
             try:
-                U, S, Vh = svd(tSVD)
+                u, s, vh = svd(eigenvec_discrete_rot)
             except LinAlgError:
                 # catch exception and go back to the beginning of the loop
-                print >> sys.stderr, \
-                    "SVD did not converge, randomizing and trying again"
+                print("SVD did not converge, randomizing and trying again", file=sys.stderr)
                 break
 
             # test for convergence
-            NcutValue=2*(n-S.sum())
-            if((abs(NcutValue-lastObjectiveValue) < eps ) or \
-                      ( nbIterationsDiscretisation > \
-                        nbIterationsDiscretisationMax )):
-                exitLoop=1
+            objective_value = 2 * (n - s.sum())
+            if (abs(objective_value - last_objective_value) < eps) or (
+                    num_iterations_discretization > max_num_iterations_discretization):
+                exit_loop = 1
             else:
                 # otherwise calculate rotation and continue
-                lastObjectiveValue=NcutValue
-                R=matrix(Vh).transpose()*matrix(U).transpose()
+                last_objective_value = objective_value
+                r = matrix(vh).transpose() * matrix(u).transpose()
 
-    if exitLoop == 0:
+    if exit_loop == 0:
         raise SVDError("SVD did not converge after 30 retries")
-    else:
-        return(eigenvec_discrete)
 
+    return eigenvec_discrete

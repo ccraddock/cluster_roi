@@ -47,18 +47,22 @@
 from .make_connectivity import *
 
 
-def make_individual_parcellation(num_clusters, method, image_file, mask_file, out_file, thresh=0.5):
+def make_individual_parcellation(num_clusters, method, image_files, mask_file, out_file, thresh=0.5):
     """
-    Make connectivity for an individual fMRI scan contained in a nifti image file"
+    Make connectivity for an individual fMRI scan contained in a nifti image file, or the mean connectivity matrices
+    calculated across several fMRI scans.
 
     :param num_clusters: number of desired clusters to be returned, can be a list
     :param method: string indicating how connectivity should be calculated
               should be one of tcorr, scorr, or ones
-    :param image_file: nifti file containing neuroimaging data to calculate connectivity
-              from
+    :param image_files: path to a single input nifti file or a list of paths to several input files, used to calculate
+            connectivity, if  a list, connectivity matrices are averaged across files, if method == 'ones' this can
+            safely be set to None
     :param mask_file: mask for confining the neuroimaging data to an area of interest, most
               commonly the grey matter
-    :param out_file: output nifti file containing the parcellated data
+    :param out_file: output nifti file containing the parcellated data, if the path contains the string {k}, it will
+              be replaced with the number of clusters in the parcellation, otherwise the number of clusters will be
+              appended to the output filename prior to the .nii or .nii.gz extension
     :param thresh: thresh hold to apply to connectivity measures
 
     :return: no return, raises exceptions on errors
@@ -73,9 +77,12 @@ def make_individual_parcellation(num_clusters, method, image_file, mask_file, ou
     if isinstance(num_clusters, int):
         num_clusters = [num_clusters]
 
+    if isinstance(image_files, str):
+        image_files = [image_files]
+
     start_time = time.time()
 
-    print 'started at ', start_time
+    print('started at {0}'.format(start_time))
 
     # load mask
     nim = nb.load(mask_file)
@@ -91,40 +98,66 @@ def make_individual_parcellation(num_clusters, method, image_file, mask_file, ou
             num_mask_voxels += 1
             mask_array[mask_index] = num_mask_voxels
 
-    # load and conform the fMRI data
-    image_array = nb.load(image_file).get_data()
+    # initialize these so that i don't get an warning below when I use them, the lint isn't good enough to realize
+    # that these values will be calculated on all paths through the following logic that do not result in an exception
+    w = []
+    i = []
+    j = []
 
-    image_shape = image_array.shape
-    num_time_courses = image_shape[-1]
+    if method in ['tcorr', 'scorr']:
 
-    # reshape fmri data to a num_voxels x num_time_points array
-    image_array = np.reshape(image_array, (np.prod(image_shape[:-1]), num_time_courses))
+        if image_files:
 
-    # reduce fmri data to just in-brain voxels
-    image_array = image_array[mask_array != 0, :]
+            w_matrix = None
+            for image_file in image_files:
 
-    print("parcellating im_array: {0} {1}".format(image_array.shape[0], image_array.shape[1]))
+                # load and conform the fMRI data
+                image_array = nb.load(image_file).get_data()
 
-    if 'tcorr' in method:
-        (w, i, j) = make_local_connectivity_tcorr(image_array, np.reshape(mask_array, mask_shape), thresh)
+                image_shape = image_array.shape
+                num_time_courses = image_shape[-1]
 
-    elif 'scorr' in method:
-        (w, i, j) = make_local_connectivity_scorr(image_array, np.reshape(mask_array, mask_shape), thresh)
+                # reshape fmri data to a num_voxels x num_time_points array
+                image_array = np.reshape(image_array, (np.prod(image_shape[:-1]), num_time_courses))
+
+                # reduce fmri data to just in-brain voxels
+                image_array = image_array[mask_array != 0, :]
+
+                print("parcellating im_array: {0} {1}".format(image_array.shape[0], image_array.shape[1]))
+
+                if 'tcorr' in method:
+                    (w, i, j) = make_local_connectivity_tcorr(image_array, np.reshape(mask_array, mask_shape), thresh)
+
+                elif 'scorr' in method:
+                    (w, i, j) = make_local_connectivity_scorr(image_array, np.reshape(mask_array, mask_shape), thresh)
+
+                # make the sparse matrix, CSC format is supposedly efficient for matrix
+                # arithmetic
+                if not w_matrix:
+                    w_matrix = 1.0 / len(image_files) * \
+                               sp.csc_matrix((w, (i, j)), shape=(num_mask_voxels, num_mask_voxels))
+                else:
+                    w_matrix += 1.0 / len(image_files) * \
+                                sp.csc_matrix((w, (i, j)), shape=(num_mask_voxels, num_mask_voxels))
+
+        else:
+            raise ValueError(
+                "Calculating local connectivity using {0} requires an input 4D dataset, got NONE".format(method))
 
     elif 'ones' in method:
         (w, i, j) = make_local_connectivity_ones(np.reshape(mask_array, mask_shape))
 
+        # make the sparse matrix, CSC format is supposedly efficient for matrix
+        # arithmetic
+        w_matrix = sp.csc_matrix((w, (i, j)), shape=(num_mask_voxels, num_mask_voxels))
+
     else:
         raise ValueError("unknown connectivity method {0}".format(method))
-
-    # make the sparse matrix, CSC format is supposedly efficient for matrix
-    # arithmetic
-    w_matrix = sp.csc_matrix((w, (i, j)), shape=(num_mask_voxels, num_mask_voxels))
 
     print('finished reading in data and calculating connectivity after {0} seconds'.format(
         time.time() - start_time))
 
-    # we only have to calculate the eigendecomposition of the LaPlacian once,
+    # we only have to calculate the eigen decomposition of the LaPlacian once,
     # for the largest number of clusters provided. This provides a significant
     # speedup, without any difference to the results.
     k_max = max(num_clusters)
@@ -140,10 +173,10 @@ def make_individual_parcellation(num_clusters, method, image_file, mask_file, ou
     out_file = out_file.replace(".gz", "")
 
     # prepare the output nifti file
-    thdr = nim.get_header()
+    thdr = nim.header
     thdr['scl_slope'] = 1
 
-    nim_aff = nim.get_affine()
+    nim_aff = nim.affine
 
     # calculate each desired clustering result
     for k in num_clusters:
@@ -166,12 +199,19 @@ def make_individual_parcellation(num_clusters, method, image_file, mask_file, ou
             i += 1
 
         # store the output
-        image_data[mask_array > 0] = np.short(cluster_image_nogap.flatten())
+        image_data.flat[mask_array > 0] = np.short(cluster_image_nogap.flatten())
 
         # reshape the image
         nim_out = nb.Nifti1Image(image_data.reshape(mask_shape), nim_aff, thdr)
 
+        if '{k}' in out_file:
+            out_file_k = out_file.format(**{'k': k})
+        else:
+            out_file_k = out_file + '_{0:04d}'.format(k)
+        out_file_k += ".nii.gz"
+
         nim_out.set_data_dtype('uint16')
-        nim_out.to_filename("{0}_nclust-{1:04d}.nii.gz".format(out_file, k))
+        nim_out.to_filename(out_file_k)
 
     return out_file
+

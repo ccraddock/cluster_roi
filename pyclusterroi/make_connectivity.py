@@ -112,8 +112,10 @@ def get_neighbors(ix, msz):
 
     # get the neighbor indices, filtering out values that are outside of the image's
     # bounding box
-    neighbor_indices = [v for v in np.unravel_index(ix, msz) + neighbors[len(msz) - 1]
-                        if (v >= 0).all() and (v < msz).all()]
+    neighbor_indices = []
+    for v in np.unravel_index(ix, msz) + neighbors[len(msz) - 1]:
+        if (v >= 0).all() and (v < msz).all():
+            neighbor_indices.append(v)
 
     # convert to 1D indx and return
     return np.ravel_multi_index(tuple(np.transpose(neighbor_indices)), msz)
@@ -141,8 +143,6 @@ def make_local_connectivity_ones(mask_array):
 
     :rtype: list
     """
-
-    # type: (object) -> object
 
     import numpy as np
 
@@ -233,7 +233,7 @@ def make_local_connectivity_tcorr(im_array, mask_array, thresh):
         if im_indx < num_vx:
             seed_tc = im_array[im_indx, :]
         else:
-            print "how is {0} out of bounds? {1} {2}".format(im_indx, num_vx, num_tc)
+            print("how is {0} out of bounds? {1} {2}".format(im_indx, num_vx, num_tc))
 
         if seed_tc.var() == 0:
             continue
@@ -322,9 +322,9 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
         if image_index < image_num_voxels:
             seed_time_course = image_array[image_index, :]
         else:
-            print "how is {0} out of bounds? {1} {2}".format(image_index,
+            print("how is {0} out of bounds? {1} {2}".format(image_index,
                                                              image_num_voxels,
-                                                             image_num_time_points)
+                                                             image_num_time_points))
 
         if seed_time_course.var(0) == 0:
             continue
@@ -337,9 +337,10 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
         seed_ifc = skp.scale(seed_ifc, axis=0, with_mean=True, with_std=True, copy=False)
 
         # get the neighbors and make sure that they are in the mask
-        seed_neighbor_image_indices = [mask_array[index] - 1
-                                        for index in get_neighbors(mask_index, mask_shape)
-                                        if 0 <= index <= mask_num_voxels and mask_array[index] > 0]
+        seed_neighbor_image_indices = []
+        for index in get_neighbors(mask_index, mask_shape):
+            if 0 <= index <= mask_num_voxels and mask_array[index] > 0:
+                seed_neighbor_image_indices.append(mask_array[index] - 1)
 
         # reduce the neighbors to just those with variance
         neighbor_time_courses = im_array[seed_neighbor_image_indices, :]
@@ -409,8 +410,6 @@ def make_local_connectivity_clusters(im_array):
 
     :rtype: tuple
     """
-
-    # type: (object) -> object
 
     import itertools
 
