@@ -1,4 +1,4 @@
-#### python_ncut_lib.py
+# python_ncut_lib.py
 # Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
 #
 # This script is a part of the pyClusterROI python toolbox for the spatially

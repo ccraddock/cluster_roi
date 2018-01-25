@@ -53,6 +53,14 @@
 # this scripts requires NumPy (numpy.scipy.org) to be installed in a directory
 # that is accessible through PythonPath
 
+import time
+import nibabel as nb
+import numpy as np
+import warnings
+import sklearn.preprocessing as skp
+import itertools
+import scipy.sparse as sp
+
 
 def get_neighbors(ix, msz):
 
@@ -63,7 +71,6 @@ def get_neighbors(ix, msz):
     :param msz: dimensions of the full space
     :return: list of 1d indices for the voxels of the cube
     """
-    import numpy as np
 
     if np.ndim(ix) > 0:
         raise TabError("ix should be a single integer, not a list")
@@ -144,9 +151,6 @@ def make_local_connectivity_ones(mask_array):
     :rtype: list
     """
 
-    import numpy as np
-
-    import warnings
     warnings.filterwarnings("ignore", category=UserWarning)
 
     msz = mask_array.shape
@@ -201,9 +205,6 @@ def make_local_connectivity_tcorr(im_array, mask_array, thresh):
              j is  a list of connection right coordinates
     """
 
-    import numpy as np
-    import sklearn.preprocessing as skp
-    import warnings
     warnings.filterwarnings("ignore", category=UserWarning)
 
     msz = mask_array.shape
@@ -288,10 +289,6 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
 
     :rtype: tuple
     """
-
-    import numpy as np
-    import sklearn.preprocessing as skp
-    import warnings
 
     warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -411,15 +408,12 @@ def make_local_connectivity_clusters(im_array):
     :rtype: tuple
     """
 
-    import itertools
-
-    import warnings
     warnings.filterwarnings("ignore", category=UserWarning)
 
     i_indices = []
     j_indices = []
 
-    for cluster_val in list(set(im_array)):
+    for cluster_val in np.unique(im_array):
         cluster_ixs = [i for i, v in enumerate(im_array) if v == cluster_val]
         i_indices += [i for (i, j) in itertools.product(cluster_ixs, repeat=2) if i != j]
         j_indices += [j for (i, j) in itertools.product(cluster_ixs, repeat=2) if i != j]
