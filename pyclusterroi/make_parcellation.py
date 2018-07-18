@@ -1,4 +1,4 @@
-#### make_parcellation.py
+# make_parcellation.py
 # Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
 #
 # This script is a part of the pyClusterROI python toolbox for the spatially
@@ -49,7 +49,8 @@ import numpy as np
 import time as time
 import python_ncut_lib as nc
 from .make_connectivity import *
-import multiprocessing as mp
+import scipy.sparse as sp
+import datetime
 
 
 def discretize_and_write(eigenvectors, nim, mask_array, out_file):
@@ -95,6 +96,7 @@ def discretize_and_write(eigenvectors, nim, mask_array, out_file):
     nim_out.to_filename(out_file)
 
     return out_file
+
 
 def make_parcellation(num_clusters, method, image_files, mask_file, out_file, thresh=0.5, num_threads=1):
 
@@ -175,7 +177,8 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
 
     start_time = time.time()
 
-    print('started at {0}'.format(start_time))
+    print('Started reading files and calculating connectivity at {0}'.format(
+        datetime.datetime.fromtimestamp(start_time).strftime('%H:%M:%S')))
 
     # load mask
     nim = nb.load(mask_file)
@@ -190,12 +193,6 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
         if mask_value == 1:
             num_mask_voxels += 1
             mask_array[mask_index] = num_mask_voxels
-
-    # initialize these so that i don't get an warning below when I use them, the lint isn't good enough to realize
-    # that these values will be calculated on all paths through the following logic that do not result in an exception
-    w = []
-    i = []
-    j = []
 
     if method in ['tcorr', 'scorr', 'cluster']:
 
@@ -243,16 +240,11 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
                 # reduce fmri data to just in-brain voxels
                 image_array = image_array[mask_array != 0, :]
 
-                print("Parcellating im_array: {0} {1}".format(image_array.shape[0], image_array.shape[1]))
-
-                if 'tcorr' in method:
-                    (w, i, j) = make_local_connectivity_tcorr(image_array, np.reshape(mask_array, mask_shape), thresh)
-
-                elif 'scorr' in method:
-                    (w, i, j) = make_local_connectivity_scorr(image_array, np.reshape(mask_array, mask_shape), thresh)
-
-                elif 'cluster' in method:
+                if 'cluster' in method:
                     (w, i, j) = make_local_connectivity_clusters(image_array)
+                else:
+                    (w, i, j) = make_local_connectivity(method, image_array, np.reshape(mask_array, mask_shape), thresh,
+                                                        num_threads)
 
                 # make the sparse matrix, CSC format is supposedly efficient for matrix
                 # arithmetic
@@ -268,7 +260,7 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
                 "Calculating local connectivity using {0} requires at least one input dataset, got NONE".format(method))
 
     elif 'ones' in method:
-        (w, i, j) = make_local_connectivity_ones(np.reshape(mask_array, mask_shape))
+        (w, i, j) = make_local_connectivity(method, None, np.reshape(mask_array, mask_shape), thresh, num_threads)
 
         # make the sparse matrix, CSC format is supposedly efficient for matrix
         # arithmetic
@@ -277,7 +269,7 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
     else:
         raise ValueError("unknown connectivity method {0}".format(method))
 
-    print('finished reading in data and calculating connectivity after {0} seconds'.format(
+    print('Finished reading in data and calculating connectivity after {0} seconds'.format(
         time.time() - start_time))
 
     if isinstance(num_clusters, int):
@@ -285,13 +277,10 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
 
     start_time = time.time()
 
-    print('started parcellations at {0}'.format(start_time))
-
     # load mask
     nim = nb.load(mask_file)
 
     mask_array = ((nim.get_data()) > 0).astype('uint8')
-    mask_shape = mask_array.shape
     mask_array = mask_array.flatten()
 
     # we only have to calculate the eigen decomposition of the LaPlacian once,
@@ -300,24 +289,38 @@ def make_parcellation(num_clusters, method, image_files, mask_file, out_file, th
     k_max = max(num_clusters)
     eigenvalues, eigenvectors = nc.ncut(adjacency_matrix, k_max)
 
-    print('finished calculating eigenvectors after ({0}) seconds'.format(time.time() - start_time))
+    print('Finished calculating eigenvectors after {0} seconds'.format(time.time() - start_time))
 
     # if outfile includes a file extension, remove it
     out_file = out_file.replace(".nii", "")
     out_file = out_file.replace(".gz", "")
 
     if '{k}' not in out_file:
-        out_file = out_file + '_{k:04d}'
+        out_file = out_file + '_variant-{method}{k:04d}_roi'
 
     out_file += ".nii.gz"
 
     out_files = []
-    # calculate each desired clustering result
-    with mp.Pool(processes=num_threads) as pool:
-        apply_results = [
-            pool.apply_async(discretize_and_write, (eigenvectors[:, :k], nim, mask_array, out_file.format(**{'k': k})))
-            for k in num_clusters]
 
-        out_files = [result.get() for result in apply_results]
+    if num_threads == 1:
+
+        for k in num_clusters:
+            out_files.append(discretize_and_write(eigenvectors[:, :k], nim, mask_array,
+                                                  out_file.format(**{'method':method, 'k': k})))
+
+    elif num_threads > 1:
+        import multiprocessing as mp
+
+        # calculate each desired clustering result
+        with mp.Pool(processes=num_threads) as pool:
+            apply_results = [
+                pool.apply_async(discretize_and_write,
+                                 (eigenvectors[:, :k], nim, mask_array, out_file.format(**{'k': k})))
+                for k in num_clusters]
+
+            out_files = [result.get() for result in apply_results]
+
+    else:
+        raise ValueError("Expected num_threads to be an integer greater than zero, received {0}.".format(num_threads))
 
     return out_files

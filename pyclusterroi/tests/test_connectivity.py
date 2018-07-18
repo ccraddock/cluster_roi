@@ -3,6 +3,94 @@ from unittest import TestCase
 
 class TestConnectivity(TestCase):
 
+    def test_cli_test_participant(self):
+        import pyclusterroi as pc
+        import os
+
+        bids_dir = os.path.join(os.path.dirname(__file__), "test_data")
+
+        # return_value = pc.pyclusterroi([bids_dir, bids_dir, 'test_config', '--skip_bids_validator', '-h'])
+        # self.assertTrue(return_value == 0)
+
+        return_value = pc.pyclusterroi(
+            [bids_dir,
+             bids_dir,
+             'test_participant',
+             '--skip_bids_validator',
+             '--debug',
+             '--mask', os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz',
+             '--number_of_clusters', '10:100:10'])
+        self.assertTrue(return_value == 0)
+
+    def test_cli_participant(self):
+        import pyclusterroi as pc
+        import os
+
+        bids_dir = os.path.join(os.path.dirname(__file__), "test_data")
+
+        return_value = pc.pyclusterroi(
+            [bids_dir,
+             bids_dir,
+             'participant',
+             '--skip_bids_validator',
+             '--mask', os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz',
+             '--number_of_clusters', '10:100:10'])
+
+        self.assertTrue(return_value == 0)
+
+    def test_cli_group_2level(self):
+        import pyclusterroi as pc
+        import os
+
+        bids_dir = os.path.join(os.path.dirname(__file__), "test_data")
+
+        return_value = pc.pyclusterroi(
+            [bids_dir,
+             bids_dir,
+             'group',
+             '--group_name', 'allNFB',
+             '--skip_bids_validator',
+             '--mask', os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz',
+             '--variant', 'tcorr90',
+             '--number_of_clusters', '10:100:10'])
+        self.assertTrue(return_value == 0)
+
+    def test_cli_group_gmean(self):
+        import pyclusterroi as pc
+        import os
+
+        bids_dir = os.path.join(os.path.dirname(__file__), "test_data")
+        return_value = pc.pyclusterroi(
+            [bids_dir,
+             bids_dir,
+             'group',
+             '--group_name', 'allNFB',
+             '--skip_bids_validator',
+             '--group_level_method', 'gmean',
+             '--mask', os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz',
+             '--number_of_clusters', '10:100:10'])
+        self.assertTrue(return_value == 0)
+
+    def test_cli_participant_scorr_threads(self):
+        import pyclusterroi as pc
+        import os
+
+        bids_dir = os.path.join(os.path.dirname(__file__), "test_data")
+
+        return_value = pc.pyclusterroi(
+            [bids_dir,
+             bids_dir,
+             'participant',
+             '--skip_bids_validator',
+             '--similarity_metric', 'scorr',
+             '--thresh', '0.4',
+             '--n_cpus', '2',
+             '--mask', os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz',
+             '--number_of_clusters', '10:100:10',
+             '--participant_ndx', '1'])
+
+        self.assertTrue(return_value == 0)
+
     # def test_make_ones_parcellation(self):
     #     """
     #     smoke test for ones connectivity
@@ -16,18 +104,16 @@ class TestConnectivity(TestCase):
     #
     #     gm_mask_file = os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz'
     #
-    #     ret_val = []
     #     for participant in [1]:
-    #         participant_input_data = os.path.dirname(__file__) + \
-    #                                  "/test_data/sub-{0}/func/sub-{0}_task-rest_bold.nii.gz".format(participant)
+    #
     #         participant_output_prefix = os.path.dirname(
-    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/sub-{0}_task-rest_bold_".format(
+    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/func/sub-{0}_task-rest_bold_".format(
     #             participant) + "variant-ones{k}_roi.nii.gz"
     #
     #         os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
     #
     #         out_files = pc.make_parcellation(range(10, 100, 10), 'ones', None, gm_mask_file,
-    #                                          participant_output_prefix, thresh=0.5)
+    #                                          participant_output_prefix, thresh=0.5, num_threads=1)
     #
     #         self.assertTrue(out_files)
     #
@@ -49,13 +135,13 @@ class TestConnectivity(TestCase):
     #         participant_input_data = os.path.dirname(__file__) + \
     #                                  "/test_data/sub-{0}/func/sub-{0}_task-rest_bold.nii.gz".format(participant)
     #         participant_output_prefix = os.path.dirname(
-    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/sub-{0}_task-rest_bold_".format(
+    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/func/sub-{0}_task-rest_bold_".format(
     #             participant) + "variant-tcorr{k}_roi.nii.gz"
     #
     #         os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
     #
     #         out_files = pc.make_parcellation(range(10, 100, 10), 'tcorr', participant_input_data, gm_mask_file,
-    #                                          participant_output_prefix, thresh=0.5)
+    #                                          participant_output_prefix, thresh=0.5, num_threads=1)
     #
     #         self.assertTrue(out_files)
     #
@@ -84,72 +170,72 @@ class TestConnectivity(TestCase):
     #     os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
     #
     #     out_files = pc.make_parcellation(range(10, 100, 10), 'tcorr', participant_input_data, gm_mask_file,
-    #                                      participant_output_prefix, thresh=0.5)
+    #                                      participant_output_prefix, thresh=0.5, num_threads=1)
     #
     #     self.assertTrue(out_files)
-
-    def test_make_tcorr_parcellation_2level(self):
-        """
-        smoke test for tcorr connectivity
-        :param self:
-        :return:
-        """
-
-        import pyclusterroi as pc
-        import os
-        import multiprocessing as mp
-
-        class NoDaemonProcess(mp.Process):
-            # make 'daemon' attribute always return False
-            def _get_daemon(self):
-                return False
-
-            def _set_daemon(self, value):
-                pass
-
-            daemon = property(_get_daemon, _set_daemon)
-
-        # We sub-class multiprocessing.pool.Pool instead of multiprocessing.Pool
-        # because the latter is only a wrapper function, not a proper class.
-        class MyPool(mp.pool.Pool):
-            Process = NoDaemonProcess
-
-        print('tcorr connectivity')
-
-        gm_mask_file = os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz'
-        num_pt_at_once = 3
-        num_threads = 2
-
-        with MyPool(num_pt_at_once) as pool:
-            thread_results=[]
-            for participant in [1, 2, 3]:
-                participant_input_data = os.path.dirname(
-                    __file__) + "/test_data/sub-{0}/func/sub-{0}_task-rest_bold.nii.gz".format(participant)
-
-                participant_output_prefix = os.path.dirname(
-                    __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/sub-{0}_task-rest_bold_".format(
-                    participant) + "variant-tcorr{k}_roi.nii.gz"
-
-                os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
-
-                thread_results.append(pool.apply_async(pc.make_parcellation, (100, 'tcorr', participant_input_data,
-                                                                              gm_mask_file, participant_output_prefix,
-                                                                              0.5, num_threads)))
-
-            participant_parcellation_data = []
-            for thread_result in thread_results:
-                participant_parcellation_data.append(thread_result.get()[0])
-
-        print(participant_parcellation_data)
-
-        group_output_prefix = os.path.dirname(
-            __file__) + "/test_data/derivatives/pyclusterroi/group_task-rest_bold_variant-tcorr{k}_roi.nii.gz"
-
-        out_files = pc.make_parcellation(range(10, 100, 10), 'cluster', participant_parcellation_data, gm_mask_file,
-                                         group_output_prefix, thresh=0.5, num_threads=4)
-
-        self.assertTrue(out_files)
-
+    #
+    # def test_make_tcorr_parcellation_2level(self):
+    #     """
+    #     smoke test for tcorr connectivity
+    #     :param self:
+    #     :return:
+    #     """
+    #
+    #     import pyclusterroi as pc
+    #     import os
+    #     import multiprocessing as mp
+    #
+    #     class NoDaemonProcess(mp.Process):
+    #         # make 'daemon' attribute always return False
+    #         def _get_daemon(self):
+    #             return False
+    #
+    #         def _set_daemon(self, value):
+    #             pass
+    #
+    #         daemon = property(_get_daemon, _set_daemon)
+    #
+    #     # We sub-class multiprocessing.pool.Pool instead of multiprocessing.Pool
+    #     # because the latter is only a wrapper function, not a proper class.
+    #     class MyPool(mp.pool.Pool):
+    #         Process = NoDaemonProcess
+    #
+    #     print('tcorr connectivity')
+    #
+    #     gm_mask_file = os.path.dirname(__file__) + '/test_data/derivatives/gm_maskfile.nii.gz'
+    #     num_pt_at_once = 3
+    #     num_threads = 2
+    #
+    #     with MyPool(num_pt_at_once) as pool:
+    #         thread_results = []
+    #         for participant in [1, 2, 3]:
+    #             participant_input_data = os.path.dirname(
+    #                 __file__) + "/test_data/sub-{0}/func/sub-{0}_task-rest_bold.nii.gz".format(participant)
+    #
+    #             participant_output_prefix = os.path.dirname(
+    #                 __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/func/sub-{0}_task-rest_bold_".format(
+    #                 participant) + "variant-tcorr{k}_roi.nii.gz"
+    #
+    #             os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
+    #
+    #             thread_results.append(pool.apply_async(pc.make_parcellation, (100, 'tcorr', participant_input_data,
+    #                                                                           gm_mask_file, participant_output_prefix,
+    #                                                                           0.5, num_threads)))
+    #
+    #         participant_parcellation_data = []
+    #         for thread_result in thread_results:
+    #             participant_parcellation_data.append(thread_result.get()[0])
+    #
+    #     print(participant_parcellation_data)
+    #
+    #     group_output_prefix = os.path.dirname(
+    #         __file__) + "/test_data/derivatives/pyclusterroi/group_task-rest_bold_variant-tcorr{k}_roi.nii.gz"
+    #
+    #     out_files = pc.make_parcellation(range(10, 100, 10), 'cluster', participant_parcellation_data, gm_mask_file,
+    #                                      group_output_prefix, thresh=0.5, num_threads=1)
+    #
+    #     self.assertTrue(out_files)
+    #
     # def test_make_scorr_parcellation(self):
     #     """
     #     smoke test for scorr connectivity
@@ -167,16 +253,16 @@ class TestConnectivity(TestCase):
     #         participant_input_data = os.path.dirname(__file__) + \
     #                                  "/test_data/sub-{0}/func/sub-{0}_task-rest_bold.nii.gz".format(participant)
     #         participant_output_prefix = os.path.dirname(
-    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/sub-{0}_task-rest_bold_".format(
+    #             __file__) + "/test_data/derivatives/pyclusterroi/" + "sub-{0}/func/sub-{0}_task-rest_bold_".format(
     #             participant) + "variant-scorr{k}_roi.nii.gz"
     #
     #         os.makedirs(os.path.dirname(participant_output_prefix), exist_ok=True)
     #
-    #         ret_val = pc.make_individual_parcellation(range(10, 100, 10), 'scorr', participant_input_data, gm_mask_file,
-    #                                                   participant_output_prefix, thresh=0.5)
+    #         ret_val = pc.make_parcellation(range(10, 100, 10), 'scorr', participant_input_data, gm_mask_file,
+    #                                        participant_output_prefix, thresh=0.5, num_threads=8)
     #
     #         self.assertTrue(ret_val)
-
+    #
     # def test_get_neighbors_3d(self):
     #     """
     #     smoke for get neighbors functionality
@@ -302,8 +388,7 @@ class TestConnectivity(TestCase):
     #                     num_mask_vx += 1
     #                     mask_array[i, j, k] = num_mask_vx
     #
-    #     w, i, j = pc.make_local_connectivity_ones(mask_array)
-    #
+    #     (w, i, j) = pc.make_local_connectivity("ones", None, mask_array, thresh=0.5, num_threads=1)
     #     w_matrix = sp.csc_matrix((w, (i, j)), shape=(num_mask_vx, num_mask_vx))
     #
     #     self.assertTrue(np.mean(w) == 1.0)
@@ -321,6 +406,7 @@ class TestConnectivity(TestCase):
     #     import nibabel as nb
     #     import scipy.sparse as sp
     #     import os
+    #     import time
     #
     #     print("testing make_local_connectivity_tcorr")
     #
@@ -357,7 +443,10 @@ class TestConnectivity(TestCase):
     #     # reduce fmri data to just in-brain voxels
     #     image_array = image_array[mask_array != 0, :]
     #
-    #     (w, i, j) = pc.make_local_connectivity_tcorr(image_array, mask_array.reshape(mask_shape), thresh=0.5)
+    #     start_time = time.time()
+    #     (w, i, j) = pc.make_local_connectivity("tcorr", image_array, mask_array.reshape(mask_shape), thresh=0.5,
+    #                                            num_threads=1)
+    #     print("Calculated tcorr in {0} seconds".format(time.time() - start_time))
     #
     #     w_matrix = sp.csc_matrix((w, (i, j)), shape=(num_mask_voxels, num_mask_voxels))
     #
@@ -412,7 +501,8 @@ class TestConnectivity(TestCase):
     #     # reduce fmri data to just in-brain voxels
     #     image_array = image_array[mask_array != 0, :]
     #
-    #     (w, i, j) = pc.make_local_connectivity_scorr(image_array, mask_array.reshape(mask_shape), thresh=0.5)
+    #     (w, i, j) = pc.make_local_connectivity('scorr', image_array, mask_array.reshape(mask_shape), thresh=0.5,
+    #                                            num_threads=8)
     #
     #     print("size of w {0}, i {1}, j {2}".format(len(w), len(i), len(j)))
     #

@@ -1,4 +1,4 @@
-#### make_connectivity.py
+# make_connectivity.py
 # Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
 #
 # This script is a part of the pyClusterROI python toolbox for the spatially
@@ -53,13 +53,10 @@
 # this scripts requires NumPy (numpy.scipy.org) to be installed in a directory
 # that is accessible through PythonPath
 
-import time
-import nibabel as nb
 import numpy as np
 import warnings
 import sklearn.preprocessing as skp
 import itertools
-import scipy.sparse as sp
 
 
 def get_neighbors(ix, msz):
@@ -124,14 +121,12 @@ def get_neighbors(ix, msz):
         if (v >= 0).all() and (v < msz).all():
             neighbor_indices.append(v)
 
-    # convert to 1D indx and return
+    # convert to 1D index and return
     return np.ravel_multi_index(tuple(np.transpose(neighbor_indices)), msz)
 
 
-def make_local_connectivity_ones(mask_array):
+def ones_connectivity(im_array, mask_array, mask_3d_shape, mask_indices, thresh=0.5):
     """
-
-    make_local_connectivity_ones( mask_array )
 
     This function is a part of the ClusterROI python toolbox for the
     spatially constrained clustering of fMRI data. It constructs a spatially
@@ -139,170 +134,19 @@ def make_local_connectivity_ones(mask_array):
     the connectivity matrix W are set to 1 if a voxel is within the 3D
     neighborhood (face, edge, and corner touching) of the center voxel.
 
-    Args:
-        mask_array (numpy array): 1, 2, or 3 -dimensional array with ones at
-          locations that are considered "in-brain" voxels, and zero everywhere
-          else
 
-    Returns:
-        edge_ndx (list of tuples): each tuple corresponds to a edge with
-           (start node ndx, end node ndx, edge weight)
-
-    :rtype: list
+    :param im_array: not used in this function, only included to conform with the prototype for connectivity functions
+    :param mask_array: 2D matrix (voxels x 1) used to map 3D image coordinates to 2D im_array coordinates. Each value
+         contains a zero if the voxel is outside the brain, or the index of the voxel in the im_array if the voxel is
+         inside the brain.
+    :param mask_3d_shape: the original shape of the mask image, used to calculate neighbors in 3D
+    :param mask_indices: the mask indices for the voxels to be used as 'seeds' in the connectivity calculation
+    :param thresh: Pearson correlation values above this threshold are included in the output
+    :return: w, i, j where w is a list of weights (w_ij) and i and j are voxel coordinates
     """
 
-    warnings.filterwarnings("ignore", category=UserWarning)
-
-    msz = mask_array.shape
-    mask_num_vx = np.prod(msz)
-
-    mask_array = mask_array.flatten()
-
-    mask_ixs = [i for i, x in enumerate(mask_array) if x > 0]
-
-    w_vals = []
-    i_ndx = []
-    j_ndx = []
-
-    # loop over all of the voxels in the mask
-    for ix in mask_ixs:
-
-        # look up the image index for the mask index
-        im_indx = mask_array[ix] - 1
-
-        # get the neighbors and make sure that they are in the mask, could
-        # do this as a list comprehension, but this way may make it more
-        # readable?
-        seed_neigh_image_ix = []
-        for x in get_neighbors(ix, msz):
-            if 0 <= x <= mask_num_vx and mask_array[x] > 0:
-                seed_neigh_image_ix.append(mask_array[x] - 1)
-
-        w_vals += [float(1.0)] * len(seed_neigh_image_ix)
-        i_ndx += [int(im_indx)] * len(seed_neigh_image_ix)
-        j_ndx += seed_neigh_image_ix
-
-    return w_vals, i_ndx, j_ndx
-
-
-def make_local_connectivity_tcorr(im_array, mask_array, thresh):
-
-    """
-    This script is a part of the ClusterROI python toolbox for the spatially
-    constrained clustering of fMRI data. It constructs a spatially constrained
-    connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
-    matrix W correspond to the _temporal_correlation_ between the time series
-    from voxel i and voxel j. Connectivity is only calculated between a voxel and
-    the 27 voxels in its 3D neighborhood (face and edge touching). The resulting
-    datafiles are suitable as inputs to the function
-    binfile_parcellate.
-
-    :param im_array: 2D (vx by tc) array containing fMRI data
-    :param mask_array: mask to use for restricting the calculations
-    :param thresh: Threshold value, correlation coefficients lower than this value
-               will be removed from the matrix (set to zero).
-    :return: w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
-             j is  a list of connection right coordinates
-    """
-
-    warnings.filterwarnings("ignore", category=UserWarning)
-
-    msz = mask_array.shape
-    mask_num_vx = np.prod(msz)
-
-    mask_array = mask_array.flatten()
-
-    mask_ixs = [i for i, x in enumerate(mask_array) if x > 0]
-
-    (num_vx, num_tc) = im_array.shape
-
-    # standardize everything at once to make correlation calculation easier
-    im_array = skp.scale(im_array, axis=1, with_mean=True, with_std=True, copy=False)
-
-    w_vals = []
-    i_ndx = []
-    j_ndx = []
-
-    # loop over all of the voxels in the mask
-    for ix in mask_ixs:
-
-        # look up the image index for the mask index
-        im_indx = mask_array[ix] - 1
-
-        # extract the seed_tc and make sure it has variance, otherwise
-        # we are just wasting our time
-        if im_indx < num_vx:
-            seed_tc = im_array[im_indx, :]
-        else:
-            print("how is {0} out of bounds? {1} {2}".format(im_indx, num_vx, num_tc))
-
-        if seed_tc.var() == 0:
-            continue
-
-        # get the neighbors and make sure that they are in the mask, could
-        # do this as a list comprehnsion, but this way may make it more
-        # readable?
-        seed_neigh_img_ix = []
-        for x in get_neighbors(ix, msz):
-            if 0 <= x <= mask_num_vx and mask_array[x] > 0:
-                seed_neigh_img_ix.append(mask_array[x] - 1)
-
-        # get the time courses for the neighbors
-        neigh_tc = im_array[seed_neigh_img_ix, :]
-
-        # calculate the correlation, and find the location of
-        # values > thresh
-        corr = (1.0/num_tc)*np.matmul(neigh_tc, seed_tc)
-
-        if (corr > thresh).any():
-            seed_neigh = np.array(seed_neigh_img_ix)
-            corr_mask = corr > thresh
-            seed_neigh = seed_neigh[corr_mask].tolist()
-            corr = corr[corr_mask].tolist()
-
-            w_vals += corr
-            i_ndx += [int(im_indx)] * len(seed_neigh)
-            j_ndx += seed_neigh
-
-    return w_vals, i_ndx, j_ndx
-
-
-def make_local_connectivity_scorr(image_array, mask_array, thresh):
-
-    """
-    This script is a part of the ClusterROI python toolbox for the spatially
-    constrained clustering of fMRI data. It constructs a spatially constrained
-    connectivity matrix from a fMRI data set. The weights w_ij of the connectivity
-    matrix W correspond to the _spatial_correlation_ between functional connectivity
-    maps generated from time series from voxel i and voxel j. Connectivity is
-    only calculated between a voxel and the 27 voxels in its 3D neighborhood (face
-    touching and edge touching).
-
-    :param image_array: 2D (vx by tc) array containing fMRI data
-    :param mask_array: 1, 2, or 3 -dimensional array with ones at
-          locations that are considered "in-brain" voxels, and zero everywhere
-          else
-    :param thresh: Threshold value, correlation coefficients lower than this value
-               will be removed from the matrix (set to zero).
-    :return:  w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
-             j is  a list of connection right coordinates
-
-    :rtype: tuple
-    """
-
-    warnings.filterwarnings("ignore", category=UserWarning)
-
-    mask_shape = mask_array.shape
-    mask_num_voxels = np.prod(mask_shape)
-
-    mask_array = mask_array.flatten()
-
-    mask_indices = [index for index, value in enumerate(mask_array) if value > 0]
-
-    (image_num_voxels, image_num_time_points) = image_array.shape
-
-    # standardize everything at once to make correlation calculation easier
-    im_array = skp.scale(image_array, axis=1, with_mean=True, with_std=True, copy=False)
+    if isinstance(mask_indices, int):
+        mask_indices = [mask_indices]
 
     w_values = []
     i_indices = []
@@ -314,19 +158,134 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
         # look up the image index for the mask index
         image_index = mask_array[mask_index] - 1
 
+        # get the neighbors and make sure that they are in the mask, could
+        # do this as a list comprehension, but this way may make it more
+        # readable?
+        seed_neighbor_image_indices = []
+        for neighbor_index in get_neighbors(mask_index, mask_3d_shape):
+            if 0 <= neighbor_index <= np.prod(mask_array.shape) and mask_array[neighbor_index] > 0:
+                seed_neighbor_image_indices.append(mask_array[neighbor_index] - 1)
+
+        w_values += [float(1.0)] * len(seed_neighbor_image_indices)
+        i_indices += [int(image_index)] * len(seed_neighbor_image_indices)
+        j_indices += seed_neighbor_image_indices
+
+    return w_values, i_indices, j_indices
+
+
+def tcorr_connectivity(im_array, mask_array, mask_3d_shape, mask_indices, thresh=0.5):
+    """
+
+    This script is a part of the ClusterROI python toolbox for the spatially
+    constrained clustering of fMRI data. It constructs a spatially constrained
+    connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
+    matrix W correspond to the _temporal_correlation_ between the time series
+    from voxel i and voxel j. Connectivity is only calculated between a voxel and
+    the 27 voxels in its 3D neighborhood (face and edge touching).
+
+    :param im_array: 2d matrix (voxels x time) of voxel time series
+    :param mask_array: 2D matrix (voxels x 1) used to map 3D image coordinates to 2D im_array coordinates. Each value
+         contains a zero if the voxel is outside the brain, or the index of the voxel in the im_array if the voxel is
+         inside the brain.
+    :param mask_3d_shape: the original shape of the mask image, used to calculate neighbors in 3D
+    :param mask_indices: the mask indices for the voxels to be used as 'seeds' in the connectivity calculation
+    :param thresh: Pearson correlation values above this threshold are included in the output
+    :return: w, i, j where w is a list of weights (w_ij) and i and j are voxel coordinates
+    """
+
+    if isinstance(mask_indices, int):
+        mask_indices = [mask_indices]
+
+    w_values = []
+    i_indices = []
+    j_indices = []
+
+    for mask_index in mask_indices:
+
+        # look up the image index for the mask index
+        image_index = mask_array[mask_index] - 1
+
         # extract the seed_tc and make sure it has variance, otherwise
         # we are just wasting our time
-        if image_index < image_num_voxels:
+        if image_index < im_array.shape[0]:
+            seed_tc = im_array[image_index, :]
+        else:
+            raise ValueError("Index {0} is out of bounds {1} {2}".format(image_index, im_array.shape[0], im_array.shape[1]))
+
+        if seed_tc.var() != 0:
+
+            # get the neighbors and make sure that they are in the mask, could
+            # do this as a list comprehension, but this way may make it more
+            # readable?
+            seed_neigh_img_ix = []
+            for x in get_neighbors(mask_index, mask_3d_shape):
+                if 0 <= x <= np.prod(mask_array.shape) and mask_array[x] > 0:
+                    seed_neigh_img_ix.append(mask_array[x] - 1)
+
+            # get the time courses for the neighbors
+            neigh_tc = im_array[seed_neigh_img_ix, :]
+
+            # calculate the correlation, and find the location of
+            # values > thresh
+            corr = (1.0 / im_array.shape[1]) * np.matmul(neigh_tc, seed_tc)
+
+            if (corr > thresh).any():
+                seed_neigh = np.array(seed_neigh_img_ix)
+                corr_mask = corr > thresh
+                seed_neigh = seed_neigh[corr_mask].tolist()
+                corr = corr[corr_mask].tolist()
+
+                w_values += corr
+                i_indices += [int(image_index)] * len(seed_neigh)
+                j_indices += seed_neigh
+
+    return w_values, i_indices, j_indices
+
+
+def scorr_connectivity(image_array, mask_array, mask_3d_shape, mask_indices, thresh=0.5):
+    """
+    This script is a part of the ClusterROI python toolbox for the spatially
+    constrained clustering of fMRI data. It constructs a spatially constrained
+    connectivity matrix from a fMRI data set. The weights w_ij of the connectivity
+    matrix W correspond to the _spatial_correlation_ between functional connectivity
+    maps generated from time series from voxel i and voxel j. Connectivity is
+    only calculated between a voxel and the 27 voxels in its 3D neighborhood (face
+    touching and edge touching).
+
+    :param image_array: 2d matrix (voxels x time) of voxel time series
+    :param mask_array: 2D matrix (voxels x 1) used to map 3D image coordinates to 2D im_array coordinates. Each value
+         contains a zero if the voxel is outside the brain, or the index of the voxel in the im_array if the voxel is
+         inside the brain.
+    :param mask_3d_shape: the original shape of the mask image, used to calculate neighbors in 3D
+    :param mask_indices: the mask indices for the voxels to be used as 'seeds' in the connectivity calculation
+    :param thresh: Pearson correlation values above this threshold are included in the output
+    :return: w, i, j where w is a list of weights (w_ij) and i and j are voxel coordinates
+    """
+
+    if isinstance(mask_indices, int):
+        mask_indices = [mask_indices]
+
+    w_values = []
+    i_indices = []
+    j_indices = []
+
+    for mask_index in mask_indices:
+
+        # look up the image index for the mask index
+        image_index = mask_array[mask_index] - 1
+
+        # extract the seed_tc and make sure it has variance, otherwise
+        # we are just wasting our time
+        if image_index < image_array.shape[0]:
             seed_time_course = image_array[image_index, :]
         else:
-            print("how is {0} out of bounds? {1} {2}".format(image_index,
-                                                             image_num_voxels,
-                                                             image_num_time_points))
+            raise ValueError(
+                "Index {0} is out of bounds {1} {2}".format(image_index, image_array.shape[0], image_array.shape[1]))
 
         if seed_time_course.var(0) == 0:
             continue
 
-        seed_ifc = (1.0/image_num_time_points)*np.matmul(image_array, seed_time_course)
+        seed_ifc = (1.0/image_array.shape[1])*np.matmul(image_array, seed_time_course)
 
         if seed_ifc.var() == 0:
             continue
@@ -335,12 +294,12 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
 
         # get the neighbors and make sure that they are in the mask
         seed_neighbor_image_indices = []
-        for index in get_neighbors(mask_index, mask_shape):
-            if 0 <= index <= mask_num_voxels and mask_array[index] > 0:
+        for index in get_neighbors(mask_index, mask_3d_shape):
+            if 0 <= index <= np.prod(mask_array.shape) and mask_array[index] > 0:
                 seed_neighbor_image_indices.append(mask_array[index] - 1)
 
         # reduce the neighbors to just those with variance
-        neighbor_time_courses = im_array[seed_neighbor_image_indices, :]
+        neighbor_time_courses = image_array[seed_neighbor_image_indices, :]
 
         # filter neighbors and time series to remove those with no variance
         seed_neighbor_image_indices = [seed_neighbor_image_indices[index]
@@ -348,10 +307,10 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
                                        if value > 0]
 
         # reduce the neighbors to just those with variance
-        neighbor_time_courses = im_array[seed_neighbor_image_indices, :]
+        neighbor_time_courses = image_array[seed_neighbor_image_indices, :]
 
         # calculate IFC for the neighbors
-        neighbor_ifc = (1.0 / 150) * np.matmul(im_array, np.transpose(neighbor_time_courses))
+        neighbor_ifc = (1.0 / 150) * np.matmul(image_array, np.transpose(neighbor_time_courses))
 
         # jump to the next seed if none of the resulting maps have variance
         if (neighbor_ifc.var(0) == 0).all():
@@ -369,7 +328,7 @@ def make_local_connectivity_scorr(image_array, mask_array, thresh):
         neighbor_ifc = skp.scale(neighbor_ifc, axis=0, with_mean=True, with_std=True, copy=False)
 
         # calculate the correlation, and find the location of values > thresh
-        corr = (1.0/image_num_voxels)*(np.matmul(seed_ifc, neighbor_ifc))
+        corr = (1.0/image_array.shape[0])*(np.matmul(seed_ifc, neighbor_ifc))
 
         # now find the neighbors with a correlation above threshold, and
         # the corresponding weight
@@ -419,5 +378,102 @@ def make_local_connectivity_clusters(im_array):
         j_indices += [j for (i, j) in itertools.product(cluster_ixs, repeat=2) if i != j]
 
     w_values = [1.0] * len(i_indices)
+
+    return w_values, i_indices, j_indices
+
+
+def make_local_connectivity(method, image_array, mask_array, thresh=0.5, num_threads=1):
+
+    """
+    This script is a part of the ClusterROI python toolbox for the spatially
+    constrained clustering of fMRI data. It is a wrapper that calculates a spatially constrained connectivity
+    matrix from a fMRI dataset using multiple threads. Connectivity is only calculated between a voxel and
+    the 27 voxels in its 3D neighborhood (face and edge touching). Does not calculate 'cluster' connectivity.
+
+    :param method: string indicating how connectivity should be calculated
+              should be one of 'tcorr', 'scorr', or 'ones', which are defined as:
+
+              ones: construct a binary adjacency matrix from a mask file where two voxels are considered connected if
+                 they are touching neighbors (face and edge)
+              tcorr: construct a binary adjacency matrix from 4D fMRI data, where two voxels are considered connected
+                 if they are touching neighbors (face and edge) and the pearson's correlation between their time series
+                 are greater than thresh
+              scorr: construct a binary adjacency matrix from 4D fMRI data, where two voxels are considered connected
+                 if they are touching neighbors (face and edge) and the pearson's correlation between their whole brain
+                 functional connectivity maps (calculated from the temporal correlation between a voxel's time series
+                 and the time series of every voxel in the brain) are greater than thresh
+    :param image_array: 2D (vx by tc) array containing fMRI data, if using 'ones' method image_array is ignored
+    :param mask_array: 3D mask to use for restricting the calculations
+    :param thresh: Threshold value, correlation coefficients lower than this value
+               will be removed from the matrix (set to zero).
+    :param num_threads: number of threads used to calculate connectivity in parallel
+    :return: w, i, j : w is a list of connection weights, i is a list of connection left coordinates,
+             j is  a list of connection right coordinates
+    """
+
+    connectivity_method_dict = {
+        'ones': ones_connectivity,
+        'scorr': scorr_connectivity,
+        'tcorr': tcorr_connectivity
+    }
+
+    method = method.lower()
+
+    if method and method in connectivity_method_dict:
+        connectivity_function = connectivity_method_dict[method]
+    else:
+        raise ValueError(
+            "Don't understand method {0}, should be one of {1}".format(method, connectivity_method_dict.keys()))
+
+    warnings.filterwarnings("ignore", category=UserWarning)
+
+    mask_3d_shape = mask_array.shape
+    mask_array = mask_array.flatten()
+
+    if method in ['scorr', 'tcorr']:
+        if isinstance(image_array, type(None)):
+            raise ValueError("Calculating connectivity using {0} requires imaging data, None received.".format(method))
+
+        # standardize everything at once to make correlation calculation easier
+        image_array = skp.scale(image_array, axis=1, with_mean=True, with_std=True, copy=False)
+
+    # create blocks of voxel indices that will be assigned to the thread pool for connectivity calculation
+    mask_indices = [i for i, x in enumerate(mask_array) if x > 0]
+
+    w_values = []
+    i_indices = []
+    j_indices = []
+
+    if num_threads == 1:
+
+        (w_values, i_indices, j_indices) = connectivity_function(image_array, mask_array, mask_3d_shape, mask_indices, thresh)
+
+    elif num_threads > 1:
+
+        import multiprocessing as mp
+
+        mask_index_blocks = []
+        ids_per_block = int(np.ceil(len(mask_indices)/num_threads))
+
+        for thread_id in range(0, num_threads):
+            start_index = thread_id * ids_per_block
+            end_index = min(start_index + ids_per_block, len(mask_indices))
+            mask_index_blocks.append(mask_indices[start_index:end_index])
+
+        # calculate each desired clustering result
+        with mp.Pool(processes=num_threads) as pool:
+
+            apply_results = []
+            for mask_index_block in mask_index_blocks:
+                apply_results.append(
+                    pool.apply_async(connectivity_function,
+                                     (image_array, mask_array, mask_3d_shape, mask_index_block, thresh)))
+
+            for result in apply_results:
+                (w, i, j) = result.get()
+
+                w_values += w
+                i_indices += i
+                j_indices += j
 
     return w_values, i_indices, j_indices

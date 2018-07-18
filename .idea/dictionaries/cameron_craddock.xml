@@ -1,10 +1,36 @@
 <component name="ProjectDictionaryState">
   <dictionary name="cameron.craddock">
     <words>
+      <w>binarization</w>
+      <w>binarized</w>
+      <w>discretisation</w>
+      <w>discretization</w>
+      <w>discretize</w>
+      <w>discretized</w>
+      <w>eigen</w>
+      <w>eigenvec</w>
+      <w>eigenvectors</w>
+      <w>eigs</w>
+      <w>fmri</w>
       <w>holtzheimer</w>
+      <w>invertability</w>
+      <w>malik</w>
+      <w>maskfile</w>
       <w>mayberg</w>
+      <w>ncut</w>
+      <w>neuroimaging</w>
+      <w>nogap</w>
+      <w>parallelizes</w>
+      <w>parcellated</w>
+      <w>parcellating</w>
+      <w>parcellation</w>
+      <w>parcellations</w>
+      <w>placian</w>
+      <w>pyclusterroi</w>
       <w>scorr</w>
+      <w>semidefinite</w>
       <w>tcorr</w>
+      <w>thdr</w>
     </words>
   </dictionary>
 </component>
