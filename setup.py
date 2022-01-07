@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["pip>=19.0.3", "wheel>=0.33.1", "numpy>=1.12.0", "nibabel>=2.1.0", "SciPy>=1.4.0"]]
+requirements = ["pip>=19.0.3", "wheel>=0.33.1", "numpy>=1.12.0", "nibabel>=2.1.0", "SciPy>=1.4.0"]
 
 setup(
     name="cluster_roi",
