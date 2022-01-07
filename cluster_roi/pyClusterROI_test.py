@@ -24,7 +24,7 @@
 #   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
 #       TX, United States},
 #   pmid = {21769991},
-# } 
+# }
 #
 # Documentation, updated source code and other information can be found at the
 # NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
@@ -35,7 +35,7 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -88,14 +88,14 @@ maskname="gm_maskfile.nii.gz"
 # make a list of all of the input fMRI files that we will be using
 infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 
-##### Step 1. Individual Conenctivity Matrices 
+##### Step 1. Individual Conenctivity Matrices
 # first we need to make the individual connectivity matrices, I will
 # do this for all three different kinds (tcorr, scorr, ones) but you
 # will only need to do it for one
 
 # the easiest is random clustering which doesn't require any functional
 # data, just the mask
-print 'ones connectivity'
+print('ones connectivity')
 make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
 
@@ -106,7 +106,7 @@ for idx, in_file in enumerate(infiles):
     # construct an output filename for this file
     outname='rm_tcorr_conn_'+str(idx)+'.npy'
 
-    print 'tcorr connectivity',in_file
+    print('tcorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
 
@@ -118,19 +118,19 @@ for idx, in_file in enumerate(infiles):
     # construct an output filename for this file
     outname='rm_scorr_conn_'+str(idx)+'.npy'
 
-    print 'scorr connectivity',in_file
+    print('scorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_scorr( in_file, maskname, outname, 0.5 )
 
 ##### Step 2. Individual level clustering
-# next we will do the individual level clustering, this is not performed for 
+# next we will do the individual level clustering, this is not performed for
 # group-mean clustering, remember that for these functions the output name
 # is a prefix that will have K and .npy added to it by the functions. We
 # will perform this for clustering between 100, 150 and 200 clusters
 NUM_CLUSTERS = [100,150,200]
 
 # For random custering, this is all we need to do, there is no need for group
-# level clustering, remember that the output filename is a prefix, and 
+# level clustering, remember that the output filename is a prefix, and
 binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',NUM_CLUSTERS)
 
 # for tcorr
@@ -140,7 +140,7 @@ for idx, in_file in enumerate(infiles):
     infile='rm_tcorr_conn_'+str(idx)+'.npy'
     outfile='rm_tcorr_indiv_cluster_'+str(idx)
 
-    print 'tcorr parcellate',in_file
+    print('tcorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
 # for scorr
@@ -150,7 +150,7 @@ for idx, in_file in enumerate(infiles):
     infile='rm_scorr_conn_'+str(idx)+'.npy'
     outfile='rm_scorr_indiv_cluster_'+str(idx)
 
-    print 'scorr parcellate',in_file
+    print('scorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
 ##### Step 3. Group level clustering
@@ -159,7 +159,7 @@ for idx, in_file in enumerate(infiles):
 # random clustering
 
 # for both group-mean and 2-level clustering we need to know the number of
-# nonzero voxels in in the mask 
+# nonzero voxels in in the mask
 mask_voxels=(nb.load(maskname).get_data().flatten()>0).sum()
 
 # group_mean clustering is pretty simple, input the connectivity files and run.
@@ -167,14 +167,14 @@ mask_voxels=(nb.load(maskname).get_data().flatten()>0).sum()
 # output filename is a prefix
 tcorr_conn_files=['rm_tcorr_conn_0.npy','rm_tcorr_conn_1.npy',\
     'rm_tcorr_conn_2.npy']
-print 'group-mean parcellate tcorr'
+print('group-mean parcellate tcorr')
 group_mean_binfile_parcellate( tcorr_conn_files,\
     'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
 
 # now group mean cluster scorr files
 scorr_conn_files=['rm_scorr_conn_0.npy','rm_scorr_conn_1.npy',\
     'rm_scorr_conn_2.npy']
-print 'group-mean parcellate scorr'
+print('group-mean parcellate scorr')
 group_mean_binfile_parcellate( scorr_conn_files,\
     'rm_group_mean_scorr_cluster', NUM_CLUSTERS, mask_voxels);
 
@@ -186,18 +186,18 @@ for k in NUM_CLUSTERS:
         ind_clust_files.append('rm_tcorr_indiv_cluster_'+str(i)+\
             '_'+str(k)+'.npy')
 
-    print '2-level parcellate tcorr',k
+    print('2-level parcellate tcorr',k)
     group_binfile_parcellate(ind_clust_files,\
         'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
 
-# now for scorr 
+# now for scorr
 for k in NUM_CLUSTERS:
     ind_clust_files=[]
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_scorr_indiv_cluster_'+str(i)+\
             '_'+str(k)+'.npy')
 
-    print '2-level parcellate scorr',k
+    print('2-level parcellate scorr',k)
     group_binfile_parcellate(ind_clust_files,\
         'rm_group_scorr_cluster_'+str(k)+'.npy',k,mask_voxels)
 
@@ -238,7 +238,6 @@ for k in NUM_CLUSTERS:
 
 T1 = time()
 
-print '******************************'
-print 'time is ', T1-T0
+print('******************************')
+print('time is ', T1-T0)
 ##### FIN
-
