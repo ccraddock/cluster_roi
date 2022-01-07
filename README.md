@@ -6,6 +6,9 @@ pyClusterROI
  This is the pyClusterROI python toolbox for the spatially
  constrained clustering of fMRI data. 
 
+ You may install "cluster_roi" using the following code:
+    pip install git+https://github.com/ccraddock/cluster_roi
+
  For more information refer to:
 
 [Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
