@@ -14,7 +14,7 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/ccraddock/cluster_roi/",
-    packages=['cluster-roi'],
+    packages=['cluster_roi'],
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.7",
