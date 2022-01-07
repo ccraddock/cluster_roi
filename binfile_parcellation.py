@@ -79,15 +79,15 @@ def binfile_parcellate( infile, outfile, K ):
 
     # check how long it takes
     start=time.time()
-    print 'started at ',start
+    print('started at ',start)
 
     # read in the file, I used to use .bin files, but now I use .npy as they
     # contain informaiton about datatype, still support both
     if( infile.endswith(".npy") ):
-        print "Reading",infile,"as a npy filetype"
+        print("Reading",infile,"as a npy filetype")
         a=load(infile)
     else:
-        print "Reading",infile,"as a binary file of doubles"
+        print("Reading",infile,"as a binary file of doubles")
         fileobj=open(infile, 'rb')
         a=fromfile(fileobj)
         fileobj.close()
@@ -103,8 +103,8 @@ def binfile_parcellate( infile, outfile, K ):
     # arithmetic
     W=csc_matrix((a[2,:],(a[0,:],a[1,:])), shape=(m,m))
 
-    print 'finished reading in data and calculating connectivity after ',\
-        time.time()-start,'\n'
+    print('finished reading in data and calculating connectivity after ',\
+        time.time()-start,'\n')
 
     # we only have to calculate the eigendecomposition of the LaPlacian once,
     # for the largest number of clusters provided. This provides a significant
@@ -112,13 +112,13 @@ def binfile_parcellate( infile, outfile, K ):
     Kmax=max(K)
     eigenval,eigenvec = ncut(W,Kmax)
 
-    print 'finished calculating eigenvectors ',time.time()-start,'\n'
+    print('finished calculating eigenvectors ',time.time()-start,'\n')
 
     # calculate each desired clustering result
     for k in K:
         eigk=eigenvec[:,:k]
         eigenvec_discrete = discretisation(eigk)
-        print 'finished discretisation ',k,' at ',time.time()-start,'\n'
+        print('finished discretisation ',k,' at ',time.time()-start,'\n')
 
         # transform the discretised eigenvectors into a single vector
         # where the value corresponds to the cluster # of the corresponding
@@ -133,4 +133,4 @@ def binfile_parcellate( infile, outfile, K ):
         outname=outfile+'_'+str(k)+'.npy'
         save(outname,group_img.todense())
 
-    print 'finished after ',time.time()-start,'\n'
+    print('finished after ',time.time()-start,'\n')

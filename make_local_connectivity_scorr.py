@@ -122,7 +122,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     # nb.load('x.nii.gz').shape -> (x,y,z,t)
     nim=nb.load(infile)
     sz=nim.shape
-    print sz, ' dimensions of the 4D fMRI data'
+    print(sz, ' dimensions of the 4D fMRI data')
     
 
     # reshape fmri data to a num_voxels x num_timepoints array
@@ -151,7 +151,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     iv=iv[vndx]
     
     m = len(iv)
-    print m , ' # of non-zero valued or non-zero variance voxels in the mask'
+    print(m , ' # of non-zero valued or non-zero variance voxels in the mask')
 
     # construct a sparse matrix from the mask
     msk=csc_matrix((vndx+1,(iv,zeros(m))),shape=(prod(msz),1))
@@ -161,7 +161,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     sparse_w=[[]]
 
     for i in range(0,m):
-        if i % 1000 == 0: print 'voxel #', i
+        if i % 1000 == 0: print('voxel #', i)
         # convert index into 3D and calculate neighbors
         ndx3d=indx_1dto3d(iv[i],sz[:-1])+neighbors
         # convert resulting 3D indices into 1D
@@ -207,4 +207,4 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     # save the output file to a .NPY file
     save(outfile,outlist)
 
-    print 'finished ',infile,' len ',len(outlist)
+    print('finished ',infile,' len ',len(outlist))

@@ -107,7 +107,7 @@ def read_and_conform_atlas(atlas_file,atlas_label_file,\
 
     atlas_labels=defaultdict()
 
-    print "Reading in the atlas labels: %s"%(atlas_label_file)
+    print("Reading in the atlas labels: %s"%(atlas_label_file))
     with open(atlas_label_file,"r") as f:
         for line in f:
             if '#' in line:
@@ -117,18 +117,18 @@ def read_and_conform_atlas(atlas_file,atlas_label_file,\
             atlas_labels[int(vals[0])]=vals[1]
 
     atlas_labels[0]="None"
-    print "Read in the atlas %s"%(atlas_file)
+    print("Read in the atlas %s"%(atlas_file))
     # lets read in the Harvord Oxford Cortical map
     atlas_nii=nb.load(atlas_file)
     atlas_img=atlas_nii.get_data()
 
-    print "Downsample the atlas"
+    print("Downsample the atlas")
     # resample the atlas to conform to parcels
     atlas_conform=image_downsample_voting(atlas_img, atlas_nii.get_affine(),\
                                    template_img, \
                                    template_affine);
 
-    #print "Write out the downsampled atlas"
+    #print("Write out the downsampled atlas")
     #out_img=nb.Nifti1Image(atlas_conform,template_affine);
     #out_img.set_data_dtype("int16")
     #out_img.to_filename("atlas_conf.nii.gz")
@@ -140,7 +140,7 @@ def main():
     try:
         fsl_path=os.environ['FSLDIR']
     except KeyError:
-        print "FSL_DIR is not set in the environment, is FSL installed?"
+        print("FSL_DIR is not set in the environment, is FSL installed?")
         sys.exit()
 
     # This is where the atlases are specified in the format
@@ -163,31 +163,31 @@ def main():
       "data/atlases/MNI/MNI-maxprob-thr25-2mm.nii.gz"))}
 
     if len(sys.argv) < 4:
-        print "number of arguements %d"%(len(sys.argv))
-        print "Usage %s <parcellation filename> <outname> <10,20,30,...>"%\
-            (sys.argv[0])
+        print("number of arguements %d"%(len(sys.argv)))
+        print("Usage %s <parcellation filename> <outname> <10,20,30,...>"%\
+            (sys.argv[0]))
         sys.exit()
 
     parcel_filename=sys.argv[1]
     parcel_outname=sys.argv[2]
     parcel_vals=[int(n) for n in sys.argv[3].split(',')]
-    print parcel_vals
-    print "%s called with %s, %s, %s"%(sys.argv[0],parcel_filename,\
-        parcel_outname,",".join([str(i) for i in parcel_vals]))
+    print(parcel_vals)
+    print("%s called with %s, %s, %s"%(sys.argv[0],parcel_filename,\
+        parcel_outname,",".join([str(i) for i in parcel_vals])))
 
-    print "Read in the parcellation results %s"%(parcel_filename)
+    print("Read in the parcellation results %s"%(parcel_filename))
     # lets read in the parcellation results that we want to label
     parcels_nii=nb.load(parcel_filename)
     parcels_img=parcels_nii.get_data()
-    print np.shape(parcels_img)
-    print len(parcel_vals)
+    print(np.shape(parcels_img))
+    print(len(parcel_vals))
     if len(parcel_vals) != np.shape(parcels_img)[3]:
-        print "Length of parcel values (%d) != number of parcel images (%d)"%( \
-            len(parcel_vals),np.shape(parcels_img)[3])
+        print("Length of parcel values (%d) != number of parcel images (%d)"%( \
+            len(parcel_vals),np.shape(parcels_img)[3]))
         sys.exit()
     else:
-        print "Length of parcel values (%d) == number of parcel images (%d)"%( \
-            len(parcel_vals),np.shape(parcels_img)[3])
+        print("Length of parcel values (%d) == number of parcel images (%d)"%( \
+            len(parcel_vals),np.shape(parcels_img)[3]))
 
     atlases=defaultdict()
 

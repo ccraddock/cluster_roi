@@ -73,19 +73,19 @@ def make_image_from_bin( image, binfile, mask ):
 
     # read in the binary data    
     if( binfile.endswith(".npy") ):
-        print "Reading",binfile,"as a npy filetype"
+        print("Reading",binfile,"as a npy filetype")
         a=load(binfile)
     else:
-        print "Reading",binfile,"as a binary file of doubles"
+        print("Reading",binfile,"as a binary file of doubles")
         a=fromfile(binfile)
 
     imdat=nim.get_data()
-    print "shape",shape(a)
-    print "sum",sum(imdat)
+    print("shape",shape(a))
+    print("sum",sum(imdat))
 
     # map the binary data to mask
     mask_voxels=(imdat.flatten()>0).sum()
-    print "shape2",shape(a[0:mask_voxels])
+    print("shape2",shape(a[0:mask_voxels]))
     imdat[imdat>0]=short(a[0:mask_voxels].flatten())
 
     # write out the image as nifti

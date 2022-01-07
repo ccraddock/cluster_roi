@@ -74,10 +74,10 @@ def make_image_from_bin_renum( image, binfile, mask ):
 
     # read in the binary data    
     if( binfile.endswith(".npy") ):
-        print "Reading",binfile,"as a npy filetype"
+        print("Reading",binfile,"as a npy filetype")
         a=load(binfile)
     else:
-        print "Reading",binfile,"as a binary file of doubles"
+        print("Reading",binfile,"as a binary file of doubles")
         a=fromfile(binfile)
 
     unique_a=list(set(a.flatten()))

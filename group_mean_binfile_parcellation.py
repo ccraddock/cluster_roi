@@ -85,13 +85,13 @@ from python_ncut_lib import *
 def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
     
     if not infiles or not outfile or not K or not n_voxels or K == 0 or n_voxels == 0:
-        print "Invalid arguments"
+        print("Invalid arguments")
         raise ValueError
     
     # index
     start=time.time()
 
-    print 'started at ',start
+    print('started at ',start)
 
     # read in the files, convert them to similarity matrices, 
     # and then average them
@@ -99,10 +99,10 @@ def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
 
         # read in the file
         if infiles[i].endswith(".npy"):
-            print "Reading",infiles[i],"as a npy filetype"
+            print("Reading",infiles[i],"as a npy filetype")
             a=load(infiles[i])
         else:
-            print "Reading",infiles[i],"as a binary file of doubles"
+            print("Reading",infiles[i],"as a binary file of doubles")
             fileobj=open(infiles[i], 'rb')
             a=fromfile(fileobj)
             fileobj.close()
@@ -117,15 +117,15 @@ def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
         if i==0:
             W=csc_matrix((a[2,:],(a[0,:],a[1,:])), shape=(n_voxels,n_voxels))
         else:
-            print 'adding ',i
+            print('adding ',i)
             W=W+csc_matrix((a[2,:],(a[0,:],a[1,:])), shape=(n_voxels,n_voxels))
 
     # complete the average
     W=W/len(infiles)
     vx_ndx=unique(W.nonzero()[0])
 
-    print 'finished reading in data and calculating connectivity after ',\
-        time.time()-start,'\n'
+    print('finished reading in data and calculating connectivity after ',\
+        time.time()-start,'\n')
 
     # we only have to calculate the eigendecomposition of the LaPlacian once,
     # for the largest number of clusters provided. This provides a significant
@@ -133,13 +133,13 @@ def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
     Kmax=max(K)    
     eigenval,eigenvec = ncut(W,Kmax)
 
-    print 'finished calculating eigenvectors ',time.time()-start,'\n'
+    print('finished calculating eigenvectors ',time.time()-start,'\n')
 
     # calculate each desired clustering result
     for k in K:
         eigk=eigenvec[:,:k]
         eigenvec_discrete = discretisation(eigk)
-        print 'finished discretisation ',k,' at ',time.time()-start,'\n'
+        print('finished discretisation ',k,' at ',time.time()-start,'\n')
 
         # transform the discretised eigenvectors into a single vector
         # where the value corresponds to the cluster # of the corresponding
@@ -152,6 +152,6 @@ def group_mean_binfile_parcellate( infiles, outfile, K, n_voxels ):
         outname=outfile+'_'+str(k)+'.npy'    
         save(outname,group_img.todense())
 
-        print 'finished ',k,' after ',time.time()-start,'\n'
+        print('finished ',k,' after ',time.time()-start,'\n')
 
-    print 'finished after ',time.time()-start,'\n'
+    print('finished after ',time.time()-start,'\n')

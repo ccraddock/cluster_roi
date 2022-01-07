@@ -86,11 +86,11 @@ def group_binfile_parcellate( infiles, outfile, K, n_voxels ):
 
         # read in the files
         if infiles[i].endswith(".npy"):
-            print "Reading",infiles[i],"as a npy filetype"
+            print("Reading",infiles[i],"as a npy filetype")
             imdat=load(infiles[i])
         else:
-            print "Reading %s as a binary file of doubles"%(\
-                infiles[i])
+            print("Reading %s as a binary file of doubles"%(\
+                infiles[i]))
             fid=open(infiles[i], 'rb')
             imdat=fromfile(fid)
             fid.close()
@@ -109,17 +109,17 @@ def group_binfile_parcellate( infiles, outfile, K, n_voxels ):
             W=csc_matrix((ones(len(sparse_i)),(sparse_i,sparse_j)),\
                (n_voxels,n_voxels),dtype=double)
         else:
-            print 'adding ',i
+            print('adding ',i)
             W=W+csc_matrix((ones(len(sparse_i)),(sparse_i,sparse_j)),\
                 (n_voxels,n_voxels),dtype=double)
 
     # set the diagonal to zeros as is customary with affinity matrices
     W=W-spdiags(W.diagonal(),[0],n_voxels,n_voxels,"csc")
-    print "diag is ",sum(W.diagonal()),"\n"
+    print("diag is ",sum(W.diagonal()),"\n")
 
     # divide by the number of input files, to calculate the average     
     W=W/len(infiles)
-    print "finished reading in data and calculating connectivity\n"
+    print("finished reading in data and calculating connectivity\n")
 
     # perform clustering
 
@@ -136,6 +136,6 @@ def group_binfile_parcellate( infiles, outfile, K, n_voxels ):
         group_img=group_img+(i+1)*eigenvec_discrete[:,i]
 
     save(outfile,group_img.todense())
-    print "finished group parcellation\n"
+    print("finished group parcellation\n")
 
     return array(group_img.todense())

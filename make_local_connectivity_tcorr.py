@@ -119,7 +119,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
     # elements of the mask
     iv=nonzero(mskdat)[0]
     m=len(iv)
-    print m, '# of non-zero voxels in the mask'
+    print(m, '# of non-zero voxels in the mask')
     # read in the fmri data
     # NOTE the format of x,y,z axes and time dimension after reading
     # nb.load('x.nii.gz').shape -> (x,y,z,t)
@@ -138,7 +138,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
 
     # loop over all of the voxels in the mask 	
     for i in range(0,m):
-        if i % 1000 == 0: print 'voxel #', i
+        if i % 1000 == 0: print('voxel #', i)
         # calculate the voxels that are in the 3D neighborhood
         # of the center voxel
         ndx3d=indx_1dto3d(iv[i],sz[:-1])+neighbors
@@ -153,10 +153,10 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
 
         # determine the index of the seed voxel in the neighborhood
         nndx=nonzero(ndx1d==iv[i])[0]
-	#print nndx,
-	#print nndx.shape
-	#print ndx1d.shape
-	#print ndx1d
+	#print(nndx,)
+	#print(nndx.shape)
+	#print(ndx1d.shape)
+	#print(ndx1d)
         # exctract the timecourses for all of the voxels in the 
         # neighborhood
         tc=matrix(imdat[ndx1d,:])
@@ -197,4 +197,4 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
     # save the output file to a .NPY file
     save(outfile,outlist)
 
-    print 'finished ',infile,' len ',m
+    print('finished ',infile,' len ',m)

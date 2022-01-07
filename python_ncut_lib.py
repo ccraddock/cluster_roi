@@ -229,8 +229,8 @@ def discretisation( eigen_vec ):
                 U, S, Vh = svd(tSVD)
             except LinAlgError:
                 # catch exception and go back to the beginning of the loop
-                print >> sys.stderr, \
-                    "SVD did not converge, randomizing and trying again"
+                print(>> sys.stderr, \
+                    "SVD did not converge, randomizing and trying again")
                 break
 
             # test for convergence
