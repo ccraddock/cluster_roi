@@ -7,7 +7,8 @@ pyClusterROI
  constrained clustering of fMRI data. 
 
  You may install "cluster_roi" using the following code:
-    pip install git+https://github.com/ccraddock/cluster_roi
+ 
+       pip install git+https://github.com/ccraddock/cluster_roi
 
  For more information refer to:
 
