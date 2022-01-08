@@ -1,55 +1,3 @@
-#### pyClusterROI_test.py
-# Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
-#
-# This script is a part of the pyClusterROI python toolbox for the spatially
-# constrained clustering of fMRI data. It is a demonstration of how to use the
-# toolbox and a regression test to make sure that the toolbox code works.
-#
-# For more information refer to:
-#
-# Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
-# A whole brain fMRI atlas generated via spatially constrained spectral
-# clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
-#
-# ARTICLE{Craddock2012,
-#   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
-#   Mayberg, H S},
-#   title = {{A whole brain fMRI atlas generated via spatially constrained
-#   spectral clustering}},
-#   journal = {Human Brain Mapping},
-#   year = {2012},
-#   volume = {33},
-#   pages = {1914--1928},
-#   number = {8},
-#   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
-#       TX, United States},
-#   pmid = {21769991},
-# }
-#
-# Documentation, updated source code and other information can be found at the
-# NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
-# https://github.com/ccraddock/cluster_roi
-#
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-####
-
-
-# this scripts requires NumPy (numpy.scipy.org), SciPy (www.scipy.org), and
-# NiBabel (http://niftilib.sourceforge.net/pynifti/) and the pyClusterROI
-# toolbox to be installed in a directory that is accessible through PythonPath
-
 # this is how you would add a directory to the search path, this is useful if
 # you are running this script from a directory other than the directory where
 # the pyClusterROI is installed. Or if for some reason your NumPy, SciPy, or
@@ -61,22 +9,22 @@
 # import the different functions we will use from pyClusterROI
 
 # only need one of these, based on which connectivity metric you prefer
-from make_local_connectivity_ones import *
-from make_local_connectivity_scorr import *
-from make_local_connectivity_tcorr import *
+from cluster_roi import make_local_connectivity_ones
+from cluster_roi import make_local_connectivity_scorr
+from cluster_roi import make_local_connectivity_tcorr
 
 # do not need this if you are peforming group mean clustering
-from binfile_parcellation import *
+from cluster_roi import binfile_parcellation
 
 # import the functions for group clustering, only need one of these
-from group_binfile_parcellation import *
-from group_mean_binfile_parcellation import *
+from cluster_roi import group_binfile_parcellation
+from cluster_roi import group_mean_binfile_parcellation
 
 # import if you want to write the results out to nifti, only need
 # one of these, probably just want the one that does renumbering,
 # why do i include the other one? no idea.
-from make_image_from_bin import *
-from make_image_from_bin_renum import *
+from cluster_roi import make_image_from_bin
+from cluster_roi import make_image_from_bin_renum
 
 from time import time
 

@@ -1,65 +1,3 @@
-#### python_ncut_lib.py
-# Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
-#
-# This script is a part of the pyClusterROI python toolbox for the spatially
-# constrained clustering of fMRI data. It provides the library functions for
-# performing normalized cut clustering according to:
-#
-# Stella Yu and Jianbo Shi, "Understanding Popout through Repulsion," Computer
-# Vision and Pattern Recognition, December, 2001.  
-#
-# Shi, J., & Malik, J. (2000).  Normalized cuts and image segmentation. IEEE
-# Transactions on Pattern Analysis and Machine Intelligence, 22(8), 888-905.
-# doi: 10.1109/34.868688.
-#
-# Yu, S. X., & Shi, J. (2003). Multiclass spectral clustering. Proceedings Ninth
-# IEEE International Conference on Computer Vision, (1), 313-319 vol.1. Ieee.
-# doi: 10.1109/ICCV.2003.1238361.
-#
-# This code is a port of the NcutClustering_7 matlab toolbox available here:
-# http://www.cis.upenn.edu/~jshi/software/
-#
-# For more information refer to:
-#
-# Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
-# A whole brain fMRI atlas generated via spatially constrained spectral
-# clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
-#
-# ARTICLE{Craddock2012,
-#   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
-#   Mayberg, H S},
-#   title = {{A whole brain fMRI atlas generated via spatially constrained
-#   spectral clustering}},
-#   journal = {Human Brain Mapping},
-#   year = {2012},
-#   volume = {33},
-#   pages = {1914--1928},
-#   number = {8},
-#   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
-#       TX, United States},
-#   pmid = {21769991},
-# } 
-#
-# Documentation, updated source code and other information can be found at the
-# NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
-# https://github.com/ccraddock/cluster_roi
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-####
-
-# this scripts requires NumPy (numpy.scipy.org) and SciPy (www.scipy.org) to be
-# installed in a directory that is accessible through PythonPath 
 import sys
 from numpy import array, reshape, shape, matrix, ones, zeros, sqrt
 from numpy import argsort, sign, kron, multiply, divide, abs, asarray
@@ -82,7 +20,7 @@ class SVDError(Exception):
 # The normalized LaPlacian is calculated on the similarity matrix W, and top
 # nbEigenValues eigenvectors are calculated. The number of eigenvectors
 # corresponds to the maximum number of classes (K) that will be produced by the
-# clustering algorithm. 
+# clustering algorithm.
 #
 #    W:             symmetric #feature x #feature sparse matrix representing the
 #                   similarity between voxels, traditionally this matrix should
@@ -174,7 +112,7 @@ def ncut( W, nbEigenValues ):
 #                        to the cluster defined by the eigen vector.  I.E. a one
 #                        in the 10th row of the 4th eigenvector (column) means
 #                        that feature 10 belongs to cluster #4.
-# 
+#
 def discretisation( eigen_vec ):
     eps=2.2204e-16
 
@@ -205,7 +143,7 @@ def discretisation( eigen_vec ):
         nbIterationsDiscretisationMax=20
 
         # iteratively rotate the discretised eigenvectors until they
-        # are maximally similar to the input eignevectors, this 
+        # are maximally similar to the input eignevectors, this
         # converges when the differences between the current solution
         # and the previous solution differs by less than eps or we
         # we have reached the maximum number of itarations
@@ -248,4 +186,3 @@ def discretisation( eigen_vec ):
         raise SVDError("SVD did not converge after 30 retries")
     else:
         return(eigenvec_discrete)
-

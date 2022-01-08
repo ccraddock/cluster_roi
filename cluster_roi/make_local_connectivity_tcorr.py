@@ -1,56 +1,3 @@
-#### make_local_connectivity_tcorr.py
-# Copyright (C) 2010 R. Cameron Craddock (cameron.craddock@gmail.com)
-#
-# This script is a part of the pyClusterROI python toolbox for the spatially
-# constrained clustering of fMRI data. It constructs a spatially constrained
-# connectivity matrix from a fMRI dataset, where then connectivity weight
-# betwen two neighboring voxels corresponds to the Pearson Correlation
-# Coefficient between their voxel timecourses.
-#
-# For more information refer to:
-#
-# Craddock, R. C.; James, G. A.; Holtzheimer, P. E.; Hu, X. P. & Mayberg, H. S.
-# A whole brain fMRI atlas generated via spatially constrained spectral
-# clustering Human Brain Mapping, 2012, 33, 1914-1928 doi: 10.1002/hbm.21333.
-#
-# ARTICLE{Craddock2012,
-#   author = {Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and
-#   Mayberg, H S},
-#   title = {{A whole brain fMRI atlas generated via spatially constrained
-#   spectral clustering}},
-#   journal = {Human Brain Mapping},
-#   year = {2012},
-#   volume = {33},
-#   pages = {1914--1928},
-#   number = {8},
-#   address = {Department of Neuroscience, Baylor College of Medicine, Houston,
-#       TX, United States},
-#   pmid = {21769991},
-# } 
-#
-# Documentation, updated source code and other information can be found at the
-# NITRC web page: http://www.nitrc.org/projects/cluster_roi/ and on github at
-# https://github.com/ccraddock/cluster_roi
-#
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-####
-
-
-# this scripts requires NumPy (numpy.scipy.org), SciPy (www.scipy.org), and
-# NiBabel (http://nipy.sourceforge.net/nibabel) to be installed in a directory
-# that is accessible through PythonPath 
 import nibabel as nb
 from numpy import array
 from scipy import *
@@ -115,7 +62,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
     # convert the 3D mask array into a 1D vector
     mskdat=reshape(msk.get_data(),prod(msz))
 
-    # determine the 1D coordinates of the non-zero 
+    # determine the 1D coordinates of the non-zero
     # elements of the mask
     iv=nonzero(mskdat)[0]
     m=len(iv)
@@ -125,7 +72,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
     # nb.load('x.nii.gz').shape -> (x,y,z,t)
     nim=nb.load(infile)
     sz=nim.shape
-    # reshape fmri data to a num_voxels x num_timepoints array	
+    # reshape fmri data to a num_voxels x num_timepoints array
     imdat=reshape(nim.get_data(),(prod(sz[:3]),sz[3]))
 
     # construct a sparse matrix from the mask
@@ -136,7 +83,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
 
     negcount=0
 
-    # loop over all of the voxels in the mask 	
+    # loop over all of the voxels in the mask
     for i in range(0,m):
         if i % 1000 == 0: print('voxel #', i)
         # calculate the voxels that are in the 3D neighborhood
@@ -157,10 +104,9 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
 	#print(nndx.shape)
 	#print(ndx1d.shape)
 	#print(ndx1d)
-        # exctract the timecourses for all of the voxels in the 
+        # exctract the timecourses for all of the voxels in the
         # neighborhood
         tc=matrix(imdat[ndx1d,:])
-	 
         # make sure that the "seed" has variance, if not just
         # skip it
         if var(tc[nndx,:]) == 0:
@@ -182,14 +128,14 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
         R[R<thresh]=0
 
         # determine the non-zero correlations (matrix weights)
-        # and add their indices and values to the list 
+        # and add their indices and values to the list
         nzndx=nonzero(R)[0]
         if(len(nzndx)>0):
             sparse_i=append(sparse_i,ondx1d[nzndx]-1,0)
             sparse_j=append(sparse_j,(ondx1d[nndx]-1)*ones(len(nzndx)))
             sparse_w=append(sparse_w,R[nzndx],1)
 
-    # concatenate the i, j and w_ij into a single vector	
+    # concatenate the i, j and w_ij into a single vector
     outlist=sparse_i
     outlist=append(outlist,sparse_j)
     outlist=append(outlist,sparse_w)
