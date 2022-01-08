@@ -1,11 +1,3 @@
-# this is how you would add a directory to the search path, this is useful if
-# you are running this script from a directory other than the directory where
-# the pyClusterROI is installed. Or if for some reason your NumPy, SciPy, or
-# NiBabel libraries are in a non-standard location, do this before you import
-# the files/libraries that require the change in path
-# import sys
-# sys.path.append("/home/user/python_toolboxes")
-
 # import the different functions we will use from pyClusterROI
 
 # only need one of these, based on which connectivity metric you prefer
@@ -46,26 +38,20 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 print('ones connectivity')
 make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
-
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
 
 for idx, in_file in enumerate(infiles):
-
     # construct an output filename for this file
     outname='rm_tcorr_conn_'+str(idx)+'.npy'
-
     print('tcorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
 
-
 # construct the connectivity matrices using scorr and a r>0.5 threshold
 # This can take a _really_ long time
 for idx, in_file in enumerate(infiles):
-
     # construct an output filename for this file
     outname='rm_scorr_conn_'+str(idx)+'.npy'
-
     print('scorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_scorr( in_file, maskname, outname, 0.5 )
@@ -83,21 +69,17 @@ binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',NUM_CLUSTERS)
 
 # for tcorr
 for idx, in_file in enumerate(infiles):
-
     # construct filenames
     infile='rm_tcorr_conn_'+str(idx)+'.npy'
     outfile='rm_tcorr_indiv_cluster_'+str(idx)
-
     print('tcorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
 # for scorr
 for idx, in_file in enumerate(infiles):
-
     # construct filenames
     infile='rm_scorr_conn_'+str(idx)+'.npy'
     outfile='rm_scorr_indiv_cluster_'+str(idx)
-
     print('scorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
@@ -133,7 +115,6 @@ for k in NUM_CLUSTERS:
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_tcorr_indiv_cluster_'+str(i)+\
             '_'+str(k)+'.npy')
-
     print('2-level parcellate tcorr',k)
     group_binfile_parcellate(ind_clust_files,\
         'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
@@ -144,7 +125,6 @@ for k in NUM_CLUSTERS:
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_scorr_indiv_cluster_'+str(i)+\
             '_'+str(k)+'.npy')
-
     print('2-level parcellate scorr',k)
     group_binfile_parcellate(ind_clust_files,\
         'rm_group_scorr_cluster_'+str(k)+'.npy',k,mask_voxels)

@@ -30,7 +30,6 @@ maskname="gm_maskfile.nii.gz"
 # make a list of all of the input fMRI files that we will be using
 infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 
-
 ##### Step 1. Individual Conenctivity Matrices
 # first we need to make the individual connectivity matrices, I will
 # do this for all three different kinds (tcorr, scorr, ones) but you
@@ -41,19 +40,14 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 print('ones connectivity')
 if not os.path.isfile('rm_ones_connectivity.npy'): make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
-
 # construct the connectivity matrices using tcorr and a r>0.5 threshold
 
 for idx, in_file in enumerate(infiles):
-
     # construct an output filename for this file
     outname='rm_tcorr_conn_'+str(idx)+'.npy'
-
     print('tcorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_tcorr( in_file, maskname, outname, 0.5 )
-
-
 
 ##### Step 2. Individual level clustering
 # next we will do the individual level clustering, this is not performed for
@@ -68,14 +62,11 @@ binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',NUM_CLUSTERS)
 
 # for tcorr
 for idx, in_file in enumerate(infiles):
-
     # construct filenames
     infile='rm_tcorr_conn_'+str(idx)+'.npy'
     outfile='rm_tcorr_indiv_cluster_'+str(idx)
-
     print('tcorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
-
 
 ##### Step 3. Group level clustering
 # perform the group level clustering for clustering results containing 100, 150,
@@ -97,7 +88,6 @@ print('group-mean parcellate tcorr')
 group_mean_binfile_parcellate( tcorr_conn_files,\
     'rm_group_mean_tcorr_cluster', NUM_CLUSTERS,mask_voxels);
 
-
 # the 2-level clustering has to be performed once for each desired clustering
 # level, and requires individual level clusterings as inputs
 for k in NUM_CLUSTERS:
@@ -105,11 +95,9 @@ for k in NUM_CLUSTERS:
     for i in range(0,len(infiles)):
         ind_clust_files.append('rm_tcorr_indiv_cluster_'+str(i)+\
             '_'+str(k)+'.npy')
-
     print('2-level parcellate tcorr',k)
     group_binfile_parcellate(ind_clust_files,\
         'rm_group_tcorr_cluster_'+str(k)+'.npy',k,mask_voxels)
-
 
 ##### Step 4. Convert the binary output .npy files to nifti
 # this can be done with or without renumbering the clusters to make sure they
@@ -135,7 +123,6 @@ for k in NUM_CLUSTERS:
     binfile='rm_group_tcorr_cluster_'+str(k)+'.npy'
     imgfile='rm_group_tcorr_cluster_'+str(k)+'.nii.gz'
     make_image_from_bin_renum(imgfile,binfile,maskname)
-
 
 T1 = time()
 

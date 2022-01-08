@@ -41,15 +41,11 @@ infiles = [  'subject1.nii.gz', 'subject2.nii.gz', 'subject3.nii.gz' ]
 print('ones connectivity')
 if not os.path.isfile('./rm_ones_connectivity.npy'): make_local_connectivity_ones( maskname, 'rm_ones_connectivity.npy')
 
-
-
 # construct the connectivity matrices using scorr and a r>0.5 threshold
 # This can take a _really_ long time
 for idx, in_file in enumerate(infiles):
-
     # construct an output filename for this file
     outname='rm_scorr_conn_'+str(idx)+'.npy'
-
     print('scorr connectivity',in_file)
     # call the funtion to make connectivity
     make_local_connectivity_scorr( in_file, maskname, outname, 0.5 )
@@ -67,11 +63,9 @@ binfile_parcellate('rm_ones_connectivity.npy','rm_ones_cluster',NUM_CLUSTERS)
 
 # for scorr
 for idx, in_file in enumerate(infiles):
-
     # construct filenames
     infile='rm_scorr_conn_'+str(idx)+'.npy'
     outfile='rm_scorr_indiv_cluster_'+str(idx)
-
     print('scorr parcellate',in_file)
     binfile_parcellate(infile, outfile, NUM_CLUSTERS)
 
@@ -102,7 +96,6 @@ for k in NUM_CLUSTERS:
     for i in range(0,len(infiles)):
 	ind_clust_files.append('rm_scorr_indiv_cluster_'+str(i)+\
 	    '_'+str(k)+'.npy')
-
     print('2-level parcellate scorr',k)
     group_binfile_parcellate(ind_clust_files,\
 	'rm_group_scorr_cluster_'+str(k)+'.npy',k,mask_voxels)

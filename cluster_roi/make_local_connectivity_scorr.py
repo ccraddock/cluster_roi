@@ -21,27 +21,29 @@ def indx_3dto1d(idx,sz):
         idx1=idx[:,0]*prod(sz[1:3])+idx[:,1]*sz[2]+idx[:,2]
     return idx1
 
-# make_local_connectivity_scorr( infile, maskfile, outfile, thresh )
-#
-# This script is a part of the ClusterROI python toolbox for the spatially
-# constrained clustering of fMRI data. It constructs a spatially constrained
-# connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
-# matrix W correspond to the _spatial_correlation_ between the whole brain FC
-# maps generated from the time series from voxel i and voxel j. Connectivity is
-# only calculated between a voxel and the 27 voxels in its 3D neighborhood
-# (face touching and edge touching). The resulting datafiles are suitable as
-# inputs to the function binfile_parcellate.
-#
-#     infile:   name of a 4D NIFTI file containing fMRI data
-#     maskfile: name of a 3D NIFTI file containing a mask, which restricts the
-#               voxels used in the analysis
-#     outfile:  name of the output file, which will be a .NPY file containing
-#               a single 3*N vector. The first N values are the i index, the
-#               second N values are the j index, and the last N values are the
-#               w_ij, connectivity weights between voxel i and voxel j.
-#     thresh:   Threshold value, correlation coefficients lower than this value
-#               will be removed from the matrix (set to zero).
-#
+"""
+make_local_connectivity_scorr( infile, maskfile, outfile, thresh )
+
+This script is a part of the ClusterROI python toolbox for the spatially
+constrained clustering of fMRI data. It constructs a spatially constrained
+connectivity matrix from a fMRI dataset. The weights w_ij of the connectivity
+matrix W correspond to the _spatial_correlation_ between the whole brain FC
+maps generated from the time series from voxel i and voxel j. Connectivity is
+only calculated between a voxel and the 27 voxels in its 3D neighborhood
+(face touching and edge touching). The resulting datafiles are suitable as
+inputs to the function binfile_parcellate.
+
+    infile:   name of a 4D NIFTI file containing fMRI data
+    maskfile: name of a 3D NIFTI file containing a mask, which restricts the
+              voxels used in the analysis
+    outfile:  name of the output file, which will be a .NPY file containing
+              a single 3*N vector. The first N values are the i index, the
+              second N values are the j index, and the last N values are the
+              w_ij, connectivity weights between voxel i and voxel j.
+    thresh:   Threshold value, correlation coefficients lower than this value
+              will be removed from the matrix (set to zero).
+"""
+
 def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     # index
     neighbors=array([[-1,-1,-1],[0,-1,-1],[1,-1,-1],
@@ -53,15 +55,11 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
                      [-1,-1, 1],[0,-1, 1],[1,-1, 1],
                      [-1, 0, 1],[0, 0, 1],[1, 0, 1],
                      [-1, 1, 1],[0, 1, 1],[1, 1, 1]])
-
-
     # read in the mask
     msk=nb.load(maskfile)
     msz=msk.shape
-
     # convert the 3D mask array into a 1D vector
     mskdat=reshape(msk.get_data(),prod(msz))
-
     # determine the 1D coordinates of the non-zero
     # elements of the mask
     iv=nonzero(mskdat)[0]
@@ -71,13 +69,11 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     nim=nb.load(infile)
     sz=nim.shape
     print(sz, ' dimensions of the 4D fMRI data')
-
     # reshape fmri data to a num_voxels x num_timepoints array
     imdat=reshape(nim.get_data(),(prod(sz[:3]),sz[3]))
     # mask the datset to only then in-mask voxels
     imdat=imdat[iv,:]
     imdat_sz = imdat.shape
-
     #zscore fmri time courses, this makes calculation of the
     # correlation coefficient a simple matrix product
     imdat_s=tile(std(imdat,1),(imdat_sz[1],1)).T
@@ -85,27 +81,21 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     imdat_s[imdat_s==0]=1000000
     imdat_m=tile(mean(imdat,1),(imdat_sz[1],1)).T
     imdat=(imdat-imdat_m)/imdat_s
-
     # set values with no variance to zero
     imdat[imdat_s==0]=0
     imdat[isnan(imdat)]=0
-
     # remove voxels with zero variance, do this here
     # so that the mapping will be consistent across
     # subjects
     vndx=nonzero(var(imdat,1)!=0)[0]
     iv=iv[vndx]
-
     m = len(iv)
     print(m , ' # of non-zero valued or non-zero variance voxels in the mask')
-
     # construct a sparse matrix from the mask
     msk=csc_matrix((vndx+1,(iv,zeros(m))),shape=(prod(msz),1))
-
     sparse_i=[]
     sparse_j=[]
     sparse_w=[[]]
-
     for i in range(0,m):
         if i % 1000 == 0: print('voxel #', i)
         # convert index into 3D and calculate neighbors
@@ -140,17 +130,12 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
         sparse_i=append(sparse_i,ondx1d,0)
         sparse_j=append(sparse_j,(ondx1d[nndx])*ones(len(ondx1d)))
         sparse_w=append(sparse_w,R[nndx,:],1)
-
-
     # insure that the weight vector is the correct shape
     sparse_w=reshape(sparse_w,prod(shape(sparse_w)))
-
     # concatenate the i, j, and w_ij vectors
     outlist=sparse_i
     outlist=append(outlist,sparse_j)
     outlist=append(outlist,sparse_w)
-
     # save the output file to a .NPY file
     save(outfile,outlist)
-
     print('finished ',infile,' len ',len(outlist))
