@@ -1,7 +1,7 @@
 import time as time
 from numpy import *
 from scipy.sparse import csc_matrix
-from python_ncut_lib import *
+from cluster_roi import python_ncut_lib
 
 # binfile_parcellate( infile, outfile, K ):
 #
