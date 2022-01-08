@@ -7,7 +7,7 @@ requirements = ["pip>=19.0.3", "wheel>=0.33.1", "numpy>=1.12.0", "nibabel>=2.1.0
 
 setup(
     name="cluster_roi",
-    version="1.3.0",
+    version="2.0.0",
     author="Craddock, R C and James, G A and Holtzheimer, P E and Hu, X P and Mayberg, H S",
     author_email="cameron.craddock@gmail.com",
     description="A whole brain fMRI atlas generated via spatially constrained spectral clustering",

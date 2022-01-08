@@ -1,8 +1,8 @@
 ### Import packages
 import time as time
-import numpy as np
+import numpy
 from numpy import *
-from scipy import *
+import scipy
 from scipy.sparse import *
 import nibabel as nb
 import os
@@ -21,11 +21,11 @@ def nifti_gen_fix(parcel_path, mask_path, out_path):
     # Read in command line arguments.
     parcel_path, mask_path, out_path = sys.argv[1:4]
     # Load parcellation data.
-    parcel_data = np.load(parcel_path)
+    parcel_data = numpy.load(parcel_path)
     # Load the mask file.
     mask_file = nb.load(mask_path)
     # Get the mask data.
-    mask_data = mask_file.get_data()
+    mask_data = mask_file.get_fdata()
     # Recast the mask data as float 64 to match parcellation data.
     atlas_data = mask_data.astype('float64')
     # Copy the parcellation data to the within-mask voxels.
@@ -53,7 +53,7 @@ def indx_1dto3d(idx,sz):
 # simple function to translate 3D matrix coordinates to 1D vector coordinates,
 # for a 3D matrix of size sz
 def indx_3dto1d(idx,sz):
-    if( rank(idx) == 1):
+    if(numpy.linalg.matrix_rank(idx) == 1):
         idx1=idx[0]*prod(sz[1:3])+idx[1]*sz[2]+idx[2]
     else:
         idx1=idx[:,0]*prod(sz[1:3])+idx[:,1]*sz[2]+idx[:,2]
@@ -324,7 +324,7 @@ def make_image_from_bin_renum( image, binfile, mask ):
     b=zeros((len(a),1))
     for i in range(0,len(unique_a)):
         b[a==unique_a[i]]=i+1
-    imdat=nim.get_data()
+    imdat=nim.get_fdata()
     imdat=imdat.astype('int16')
     # map the binary data to mask
     imdat[imdat>0]=1
@@ -362,7 +362,7 @@ def make_image_from_bin( image, binfile, mask ):
     else:
         print("Reading",binfile,"as a binary file of doubles")
         a=fromfile(binfile)
-    imdat=nim.get_data()
+    imdat=nim.get_fdata()
     print("shape",shape(a))
     print("sum",sum(imdat))
     imdat=imdat.astype('int16')
@@ -412,7 +412,7 @@ def make_local_connectivity_ones( maskfile, outfile ):
     msk=nb.load(maskfile)
     msz=msk.shape
     # convert the 3D mask array into a 1D vector
-    mskdat=reshape(msk.get_data(),prod(msz))
+    mskdat=reshape(msk.get_fdata(),prod(msz))
     # determine the 1D coordinates of the non-zero
     # elements of the mask
     iv=nonzero(mskdat)[0]
@@ -440,7 +440,7 @@ def make_local_connectivity_ones( maskfile, outfile ):
         nndx=nonzero(ndx1d==iv[i])[0]
         # the connections between neighbors are all = 1
         R=ones((len(ndx1d),len(ndx1d)))
-        if rank(R) == 0:
+        if numpy.linalg.matrix_rank(R) == 0:
             R=reshape(R,(1,1))
         # extract just the weights connected to the seed
         R=R[nndx,:].flatten()
@@ -496,7 +496,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     msk=nb.load(maskfile)
     msz=msk.shape
     # convert the 3D mask array into a 1D vector
-    mskdat=reshape(msk.get_data(),prod(msz))
+    mskdat=reshape(msk.get_fdata(),prod(msz))
     # determine the 1D coordinates of the non-zero
     # elements of the mask
     iv=nonzero(mskdat)[0]
@@ -507,7 +507,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
     sz=nim.shape
     print(sz, ' dimensions of the 4D fMRI data')
     # reshape fmri data to a num_voxels x num_timepoints array
-    imdat=reshape(nim.get_data(),(prod(sz[:3]),sz[3]))
+    imdat=reshape(nim.get_fdata(),(prod(sz[:3]),sz[3]))
     # mask the datset to only then in-mask voxels
     imdat=imdat[iv,:]
     imdat_sz = imdat.shape
@@ -556,7 +556,7 @@ def make_local_connectivity_scorr( infile, maskfile, outfile, thresh ):
         fc=dot(tc,imdat.T)/(sz[3]-1)
         # calculate the spatial correlation between FC maps
         R=corrcoef(fc)
-        if rank(R) == 0:
+        if numpy.linalg.matrix_rank(R) == 0:
             R=reshape(R,(1,1))
         # set NaN values to 0
         R[isnan(R)]=0
@@ -613,9 +613,9 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
                      [-1, 1, 1],[0, 1, 1],[1, 1, 1]])
     # read in the mask
     msk=nb.load(maskfile)
-    msz=shape(msk.get_data())
+    msz=shape(msk.get_fdata())
     # convert the 3D mask array into a 1D vector
-    mskdat=reshape(msk.get_data(),prod(msz))
+    mskdat=reshape(msk.get_fdata(),prod(msz))
     # determine the 1D coordinates of the non-zero
     # elements of the mask
     iv=nonzero(mskdat)[0]
@@ -627,7 +627,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
     nim=nb.load(infile)
     sz=nim.shape
     # reshape fmri data to a num_voxels x num_timepoints array
-    imdat=reshape(nim.get_data(),(prod(sz[:3]),sz[3]))
+    imdat=reshape(nim.get_fdata(),(prod(sz[:3]),sz[3]))
     # construct a sparse matrix from the mask
     msk=csc_matrix((range(1,m+1),(iv,zeros(m))),shape=(prod(sz[:-1]),1))
     sparse_i=[]
@@ -663,7 +663,7 @@ def make_local_connectivity_tcorr( infile, maskfile, outfile, thresh ):
             continue
         # calculate the correlation between all of the voxel TCs
         R=corrcoef(tc)
-        if rank(R) == 0:
+        if numpy.linalg.matrix_rank(R) == 0:
             R=reshape(R,(1,1))
         # extract just the correlations with the seed TC
         R=R[nndx,:].flatten()
@@ -740,7 +740,7 @@ def read_and_conform_atlas(atlas_file,atlas_label_file,\
     print("Read in the atlas %s"%(atlas_file))
     # lets read in the Harvord Oxford Cortical map
     atlas_nii=nb.load(atlas_file)
-    atlas_img=atlas_nii.get_data()
+    atlas_img=atlas_nii.get_fdata()
     print("Downsample the atlas")
     # resample the atlas to conform to parcels
     atlas_conform=image_downsample_voting(atlas_img, atlas_nii.get_affine(),\
@@ -790,7 +790,7 @@ def main():
     print("Read in the parcellation results %s"%(parcel_filename))
     # lets read in the parcellation results that we want to label
     parcels_nii=nb.load(parcel_filename)
-    parcels_img=parcels_nii.get_data()
+    parcels_img=parcels_nii.get_fdata()
     print(np.shape(parcels_img))
     print(len(parcel_vals))
     if len(parcel_vals) != np.shape(parcels_img)[3]:
